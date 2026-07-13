@@ -36,12 +36,24 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_ga0qs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_kg62l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ga0qs")
 }],
 "loop": true,
 "name": &"left",
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_x5c3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_phca8")
+}, {
 "duration": 1.0,
 "texture": ExtResource("6_x5c3s")
 }, {
