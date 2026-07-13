@@ -4,7 +4,6 @@
 
 [resource]
 base_font = ExtResource("1_qpacf")
-spacing_glyph = 1
-spacing_space = 11
+spacing_space = 10
 spacing_top = 5
 spacing_bottom = -5
