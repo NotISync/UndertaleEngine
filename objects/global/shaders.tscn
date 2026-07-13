@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fu8uhn61cttl"]
+
+[ext_resource type="Script" path="res://scripts/global/shaders.gd" id="1_hfhcu"]
+
+[node name="shaders" type="Node2D"]
+script = ExtResource("1_hfhcu")
