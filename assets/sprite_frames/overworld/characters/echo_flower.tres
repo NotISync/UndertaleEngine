@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://b28hn0xoupcpf"]
+
+[ext_resource type="Texture2D" uid="uid://dhii8yfghwpyd" path="res://assets/sprites/overworld/characters/body/npc/npc_waterfall.png" id="1_tmohk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1id5"]
+atlas = ExtResource("1_tmohk")
+region = Rect2(1042, 287, 19, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjwy0"]
+atlas = ExtResource("1_tmohk")
+region = Rect2(1064, 287, 19, 28)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1id5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjwy0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

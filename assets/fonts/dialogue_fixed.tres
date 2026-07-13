@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://ciq074s7bicvf"]
+
+[ext_resource type="FontFile" uid="uid://by1t61y0vn6n6" path="res://assets/fonts/dialogue.ttf" id="1_0kyp1"]
+
+[resource]
+base_font = ExtResource("1_0kyp1")

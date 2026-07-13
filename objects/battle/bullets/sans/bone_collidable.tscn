@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch3abv0ocq0t3"]
+
+[ext_resource type="Script" path="res://scripts/battle/bullets/sans/bone_collidable.gd" id="1_3l66q"]
+[ext_resource type="Texture2D" uid="uid://dnc08xx2i78ug" path="res://assets/sprites/battle/bullet/sans/bone_sans.png" id="2_gluag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_082av"]
+resource_local_to_scene = true
+size = Vector2(6, 6)
+
+[node name="bone" type="Node2D"]
+script = ExtResource("1_3l66q")
+
+[node name="bone" type="NinePatchRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(6, 6)
+texture = ExtResource("2_gluag")
+patch_margin_top = 6
+patch_margin_bottom = 6
+axis_stretch_horizontal = 1
+
+[node name="stick" type="CharacterBody2D" parent="bone"]
+slide_on_ceiling = false
+
+[node name="collision" type="CollisionShape2D" parent="bone/stick"]
+position = Vector2(6, 6)
+shape = SubResource("RectangleShape2D_082av")
+one_way_collision_margin = 4.0

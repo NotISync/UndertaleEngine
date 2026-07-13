@@ -1,0 +1,103 @@
+[gd_scene load_steps=19 format=3 uid="uid://ct56i8uuq4tku"]
+
+[ext_resource type="Script" path="res://scripts/battle/bullets/asgore/asgore_swipe.gd" id="1_m52pk"]
+[ext_resource type="Texture2D" uid="uid://brxdn0top47k3" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/0.png" id="2_jo0p0"]
+[ext_resource type="Texture2D" uid="uid://crbig1anbh1fe" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/1.png" id="3_o0duf"]
+[ext_resource type="Texture2D" uid="uid://d4m0m8tshc526" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/2.png" id="4_hjr0a"]
+[ext_resource type="Texture2D" uid="uid://cdldoslitbl77" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/3.png" id="5_11qlf"]
+[ext_resource type="Texture2D" uid="uid://cruqsqgliu2p4" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/4.png" id="6_jw7cf"]
+[ext_resource type="Texture2D" uid="uid://31nehno4b2qi" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/5.png" id="7_nprwe"]
+[ext_resource type="Texture2D" uid="uid://jjxa7rxg51pc" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/6.png" id="8_epesn"]
+[ext_resource type="Texture2D" uid="uid://ddic6hegmmfdb" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/spear/0.png" id="9_vthus"]
+[ext_resource type="Texture2D" uid="uid://da8riq1qdpyyn" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/spear/1.png" id="10_yd2ly"]
+[ext_resource type="Texture2D" uid="uid://c1ylly2im8bb7" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/spear/2.png" id="11_8hc67"]
+[ext_resource type="Texture2D" uid="uid://bm7vormws5est" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/spear/3.png" id="12_t2wy5"]
+[ext_resource type="Texture2D" uid="uid://rs4uoxq7e2xg" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/spear/4.png" id="13_4mgyy"]
+[ext_resource type="Texture2D" uid="uid://8yju5wlxece4" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/spear/5.png" id="14_ess43"]
+[ext_resource type="Texture2D" uid="uid://cilkl3b7506v3" path="res://assets/sprites/battle/enemies/asgore/flash/swipe/spear/6.png" id="15_0m3i1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvk2j"]
+resource_local_to_scene = true
+size = Vector2(374, 438)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_osd6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jo0p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o0duf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hjr0a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_11qlf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jw7cf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nprwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_epesn")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sgfcr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_vthus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yd2ly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8hc67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_t2wy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4mgyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ess43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0m3i1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="asgore_swipe" type="Node2D"]
+script = ExtResource("1_m52pk")
+
+[node name="area" type="Area2D" parent="." groups=["bullet_hitbox"]]
+metadata/bullet = NodePath("..")
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+position = Vector2(-9, -1)
+shape = SubResource("RectangleShape2D_tvk2j")
+disabled = true
+debug_color = Color(1, 0, 0, 0.756863)
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_osd6c")
+
+[node name="spear" type="AnimatedSprite2D" parent="."]
+z_index = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sgfcr")
+
+[connection signal="frame_changed" from="spear" to="." method="_on_spear_frame_changed"]

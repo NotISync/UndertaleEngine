@@ -1,0 +1,6 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://bqxy0d6g2uu4b"]
+
+[ext_resource type="FontFile" uid="uid://dviicdom810ab" path="res://assets/fonts/sans.ttf" id="1_swlnw"]
+
+[resource]
+base_font = ExtResource("1_swlnw")

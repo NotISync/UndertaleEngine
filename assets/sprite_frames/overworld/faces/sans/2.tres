@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://ccetyrviea1dv"]
+
+[ext_resource type="Texture2D" uid="uid://dqjt7atssqadm" path="res://assets/sprites/overworld/characters/mugshots/sans.png" id="1_nn023"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc738"]
+atlas = ExtResource("1_nn023")
+region = Rect2(84, 0, 42, 44)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc738")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc738")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]

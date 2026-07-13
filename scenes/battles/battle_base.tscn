@@ -1,0 +1,129 @@
+[gd_scene load_steps=14 format=3 uid="uid://tkcsf1ljdqnn"]
+
+[ext_resource type="Texture2D" uid="uid://dejqsic8vxe44" path="res://assets/sprites/battle/background/battle.png" id="2_akrfg"]
+[ext_resource type="PackedScene" uid="uid://cdhye7ndiak02" path="res://objects/battle/hud_manager.tscn" id="3_5e3ix"]
+[ext_resource type="PackedScene" uid="uid://budogvo5p1iw6" path="res://objects/battle/battle_box.tscn" id="4_4yajr"]
+[ext_resource type="FontFile" uid="uid://ds6wqfq03pwda" path="res://assets/fonts/main_mono.ttf" id="5_wlkg8"]
+[ext_resource type="PackedScene" uid="uid://frb40ffyat0v" path="res://objects/battle/player_heart.tscn" id="7_1vkjp"]
+[ext_resource type="PackedScene" uid="uid://dccycw0oi0itb" path="res://objects/battle/attack_manager.tscn" id="7_2tvut"]
+
+[sub_resource type="GDScript" id="GDScript_6scti"]
+script/source = "extends BattleRoom
+"
+
+[sub_resource type="GDScript" id="GDScript_5temn"]
+script/source = "extends HudManager
+
+"
+
+[sub_resource type="GDScript" id="GDScript_yenlp"]
+script/source = "extends BattleBox
+"
+
+[sub_resource type="GDScript" id="GDScript_660ml"]
+script/source = "extends Writer
+
+#func _ready():
+	#if(settings.battle_outline): set(\"theme_override_constants/outline_size\", 9)
+"
+
+[sub_resource type="GDScript" id="GDScript_c0lm0"]
+script/source = "extends AttackManager
+
+func _init():
+	attacks = [load(\"res://scripts/battle/attacks/attack_base.gd\")]
+	heal_attacks = [load(\"res://scripts/battle/attacks/attack_base.gd\")]
+
+func _ready():
+	super._ready()
+
+func set_writer_text():
+	\"(disable:z)(sound:mono2)* Error!\"
+"
+
+[sub_resource type="GDScript" id="GDScript_riu00"]
+script/source = "extends PlayerHeart
+"
+
+[sub_resource type="GDScript" id="GDScript_vt12r"]
+script/source = "extends DialougeManager
+
+func start():
+	var enemy = vars.enemies.get_node(\"sans\")
+	match(vars.attack_manager.turn_num):
+		0:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 3
+			enemy.get_node(\"sprite_anchor/torso\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)what?(delay:0.5)\\nyou think i'm just\\ngonna stand there\\nand take it?(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.get_node(\"sprite_anchor/torso\").frame = 0
+		1:
+			enemy.speech_bubble.visible = true
+			enemy.speech_writer.writer_text = \"(sound:sans)our reports showed\\na massive anomaly\\nin the timespace\\ncontinuum.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_writer.writer_text = \"(sound:sans)timelines jumping\\nleft and right,\\nstopping and\\nstarting...(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+	await get_tree().process_frame
+	done.emit()
+"
+
+[node name="battle_example" type="Node2D"]
+script = SubResource("GDScript_6scti")
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(320, 240)
+ignore_rotation = false
+
+[node name="background" type="TextureRect" parent="."]
+offset_left = 16.0
+offset_top = 9.0
+offset_right = 625.0
+offset_bottom = 245.0
+texture = ExtResource("2_akrfg")
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="hud_manager" parent="." instance=ExtResource("3_5e3ix")]
+script = SubResource("GDScript_5temn")
+
+[node name="battle_box" parent="." instance=ExtResource("4_4yajr")]
+script = SubResource("GDScript_yenlp")
+
+[node name="battle_writer" type="RichTextLabel" parent="battle_box"]
+clip_contents = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 574.0
+offset_bottom = 139.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("5_wlkg8")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+scroll_active = false
+autowrap_mode = 0
+visible_characters_behavior = 1
+script = SubResource("GDScript_660ml")
+
+[node name="attack_manager" parent="." instance=ExtResource("7_2tvut")]
+script = SubResource("GDScript_c0lm0")
+
+[node name="player_heart" parent="." instance=ExtResource("7_1vkjp")]
+self_modulate = Color(1, 0, 0, 1)
+script = SubResource("GDScript_riu00")
+
+[node name="dialouge_manager" type="Node2D" parent="."]
+script = SubResource("GDScript_vt12r")
+
+[node name="black_screen" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)

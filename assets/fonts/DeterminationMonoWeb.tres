@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://3tijslwbri0i"]
+
+[ext_resource type="FontFile" uid="uid://b7o0ifpq7x0nj" path="res://assets/fonts/DeterminationMonoWeb.woff" id="1_sf7wv"]
+
+[resource]
+base_font = ExtResource("1_sf7wv")
+spacing_space = -2

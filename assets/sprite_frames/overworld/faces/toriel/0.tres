@@ -1,0 +1,51 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://68lpd31etht4"]
+
+[ext_resource type="Texture2D" uid="uid://bau1y2gwohnkx" path="res://assets/sprites/overworld/characters/mugshots/toriel.png" id="1_iawmg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmkcu"]
+atlas = ExtResource("1_iawmg")
+region = Rect2(0, 0, 49, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8yep"]
+atlas = ExtResource("1_iawmg")
+region = Rect2(49, 0, 49, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_unn4c"]
+atlas = ExtResource("1_iawmg")
+region = Rect2(0, 0, 49, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfhj6"]
+atlas = ExtResource("1_iawmg")
+region = Rect2(196, 0, 49, 45)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf4fg"]
+atlas = ExtResource("1_iawmg")
+region = Rect2(98, 0, 49, 45)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmkcu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8yep")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.5
+}, {
+"frames": [{
+"duration": 12.0,
+"texture": SubResource("AtlasTexture_unn4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfhj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf4fg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://c400h1fjevqfa"]
+
+[ext_resource type="Script" path="res://scripts/battle/bullets/sans/cooler_bone.gd" id="1_hn5cj"]
+[ext_resource type="Texture2D" uid="uid://brha06ni4d85c" path="res://assets/sprites/battle/bullet/sans/cooler_bone.png" id="2_v8wpu"]
+[ext_resource type="Texture2D" uid="uid://dg4h38ef6rcd" path="res://assets/sprites/battle/border_outline.png" id="3_2jcfv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvkgu"]
+resource_local_to_scene = true
+size = Vector2(15, 41)
+
+[node name="cooler_bone" type="Node2D"]
+script = ExtResource("1_hn5cj")
+
+[node name="coolerbone" type="Sprite2D" parent="."]
+texture = ExtResource("2_v8wpu")
+
+[node name="area" type="Area2D" parent="coolerbone"]
+
+[node name="collision" type="CollisionShape2D" parent="coolerbone/area"]
+shape = SubResource("RectangleShape2D_mvkgu")
+
+[node name="collisionhitbox" type="NinePatchRect" parent="coolerbone/area"]
+visible = false
+modulate = Color(0, 1, 1, 1)
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 9.0
+offset_bottom = 11.0
+pivot_offset = Vector2(4, 5)
+texture = ExtResource("3_2jcfv")
+region_rect = Rect2(4, 4, 7, 7)
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1

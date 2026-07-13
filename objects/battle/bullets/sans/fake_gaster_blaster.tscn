@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://cp7icwyyaobb3"]
+
+[ext_resource type="Script" path="res://scripts/battle/bullets/sans/fake_gaster_blaster.gd" id="1_8c8bq"]
+[ext_resource type="Texture2D" uid="uid://bsw1du8bcoq1u" path="res://assets/sprites/battle/bullet/sans/gaster_blaster/0.png" id="2_p0l54"]
+[ext_resource type="Texture2D" uid="uid://lvsgpkgcpss4" path="res://assets/sprites/battle/bullet/sans/gaster_blaster/1.png" id="3_qes0j"]
+[ext_resource type="Texture2D" uid="uid://bsl61lqoxspm6" path="res://assets/sprites/battle/bullet/sans/gaster_blaster/2.png" id="4_1pjn2"]
+[ext_resource type="Texture2D" uid="uid://dyxnvu2bcvyb6" path="res://assets/sprites/battle/bullet/sans/gaster_blaster/3.png" id="5_b0lyw"]
+[ext_resource type="Texture2D" uid="uid://cyx50yiditm5n" path="res://assets/sprites/battle/bullet/sans/gaster_blaster/4.png" id="6_uvu7e"]
+[ext_resource type="Texture2D" uid="uid://ctawwxl0jchkj" path="res://assets/sprites/battle/bullet/sans/gaster_blaster/5.png" id="7_wksmv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_osd6c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_p0l54")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qes0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1pjn2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b0lyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uvu7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wksmv")
+}],
+"loop": false,
+"name": &"white",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_uvu7e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wksmv")
+}],
+"loop": true,
+"name": &"white_loop",
+"speed": 30.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tvk2j"]
+resource_local_to_scene = true
+size = Vector2(32, 32)
+
+[node name="fake_gaster_blaster" type="Node2D"]
+z_index = 5
+script = ExtResource("1_8c8bq")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_osd6c")
+animation = &"white"
+speed_scale = 0.5
+
+[node name="laser" type="Node2D" parent="."]
+visible = false
+
+[node name="main" type="ColorRect" parent="laser"]
+offset_left = -16.0
+offset_top = 30.0
+offset_right = 16.0
+offset_bottom = 62.0
+scale = Vector2(2, 2)
+
+[node name="top" type="ColorRect" parent="laser"]
+offset_left = -16.0
+offset_top = 30.0
+offset_right = 16.0
+offset_bottom = 62.0
+scale = Vector2(2, 2)
+
+[node name="top2" type="ColorRect" parent="laser"]
+offset_left = -16.0
+offset_top = 30.0
+offset_right = 16.0
+offset_bottom = 62.0
+scale = Vector2(2, 2)
+
+[node name="area" type="Area2D" parent="laser" groups=["bullet_hitbox"]]
+metadata/bullet = NodePath("../..")
+
+[node name="collision" type="CollisionShape2D" parent="laser/area"]
+position = Vector2(0, 46)
+shape = SubResource("RectangleShape2D_tvk2j")
+disabled = true
+debug_color = Color(1, 0, 0, 0.756863)

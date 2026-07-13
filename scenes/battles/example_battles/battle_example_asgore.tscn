@@ -1,0 +1,1144 @@
+[gd_scene load_steps=87 format=3 uid="uid://ceqqdfkmdtoog"]
+
+[ext_resource type="Texture2D" uid="uid://d4l28bexo76ne" path="res://assets/sprites/battle/enemies/asgore/cape/0.png" id="2_n3ayc"]
+[ext_resource type="Texture2D" uid="uid://dnxreq50jl0w1" path="res://assets/sprites/battle/particle/background_particle.png" id="2_yvucc"]
+[ext_resource type="Texture2D" uid="uid://bl8oqc0xtrk0m" path="res://assets/sprites/battle/enemies/asgore/intro/body.png" id="3_81hpw"]
+[ext_resource type="Texture2D" uid="uid://bck5rmnpy0xi1" path="res://assets/sprites/battle/enemies/asgore/cape/1.png" id="3_w5f5n"]
+[ext_resource type="Texture2D" uid="uid://ckd58vwit4o5b" path="res://assets/sprites/battle/enemies/asgore/legs.png" id="4_fgiri"]
+[ext_resource type="Texture2D" uid="uid://bwopg5kg1a2oj" path="res://assets/sprites/battle/enemies/asgore/feet.png" id="5_aea12"]
+[ext_resource type="Texture2D" uid="uid://b3igywc8vg2ia" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/0.png" id="5_aruqq"]
+[ext_resource type="Texture2D" uid="uid://ve554l5s5s5n" path="res://assets/sprites/battle/enemies/asgore/flash/eye/0.png" id="5_q4oje"]
+[ext_resource type="Texture2D" uid="uid://61d8snvtyygr" path="res://assets/sprites/battle/enemies/asgore/waist.png" id="6_afr4o"]
+[ext_resource type="Texture2D" uid="uid://d06omqxt43quh" path="res://assets/sprites/battle/enemies/asgore/flash/eye/1.png" id="6_o31v7"]
+[ext_resource type="Texture2D" uid="uid://b1ilcscvhukbr" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/1.png" id="6_vaeua"]
+[ext_resource type="Texture2D" uid="uid://kvtdevc52jv6" path="res://assets/sprites/battle/enemies/asgore/larm.png" id="7_l2ehy"]
+[ext_resource type="Texture2D" uid="uid://d16d7evpfymm0" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/2.png" id="7_qgfsj"]
+[ext_resource type="Texture2D" uid="uid://bsnxihp6vydfh" path="res://assets/sprites/battle/enemies/asgore/flash/eye/2.png" id="7_xmncj"]
+[ext_resource type="Texture2D" uid="uid://8xsmfa2xxyar" path="res://assets/sprites/battle/enemies/asgore/flash/eye/3.png" id="8_2skad"]
+[ext_resource type="Texture2D" uid="uid://cfbf4mbrgyuya" path="res://assets/sprites/battle/enemies/asgore/rarm.png" id="8_8sosd"]
+[ext_resource type="Texture2D" uid="uid://cgvc2erdvrksn" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/3.png" id="8_vkaum"]
+[ext_resource type="Texture2D" uid="uid://b47oljhg0wfqv" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/4.png" id="9_5hbtt"]
+[ext_resource type="Texture2D" uid="uid://baoxhi4w201gi" path="res://assets/sprites/battle/enemies/asgore/torso.png" id="9_jikrp"]
+[ext_resource type="Texture2D" uid="uid://bm8hhl57i4ctq" path="res://assets/sprites/battle/enemies/asgore/flash/eye/4.png" id="9_jo3fp"]
+[ext_resource type="Texture2D" uid="uid://dpqknn1j5yy7l" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/5.png" id="10_3k0vm"]
+[ext_resource type="Texture2D" uid="uid://dgf4tds23cdh6" path="res://assets/sprites/battle/enemies/asgore/flash/eye/5.png" id="10_dkiy4"]
+[ext_resource type="Texture2D" uid="uid://b074ktnc7uqxc" path="res://assets/sprites/battle/enemies/asgore/head/0.png" id="10_duvhn"]
+[ext_resource type="Texture2D" uid="uid://ba5aydmyhi3p7" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/6.png" id="11_5q5uv"]
+[ext_resource type="Texture2D" uid="uid://bp6kmj4san78r" path="res://assets/sprites/battle/enemies/asgore/forearms.png" id="11_d6pe5"]
+[ext_resource type="Texture2D" uid="uid://bgk1mcyrwmcjf" path="res://assets/sprites/battle/enemies/asgore/flash/eye/6.png" id="11_iua78"]
+[ext_resource type="Texture2D" uid="uid://dey37kusai7n1" path="res://assets/sprites/battle/enemies/asgore/flash/eye/last/0.png" id="12_a0l5x"]
+[ext_resource type="Texture2D" uid="uid://bkgg5dfyilcu7" path="res://assets/sprites/battle/enemies/asgore/spear.png" id="12_fid1g"]
+[ext_resource type="Texture2D" uid="uid://cx44s5o13gddy" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/7.png" id="12_gsicf"]
+[ext_resource type="Texture2D" uid="uid://dcwtby0obrr3r" path="res://assets/sprites/battle/enemies/asgore/flash/eye/last/1.png" id="13_gdcen"]
+[ext_resource type="Texture2D" uid="uid://xy265vditlbe" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/8.png" id="13_haqeo"]
+[ext_resource type="Texture2D" uid="uid://bbxphbglcuxej" path="res://assets/sprites/battle/enemies/asgore/lhand.png" id="13_o6tud"]
+[ext_resource type="Texture2D" uid="uid://ctia04jk4a60e" path="res://assets/sprites/battle/enemies/asgore/rhand.png" id="14_nmt0b"]
+[ext_resource type="Texture2D" uid="uid://bm7oxthy5dpt5" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/9.png" id="14_rio18"]
+[ext_resource type="Texture2D" uid="uid://1mgivvo1ayx8" path="res://assets/sprites/battle/enemies/asgore/flash/eye/last/2.png" id="14_uyscg"]
+[ext_resource type="Texture2D" uid="uid://c5xr7i50ghsiw" path="res://assets/sprites/battle/enemies/asgore/flash/eye/last/3.png" id="15_c4fjh"]
+[ext_resource type="Texture2D" uid="uid://dharp67pfam1t" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/10.png" id="15_er5di"]
+[ext_resource type="Texture2D" uid="uid://cd0sy0ab6lif2" path="res://assets/sprites/battle/enemies/asgore/flash/body.png" id="15_smkqr"]
+[ext_resource type="Texture2D" uid="uid://cy3bihxrcvyi" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/11.png" id="16_gt1fx"]
+[ext_resource type="Texture2D" uid="uid://cf1smgkpgvqs4" path="res://assets/sprites/battle/enemies/asgore/flash/eye/last/4.png" id="16_mcx3i"]
+[ext_resource type="Texture2D" uid="uid://c6pobldnjkt5t" path="res://assets/sprites/battle/enemies/asgore/flash/eye/last/5.png" id="17_lnhu3"]
+[ext_resource type="Texture2D" uid="uid://b6uaojykkkpip" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/12.png" id="17_qjfki"]
+[ext_resource type="Texture2D" uid="uid://b0i7y6nn1qpai" path="res://assets/sprites/battle/enemies/asgore/intro/spear_brandish/13.png" id="18_awlt7"]
+[ext_resource type="Texture2D" uid="uid://buo61nlckhm8v" path="res://assets/sprites/battle/enemies/asgore/flash/eye/last/6.png" id="18_b0aby"]
+[ext_resource type="Texture2D" uid="uid://dvnxog5hrvqwt" path="res://assets/sprites/battle/enemies/asgore/head/1.png" id="26_ee8r4"]
+[ext_resource type="Texture2D" uid="uid://5g76o3j3idko" path="res://assets/sprites/battle/enemies/asgore/head/2.png" id="27_778ft"]
+[ext_resource type="PackedScene" uid="uid://bqlwgrg4fm36n" path="res://objects/battle/speech_bubble.tscn" id="34_wsoi5"]
+[ext_resource type="PackedScene" uid="uid://cdhye7ndiak02" path="res://objects/battle/hud_manager.tscn" id="35_4t4vw"]
+[ext_resource type="PackedScene" uid="uid://budogvo5p1iw6" path="res://objects/battle/battle_box.tscn" id="36_twcwf"]
+[ext_resource type="FontFile" uid="uid://ds6wqfq03pwda" path="res://assets/fonts/main_mono.ttf" id="37_d06eh"]
+[ext_resource type="PackedScene" uid="uid://dccycw0oi0itb" path="res://objects/battle/attack_manager.tscn" id="38_6yrrn"]
+[ext_resource type="PackedScene" uid="uid://frb40ffyat0v" path="res://objects/battle/player_heart.tscn" id="39_sic5v"]
+[ext_resource type="PackedScene" uid="uid://ct56i8uuq4tku" path="res://objects/battle/bullets/asgore/asgore_swipe.tscn" id="48_t2npc"]
+
+[sub_resource type="GDScript" id="GDScript_y35us"]
+script/source = "extends BattleRoom
+
+var broken_mercy_button_shards: Array[Node] = []
+
+func _ready():
+	super._ready()
+	flee = false
+	vars.hud_manager.serious_mode = true
+	settings.player_save.player.lv = 1
+	settings.player_save.player.current_hp = 20
+	settings.player_save.player.max_hp = 20
+	settings.player_save.player.atk = 80
+	settings.player_save.player.def = 0
+	settings.player_save.player.exp = 0
+	settings.player_save.player.weapon = \"stick\"
+	settings.player_save.player.armor = \"bandage\"
+	settings.player_save.player.gold = 0
+	settings.player_save.player.kills = 0
+	settings.player_save.inventory = [ #Don't erase indexes from this Array!!!!
+		\"butterscotch_pie\",
+		\"\",
+		\"\",
+		\"\",
+		\"\",
+		\"\",
+		\"\",
+		\"\"
+		]
+	await intro(false, settings.player_save.data.death_count>0)
+	#vars.main_writer.writer_text = \"\"
+	#vars.hud_manager.disable()
+	#var attack = vars.attack_manager.pre_custom_attack(vars.attack_manager.heal_attacks[0])
+	#await attack.start_attack()
+
+func intro(skip := false, true_skip := false):
+	var enemy = vars.enemies.get_node(\"asgore\")
+	vars.hud_manager.disable()
+	if(!skip):
+		#audio.play_music(\"music/mus_bergentruckung\")
+		vars.battle_box.material.set_shader_parameter(\"fill\", Vector4(0, 0, 0, 0))
+		vars.battle_box.material.set_shader_parameter(\"border\", Vector4(1, 1, 1, 0))
+		vars.battle_box.material.set_shader_parameter(\"outline\", Vector4(0, 0, 0, 0))
+		vars.battle_box.material.set_shader_parameter(\"inline\", Vector4(0, 0, 0, 0))
+		#vars.main_writer.writer_text = \"(disable:x)(speed:0.049999995)* (lp)A strange light fills the\\n  room.(rp)(delay:2)(clear)\"
+		#await vars.main_writer.done
+		#vars.main_writer.writer_text = \"* (lp)Twilight is shining through\\n  the barrier.(rp)(delay:2)(clear)\"
+		#await vars.main_writer.done
+		#vars.main_writer.writer_text = \"* (lp)It seems your journey is\\n  finally over.(rp)(delay:2)(clear)\"
+		#await vars.main_writer.done
+		#vars.main_writer.writer_text = \"     * (lp)You're filled with\\n          DETERMINATION.(rp)(delay:2.5)(clear)\"
+		#await vars.main_writer.done
+		#enemy.speech_bubble.tail_texture(load(\"res://assets/sprites/battle/speech_bubble/speech_bubble_tail_small.png\"))
+		#enemy.speech_bubble.offset_right = -14
+		#enemy.speech_bubble.offset_bottom = 68
+		#enemy.speech_bubble.tail_pos = enemy.speech_bubble.get_tail_middle()
+		#enemy.speech_bubble.visible = true
+		#enemy.speech_writer.writer_text = \"(disable:x)(speed:0.09999999)(sound:asgore)Human...(pc)\"
+		#await enemy.speech_writer.done
+		#enemy.get_node(\"sprite_anchor/head\").frame = 1
+		#enemy.speech_writer.writer_text = \"(speed:0.09999999)(sound:asgore)It was\\nnice to\\nmeet\\nyou.(pc)\"
+		#await enemy.speech_writer.done
+		#enemy.get_node(\"sprite_anchor/head\").frame = 0
+		#enemy.speech_writer.writer_text = \"(speed:0.09999999)(sound:asgore)Goodbye.(pc)\"
+		#await enemy.speech_writer.done
+		enemy.get_node(\"sprite_anchor/head\").visible = false
+		enemy.speech_bubble.visible = false
+		vars.main_writer.speed = 0.03333333
+		enemy.get_node(\"sprite_anchor/body\").animation = &\"intro\"
+		enemy.get_node(\"sprite_anchor/body\").frame = 0
+		audio.play(\"battle/snd_spearappear\")
+		var body_afterimage = load(\"res://objects/battle/afterimage.tscn\").instantiate()
+		body_afterimage.sprite = enemy.get_node(\"sprite_anchor/body\")
+		enemy.get_parent().add_child(body_afterimage)
+		enemy.get_parent().move_child(body_afterimage, enemy.get_index())
+		var asgore_moved = create_tween()
+		asgore_moved.tween_method(func(v): enemy.position.x = v, 320, 180, 0.2)
+		await get_tree().create_timer(.5, false).timeout
+		body_afterimage.visible = false
+		enemy.get_node(\"sprite_anchor/body\").play(&\"intro\")
+		vars.black_screen.color = Color(1, 1, 1, 0)
+		vars.black_screen.visible = true
+		await get_tree().create_timer(1/7.5, false).timeout
+		audio.play(\"battle/mus_sfx_cinematiccut\")
+		var flash_in = create_tween()
+		flash_in.finished.connect(
+			func(): 
+				vars.display.screen_shake(10, 1)
+				create_tween().tween_method(func(v): vars.black_screen.color.a = v, 1.0, 0.0, 0.15))
+		flash_in.tween_method(func(v): vars.black_screen.color.a = v, 0.0, 1.0, 0.05)
+		await get_tree().create_timer(1.5, false).timeout
+		audio.play(\"battle/snd_spearappear\")
+		enemy.get_node(\"sprite_anchor/body\").self_modulate = Color(0, 0, 0)
+		var temp_buttons : Array[Node] = []
+		for i in range(vars.hud_manager.display.buttons.size()):
+			var button = Sprite2D.new()
+			button.texture = load(\"res://assets/sprites/battle/hud/buttons/\" + vars.hud_manager.display.buttons[i].get_name() + \"/0.png\")
+			button.material = ShaderMaterial.new()
+			button.material.shader = load(\"res://assets/effects/black_and_white_.gdshader\")
+			button.material.set_shader_parameter(\"invert\", true)
+			button.global_position = vars.hud_manager.display.buttons[i].global_position
+			vars.scene.add_child(button)
+			temp_buttons.append(button)
+		$background.visible = true
+		vars.hud_manager.visible = false
+		enemy.get_node(\"sprite_anchor/body\").frame = 0
+		body_afterimage.visible = true
+		var spear = Sprite2D.new()
+		spear.offset = Vector2(58, 0)
+		spear.position = Vector2(42, 40)
+		spear.scale = Vector2(2, 2)
+		spear.self_modulate = Color(1, 0, 0)
+		spear.texture = enemy.get_node(\"sprite_anchor/spear\").get_sprite_frames().get_frame_texture(enemy.get_node(\"sprite_anchor/spear\").animation,enemy.get_node(\"sprite_anchor/spear\").get_frame())
+		enemy.add_child(spear)
+		var spear_afterimage = load(\"res://objects/battle/afterimage.tscn\").instantiate()
+		spear_afterimage.sprite = spear
+		enemy.add_child(spear_afterimage)
+		enemy.move_child(spear_afterimage, spear.get_index())
+		create_tween().tween_method(func(v): spear.rotation_degrees = v, 0, 90, .5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		asgore_moved = create_tween()
+		asgore_moved.tween_method(func(v): enemy.position.x = v, 180, 514, 0.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		var spear_aim = create_tween()
+		spear_aim.finished.connect(func(): create_tween().tween_method(func(v): spear.position.y = v, -250, 800, .25))
+		spear_aim.tween_method(func(v): spear.position.y = v, 40, -250, 1.5).set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+		await get_tree().create_timer(1.55, false).timeout
+		create_tween().tween_method(func(v): vars.black_screen.color.a = v, 0.0, 1.0, .5)
+		var broken_mercy_button = load(\"res://objects/battle/broken_mercy_button.tscn\").instantiate()
+		broken_mercy_button.global_position = temp_buttons[3].global_position
+		for i in broken_mercy_button.get_children():
+			i.modulate = Color(0, 0, 0)
+			match(int(float(str(i.get_name())))):
+				0, 1, 6, 8:
+					i.set_meta(\"vx\", randf_range(-700, -500))
+					i.set_meta(\"vr\", -200)
+				3, 4, 5, 7:
+					i.set_meta(\"vx\", randf_range(500, 700))
+					i.set_meta(\"vr\", 200)
+				_:
+					i.set_meta(\"vx\", [randf_range(-500, -800), randf_range(500, 800)].pick_random())
+					i.set_meta(\"vr\", (200 if i.get_meta(\"vx\") > 0 else -200))
+			i.set_meta(\"vy\", randf_range(-300, -400))
+			i.reparent(vars.scene)
+			broken_mercy_button_shards.append(i)
+		temp_buttons[3].queue_free()
+		temp_buttons.remove_at(3)
+		audio.play(\"battle/mus_sfx_swipe\")
+		await get_tree().create_timer(.1, false).timeout
+		vars.display.screen_shake(10, 1)
+		audio.play(\"battle/break2\")
+		await get_tree().create_timer(.65, false).timeout
+		create_tween().tween_method(func(v): vars.black_screen.color = v, Color(1, 1, 1), Color(0, 0, 0), .5)
+		await get_tree().create_timer(1, false).timeout
+		for i in temp_buttons:
+			i.queue_free()
+		temp_buttons.clear()
+		for i in broken_mercy_button_shards:
+			i.queue_free()
+		broken_mercy_button_shards.clear()
+		spear.queue_free()
+		spear_afterimage.queue_free()
+		body_afterimage.queue_free()
+	vars.black_screen.visible = true
+	audio.play_music(\"music/mus_vsasgore\")
+	enemy.position = Vector2(320, 75)
+	enemy.animation_mode = 1
+	enemy.get_node(\"sprite_anchor/head\").frame = 2
+	enemy.get_node(\"sprite_anchor/body\").self_modulate = Color(1, 1, 1)
+	vars.hud_manager.get_node(\"buttons/mercy\").free()
+	vars.hud_manager.display.buttons = vars.hud_manager.get_node(\"buttons\").get_children()
+	vars.hud_manager.visible = true
+	$background.visible = false
+	$gradient.visible = true
+	$particles.visible = true
+	vars.battle_box.material.set_shader_parameter(\"fill\", Vector4(0, 0, 0, .75))
+	vars.battle_box.material.set_shader_parameter(\"border\", Vector4(1, 1, 1, 1))
+	vars.battle_box.material.set_shader_parameter(\"outline\", Vector4(0, 0, 0, 1))
+	vars.battle_box.material.set_shader_parameter(\"inline\", Vector4(0, 0, 0, 1))
+	if(!true_skip):
+		await get_tree().create_timer(60/58, false).timeout
+	vars.hud_manager.reset()
+	await get_tree().process_frame
+	await get_tree().process_frame
+	vars.black_screen.visible = false
+
+func _process(delta: float) -> void:
+	if !broken_mercy_button_shards.is_empty(): for i in broken_mercy_button_shards:
+		var vx: float = i.get_meta(\"vx\")
+		var vy: float = i.get_meta(\"vy\")
+		var vr: float = i.get_meta(\"vr\")
+		
+		i.position += Vector2(vx, vy) * delta
+		i.rotation_degrees += vr * delta
+		
+		i.set_meta(\"vx\", vx + cos(i.rotation + deg_to_rad(90)) * delta)
+		i.set_meta(\"vy\", vy + 1000 * delta)
+"
+
+[sub_resource type="Gradient" id="Gradient_4idwu"]
+colors = PackedColorArray(0.392157, 0, 0.392157, 1, 0.392157, 0, 0.392157, 0.392157)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7euuo"]
+gradient = SubResource("Gradient_4idwu")
+height = 9
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="GDScript" id="GDScript_nr6ha"]
+script/source = "extends TextureRect
+
+var t = 0.0
+
+func _process(delta):
+	t += delta * 1.5
+	scale.y = max(sin(t) / 2.3 + .65, 0)
+"
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5g511"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_2p5lj"]
+_data = [Vector2(0, 1), 0.0, -1.17021, 0, 1, Vector2(0.854545, 0), -1.17021, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_50y4k"]
+curve = SubResource("Curve_2p5lj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7g260"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(3, 0, 1)
+emission_shape = 2
+emission_sphere_radius = 128.0
+direction = Vector3(0, -1, 0)
+spread = 65.0
+initial_velocity_min = 20.0
+initial_velocity_max = 60.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 50.0
+scale_min = 0.25
+scale_max = 1.5
+alpha_curve = SubResource("CurveTexture_50y4k")
+anim_speed_min = 3.5
+anim_speed_max = 3.5
+
+[sub_resource type="GDScript" id="GDScript_d23qb"]
+script/source = "extends Enemy
+
+@onready var torso_position = $sprite_anchor/torso.position
+@onready var waist_position = $sprite_anchor/waist.position
+@onready var head_position = $sprite_anchor/head.position
+@onready var larm_position = $sprite_anchor/larm.position
+@onready var rarm_position = $sprite_anchor/rarm.position
+@onready var lforarm_position = $sprite_anchor/lforarm.position
+@onready var rforarm_position = $sprite_anchor/rforarm.position
+@onready var spear_position = $sprite_anchor/spear.position
+
+var torso_offset := Vector2.ZERO
+var arms_offset := Vector2.ZERO
+
+var siner := 0.0
+var talk_x := 0 if(settings.player_save.data.death_count == 0)else -1
+
+var animation_mode := 0 :
+	set(value):
+		animation_mode = value
+		$sprite_anchor/body.visible = value == 0
+		$sprite_anchor/cape.visible = value == 1
+		$sprite_anchor/legs.visible = value == 1
+		$sprite_anchor/feet.visible = value == 1
+		$sprite_anchor/waist.visible = value == 1
+		$sprite_anchor/torso.visible = value == 1
+		$sprite_anchor/head.visible = value == 1
+		$sprite_anchor/larm.visible = value == 1
+		$sprite_anchor/rarm.visible = value == 1
+		$sprite_anchor/lforarm.visible = value == 1
+		$sprite_anchor/rforarm.visible = value == 1
+		$sprite_anchor/spear.visible = value == 1
+
+func _init():
+	super._init(\"Asgore\",3500,80)
+	atk = 80
+	
+func _ready():
+	speech_bubble.tail_side = \"left\"
+	speech_bubble.tail_pos = speech_bubble.get_tail_top_left()
+	can_spare = false
+	sprite = $sprite_anchor/torso
+	damage_anchor = $damage_anchor
+	show_health_bar = true
+	act_options = {
+		\"Check\" : check,
+		\"Talk\" : talk,
+		}
+
+func _process(delta):
+	super._process(delta)
+	siner += 30 * delta
+	match(animation_mode):
+		0: torso_offset = Vector2(0, 0)
+		1:
+			torso_offset.y = sin(siner / 15) * 4
+			arms_offset.y = cos(siner / 15) * 2
+	
+	$sprite_anchor/torso.position = torso_position + Vector2(torso_offset.x, torso_offset.y / 1.5)
+	$sprite_anchor/waist.position = waist_position + Vector2(torso_offset.x, torso_offset.y / 1.75)
+	$sprite_anchor/larm.position = larm_position + arms_offset
+	$sprite_anchor/rarm.position = rarm_position + arms_offset
+	$sprite_anchor/lforarm.position = lforarm_position + arms_offset
+	$sprite_anchor/rforarm.position = rforarm_position + arms_offset
+	$sprite_anchor/head.position = head_position + torso_offset
+	$sprite_anchor/spear.position = spear_position + torso_offset
+	$sprite_anchor/spear/rhand.position = Vector2(25 + 35 * sin($sprite_anchor/spear.rotation + deg_to_rad(90)), 0)
+
+	$sprite_anchor/lforarm.rotation = $sprite_anchor/lforarm.global_position.angle_to_point($sprite_anchor/spear/lhand.global_position) + deg_to_rad(90)
+	$sprite_anchor/rforarm.rotation = $sprite_anchor/rforarm.global_position.angle_to_point($sprite_anchor/spear/rhand.global_position) - deg_to_rad(90)
+	$sprite_anchor/lforarm.scale.y = $sprite_anchor/lforarm.global_position.distance_to($sprite_anchor/spear/lhand.global_position) / $sprite_anchor/lforarm.get_sprite_frames().get_frame_texture($sprite_anchor/lforarm.animation,$sprite_anchor/lforarm.get_frame()).get_size().y
+	$sprite_anchor/rforarm.scale.y = $sprite_anchor/rforarm.global_position.distance_to($sprite_anchor/spear/rhand.global_position) / $sprite_anchor/rforarm.get_sprite_frames().get_frame_texture($sprite_anchor/rforarm.animation,$sprite_anchor/rforarm.get_frame()).get_size().y
+
+
+func attack_normal(damage : float, turn := true):
+	if is_instance_valid(vars.hud_manager.eye) && is_instance_valid(vars.hud_manager.eye.weapon): await vars.hud_manager.eye.weapon.hit_finish
+	await get_tree().create_timer(0.0333333).timeout
+	audio.play(\"battle/hit\")
+	var buffer : BackBufferCopy = BackBufferCopy.new()
+	var bar_smooth : NinePatchRect = NinePatchRect.new()
+	var bar_max : ColorRect = ColorRect.new()
+	var bar : ColorRect = ColorRect.new()
+	var texture = sprite.get_sprite_frames().get_frame_texture(sprite.animation,sprite.get_frame())
+	bar_smooth.texture = load(\"res://assets/sprites/battle/hud/healthbar_outline.png\")
+	bar_smooth.self_modulate = Color(0, 0, 0)
+	bar_smooth.patch_margin_left = 8
+	bar_smooth.patch_margin_top = 8
+	bar_smooth.patch_margin_right = 8
+	bar_smooth.patch_margin_bottom = 8
+	#bar_smooth.material = ShaderMaterial.new()
+	#bar_smooth.material.shader = load(\"res://assets/effects/mask.gdshader\")
+	bar_max.color = Color(.5,.5,.5,1)
+	bar_max.size = Vector2(texture.get_size().x * sprite.scale.x, 15)
+	bar.color = Color(.1,1,.1,1)
+	bar.size = Vector2((float(current_hp) / max_hp) * texture.get_size().x * sprite.scale.x, 15)
+	bar_smooth.size = bar_max.size + Vector2(4, 4)
+	#buffer.z_index = 1
+	bar_max.global_position = damage_anchor.global_position - bar_max.size / 2
+	bar_smooth.global_position = bar_max.global_position - Vector2(2, 2)
+	bar_max.add_child(bar)
+	buffer.add_child(bar_max)
+	buffer.add_child(bar_smooth)
+	vars.scene.add_child(buffer)
+	bar_max.global_position = damage_anchor.global_position - bar_max.size / 2
+	bar_smooth.global_position = bar_max.global_position - Vector2(2, 2)
+	current_hp = clampf(current_hp - damage,0,max_hp)
+	create_tween().tween_property(bar, \"size\", Vector2((float(current_hp) / max_hp) * texture.get_size().x * sprite.scale.x, 15), .25)
+	buffer.visible = show_health_bar
+	var damage_text : RichTextLabel = create_text(\"[center]\"+ str(int(damage)))
+	damage_text.self_modulate = Color(1, 0, 0, 1)
+	damage_text.global_position = bar_max.global_position - Vector2(0,45)
+	var damage_move = func():
+		var drop_value = damage_anchor.global_position.y - 50.5
+		var sprite_vel = -2
+		while(damage_text.position.y < drop_value):
+			if(is_instance_valid(damage_text)):
+				sprite_vel += get_process_delta_time() * 6.0
+				damage_text.position.y += sprite_vel * get_process_delta_time() * 60
+			else: return
+			await get_tree().process_frame
+	damage_move.call()
+	await get_tree().create_timer(1.3).timeout
+	buffer.queue_free()
+	bar_smooth.queue_free()
+	bar_max.queue_free()
+	bar.queue_free()
+	damage_text.queue_free()
+	if(turn): post_attack(damage)
+
+func check():
+	vars.hud_manager.mode = -1
+	vars.player_heart.visible = false
+	vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* ASGORE \" + str(atk) + \" ATK \" + str(def) + \" DEF(pc)\"
+	await vars.main_writer.done
+	var attack = vars.attack_manager.pre_heal_attack()
+	if vars.battle_box.margin != vars.battle_box.target:
+		await vars.battle_box.resize_finished
+	attack.start_attack()
+
+func talk():
+	vars.hud_manager.mode = -1
+	vars.player_heart.visible = false
+	if(settings.player_save.player.exp > 0):
+		vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* But there was nothing to\\n  say(pc)\"
+	else:
+		var deaths_text
+		match(settings.player_save.data.death_count):
+			1:
+				deaths_text = \"once before\"
+			2:
+				deaths_text = \"twice before\"
+			3:
+				deaths_text = \"three times\"
+			4:
+				deaths_text = \"four times\"
+			5:
+				deaths_text = \"five times\"
+			6:
+				deaths_text = \"six times\"
+			7:
+				deaths_text = \"seven times\"
+			8:
+				deaths_text = \"eight times\"
+			9:
+				deaths_text = \"nine times\"
+			_:
+				deaths_text = \"too many times\\n  to count\"
+		match(talk_x):
+			-1:
+				vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* You tell ASGORE that he's\\n  killed you \" + deaths_text + \".(pc)\"
+				await vars.main_writer.done
+				match(settings.player_save.data.death_count):
+					1, 2, 3, 4:
+						vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* He nods sadly.(pc)\"
+					5, 6, 7, 8, 9:
+						vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* He nods grievously.(pc)\"
+					_:
+						vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* He nods pitifully.(pc)\"
+			0:
+				vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* You quietly tell ASGORE\\n  you don't want to fight\\n  him.(pc)\"
+				await vars.main_writer.done
+				vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* His hands tremble for a\\n  moment.(pc)\"
+			1:
+				vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* You tell ASGORE that you\\n  don't want to fight him.(pc)\"
+				await vars.main_writer.done
+				vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* His breathing gets funny\\n  for a moment.(pc)\"
+			2:
+				vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* You firmly tell ASGORE to\\n  STOP fighting.(pc)\"
+				await vars.main_writer.done
+				vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* Recollection flashes in his\\n  eyes...(pc)\"
+				await vars.main_writer.done
+				vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* ASGORE's ATTACK dropped!(delay:0.5)\\n* ASGORE's DEFENSE dropped!(pc)\"
+				atk -= 30
+				def -= 30
+			3, 4, 5, 6, 7, 8:
+				vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* Seems talking won't do any\\n  more good.(pc)\"
+			9:
+				vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* All you can do is FIGHT.(pc)\"
+		talk_x = min(talk_x + 1, 9)
+	await vars.main_writer.done
+	var attack = vars.attack_manager.pre_heal_attack()
+	if vars.battle_box.margin != vars.battle_box.target:
+		await vars.battle_box.resize_finished
+	attack.start_attack()
+
+func spare():
+	pass
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nc01g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_81hpw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_smkqr")
+}],
+"loop": true,
+"name": &"flash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_aruqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vaeua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qgfsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vkaum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_5hbtt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3k0vm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5q5uv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gsicf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_haqeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rio18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_er5di")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_gt1fx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qjfki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_awlt7")
+}],
+"loop": false,
+"name": &"intro",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6idpa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_q4oje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o31v7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xmncj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2skad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jo3fp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dkiy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iua78")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_a0l5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gdcen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uyscg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_c4fjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mcx3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_lnhu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_b0aby")
+}],
+"loop": false,
+"name": &"last",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2y8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_q4oje")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_o31v7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xmncj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2skad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jo3fp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dkiy4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_iua78")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_a0l5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gdcen")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_uyscg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_c4fjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mcx3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_lnhu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_b0aby")
+}],
+"loop": false,
+"name": &"last",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o6tg6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n3ayc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w5f5n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f8y0b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fgiri")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oe8k6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_aea12")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i3s0w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_afr4o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7bq4j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_l2ehy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yefxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_8sosd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5h8yo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_jikrp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kmmn4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_duvhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ee8r4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_778ft")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wt6vx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_d6pe5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xn76n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_d6pe5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jnele"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_fid1g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfgsr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_nmt0b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h05vr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_o6tud")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paome"]
+resource_local_to_scene = true
+size = Vector2(234, 230)
+
+[sub_resource type="GDScript" id="GDScript_dg0gj"]
+script/source = "extends HudManager
+
+func use(item_index : int):
+	var item = settings.player_save.get_item(item_index)
+	if(item is ButterscotchPie || item is SnailPie):
+		audio.play(\"menu/menu_select\")
+		disable()
+		item.use(item_index)
+		await item.done
+		vars.main_writer.writer_text = \"(sound:mono2)* The smell reminded ASGORE of\\n  something...(pc)\"
+		await vars.main_writer.done
+		vars.main_writer.writer_text = \"(sound:mono2)* ASGORE's ATTACK dropped!(delay:0.5)\\n* ASGORE's DEFENSE dropped!(pc)\"
+		vars.enemies.get_node(\"asgore\").atk -= 30
+		vars.enemies.get_node(\"asgore\").def -= 30
+		await vars.main_writer.done
+		var attack = vars.attack_manager.pre_heal_attack()
+		if vars.battle_box.margin != vars.battle_box.target:
+			await vars.battle_box.resize_finished
+		attack.start_attack()
+	else:
+		super.use(item_index)
+"
+
+[sub_resource type="GDScript" id="GDScript_qkho1"]
+script/source = "extends BattleBox
+"
+
+[sub_resource type="GDScript" id="GDScript_msb1h"]
+script/source = "extends AnimatedSprite2D
+
+func _ready():
+	await vars.scene.ready
+	vars.main_writer.unpaused.connect(func():if(sprite_frames != null): animation = \"default\")
+	vars.main_writer.done.connect(func(): if(sprite_frames != null): animation = \"idle\")
+"
+
+[sub_resource type="GDScript" id="GDScript_dsewu"]
+script/source = "extends Writer
+
+func _ready():
+	face = $\"../face\"
+"
+
+[sub_resource type="GDScript" id="GDScript_7hybg"]
+script/source = "extends AttackManager
+
+func _init():
+	attacks = [load(\"res://scripts/battle/attacks/examples_asgore/attack_example_asgore_1.gd\")]
+	heal_attacks = [load(\"res://scripts/battle/attacks/examples_asgore/attack_heal_asgore_1.gd\")]
+
+func _ready():
+	super._ready()
+
+func set_writer_text():
+	match(vars.attack_manager.turn_num):
+		0:
+			vars.main_writer.writer_text = \"(enable:x)(sound:mono2)* ASGORE attacks!\"
+		_:
+			vars.main_writer.writer_text = \"(enable:x)(sound:mono2)* ...\"
+"
+
+[sub_resource type="GDScript" id="GDScript_pmb7k"]
+script/source = "extends PlayerHeart
+"
+
+[sub_resource type="GDScript" id="GDScript_hgwku"]
+script/source = "extends DialougeManager
+
+func start():
+	await get_tree().process_frame
+	done.emit()
+"
+
+[node name="battle_example" type="Node2D"]
+script = SubResource("GDScript_y35us")
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(320, 240)
+ignore_rotation = false
+
+[node name="background" type="ColorRect" parent="."]
+visible = false
+offset_left = -3200.0
+offset_top = -2400.0
+offset_right = 3200.0
+offset_bottom = 2400.0
+
+[node name="gradient" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0.8)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 240.0
+offset_right = 641.0
+offset_bottom = 480.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset = Vector2(320, 240)
+texture = SubResource("GradientTexture2D_7euuo")
+script = SubResource("GDScript_nr6ha")
+
+[node name="particles" type="GPUParticles2D" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_5g511")
+position = Vector2(320, 500)
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_7g260")
+texture = ExtResource("2_yvucc")
+lifetime = 5.0
+fixed_fps = 60
+draw_order = 0
+
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="asgore" type="Node2D" parent="enemies"]
+position = Vector2(320, 86)
+script = SubResource("GDScript_d23qb")
+
+[node name="damage_anchor" type="Node2D" parent="enemies/asgore"]
+position = Vector2(0, 100)
+
+[node name="sprite_anchor" type="Node2D" parent="enemies/asgore"]
+position = Vector2(0, 165)
+
+[node name="body" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+position = Vector2(0, -120)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nc01g")
+offset = Vector2(60.5, 0)
+
+[node name="leye" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor/body"]
+position = Vector2(-6, -28)
+sprite_frames = SubResource("SpriteFrames_6idpa")
+
+[node name="reye" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor/body"]
+position = Vector2(7, -28)
+sprite_frames = SubResource("SpriteFrames_i2y8i")
+
+[node name="cape" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+visible = false
+position = Vector2(-4, -82)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_o6tg6")
+autoplay = "default"
+
+[node name="legs" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+visible = false
+position = Vector2(0, -44)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_f8y0b")
+
+[node name="feet" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+visible = false
+position = Vector2(0, -11)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_oe8k6")
+
+[node name="waist" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+visible = false
+position = Vector2(0, -64)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_i3s0w")
+
+[node name="larm" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+visible = false
+position = Vector2(-80, -132)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7bq4j")
+
+[node name="rarm" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+visible = false
+position = Vector2(80, -132)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_yefxt")
+
+[node name="torso" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+visible = false
+position = Vector2(0, -147)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_5h8yo")
+
+[node name="head" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+position = Vector2(0, -192)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_kmmn4")
+
+[node name="lforarm" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+visible = false
+position = Vector2(-98, -98)
+scale = Vector2(2, 2.6)
+sprite_frames = SubResource("SpriteFrames_wt6vx")
+offset = Vector2(0, -10)
+
+[node name="rforarm" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+visible = false
+position = Vector2(92, -102)
+rotation = 0.785398
+scale = Vector2(2, 1.6)
+sprite_frames = SubResource("SpriteFrames_xn76n")
+offset = Vector2(0, 10)
+
+[node name="spear" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor"]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(-44, -132)
+rotation = 0.418879
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_jnele")
+offset = Vector2(58, 0)
+
+[node name="rhand" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor/spear"]
+position = Vector2(60, 1)
+sprite_frames = SubResource("SpriteFrames_vfgsr")
+
+[node name="lhand" type="AnimatedSprite2D" parent="enemies/asgore/sprite_anchor/spear"]
+position = Vector2(-31, 3)
+sprite_frames = SubResource("SpriteFrames_h05vr")
+offset = Vector2(6, -2)
+
+[node name="speech_bubble" parent="enemies/asgore" instance=ExtResource("34_wsoi5")]
+offset_left = 300.0
+offset_top = 70.0
+offset_right = 300.0
+offset_bottom = 70.0
+
+[node name="area" type="Area2D" parent="enemies/asgore" groups=["bullet_hitbox"]]
+metadata/bullet = NodePath("../..")
+
+[node name="collision" type="CollisionShape2D" parent="enemies/asgore/area"]
+position = Vector2(0, 50)
+shape = SubResource("RectangleShape2D_paome")
+
+[node name="asgore_swipe" parent="enemies/asgore" instance=ExtResource("48_t2npc")]
+visible = false
+z_index = 1
+z_as_relative = false
+position = Vector2(19, 125)
+
+[node name="hud_manager" parent="." instance=ExtResource("35_4t4vw")]
+script = SubResource("GDScript_dg0gj")
+
+[node name="dim" type="ColorRect" parent="."]
+visible = false
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 0.498039)
+
+[node name="battle_box" parent="." instance=ExtResource("36_twcwf")]
+script = SubResource("GDScript_qkho1")
+
+[node name="face" type="AnimatedSprite2D" parent="battle_box"]
+visible = false
+position = Vector2(76, 75)
+script = SubResource("GDScript_msb1h")
+
+[node name="battle_writer" type="RichTextLabel" parent="battle_box"]
+clip_contents = false
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 574.0
+offset_bottom = 139.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("37_d06eh")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+scroll_active = false
+autowrap_mode = 0
+visible_characters_behavior = 1
+script = SubResource("GDScript_dsewu")
+
+[node name="attack_manager" parent="." instance=ExtResource("38_6yrrn")]
+script = SubResource("GDScript_7hybg")
+
+[node name="player_heart" parent="." instance=ExtResource("39_sic5v")]
+self_modulate = Color(1, 0, 0, 1)
+script = SubResource("GDScript_pmb7k")
+
+[node name="dialouge_manager" type="Node2D" parent="."]
+script = SubResource("GDScript_hgwku")
+
+[node name="hud" type="CanvasLayer" parent="."]
+
+[node name="black_screen" type="ColorRect" parent="hud"]
+visible = false
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

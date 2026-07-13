@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfr8paey3371e"]
+
+[ext_resource type="Script" path="res://scripts/battle/bullets/sans/bone_stab_collidable.gd" id="1_flhlg"]
+[ext_resource type="Texture2D" uid="uid://dnc08xx2i78ug" path="res://assets/sprites/battle/bullet/sans/bone_sans.png" id="2_gah52"]
+[ext_resource type="Texture2D" uid="uid://crpb05ousrgxu" path="res://assets/sprites/battle/square.png" id="3_k8vfb"]
+
+[node name="bone_stab" type="Node2D"]
+script = ExtResource("1_flhlg")
+
+[node name="pivot_offset" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="bones" type="NinePatchRect" parent="pivot_offset"]
+layout_mode = 1
+anchors_preset = -1
+offset_top = 2.0
+offset_right = 2.0
+offset_bottom = 14.0
+texture = ExtResource("2_gah52")
+patch_margin_top = 6
+patch_margin_bottom = 6
+axis_stretch_horizontal = 1
+
+[node name="warning" type="NinePatchRect" parent="pivot_offset"]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+offset_right = 12.0
+offset_bottom = 2.0
+texture = ExtResource("3_k8vfb")
+patch_margin_left = 1
+patch_margin_top = 1
+patch_margin_right = 1
+patch_margin_bottom = 1
+
+[node name="area" type="StaticBody2D" parent="pivot_offset"]
