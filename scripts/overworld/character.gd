@@ -17,6 +17,7 @@ var sprite_frames : SpriteFrames :
 var x := 0.0
 var y := 0.0
 var speed := 210.0
+var dance = false
 var ray_cast_range := 15.0
 var auto_sprite_update := true
 var snap_camera := true
@@ -32,6 +33,7 @@ var input_enabled := true :
 		if(!value):
 			x = 0.0
 			y = 0.0
+			dance = false
 
 func _init(sprite_frames):
 	var add_sprite_frames = func():
@@ -112,56 +114,72 @@ func inputs():
 	x = 0
 	y = 0
 	if(Input.is_action_pressed("right")): x = 1.0
-	if(Input.is_action_pressed("left")): x = -1.0
 	if(Input.is_action_pressed("down")): y = 1.0
+	if(Input.is_action_pressed("left")): x = -1.0
 	if(Input.is_action_pressed("up")): y = -1.0
+	#if(Input.is_action_pressed("exit")):
+		#x *= 1.5
+		#y *= 1.5
+	sprite.speed_scale = max(abs(x), abs(y))
 	if(Input.is_action_just_pressed("confirm")):
 		if(ray_cast.get_collider() is Interactable):
 			ray_cast.get_collider().event()
 
 func camera_movement():
-	vars.scene_cam.global_position = global_position
-	if(is_instance_valid(vars.scene_cam)):
+	if(is_instance_valid(vars.scene_cam) && vars.scene is OverworldRoom):
+		(vars as vars).scene_cam.global_position = global_position
 		(vars as vars).scene_cam.limit_top = -vars.scene.get_room_size().y / 2
 		(vars as vars).scene_cam.limit_bottom = vars.scene.get_room_size().y / 2
 		(vars as vars).scene_cam.limit_left = -vars.scene.get_room_size().x / 2
 		(vars as vars).scene_cam.limit_right = vars.scene.get_room_size().x / 2
 
 func sprite_update():
-	if(velocity != Vector2.ZERO):
-		if(!sprite.is_playing()):
-			sprite.play()
-	else:
-		sprite.stop()
+	var frame = sprite.frame
+	var frame_progress = sprite.frame_progress
 	match(sprite.animation):
-		"up":
-			if(y > 0):
-				sprite.play("down")
-			elif(y == 0 && x > 0):
-				sprite.play("right")
-			elif(y == 0 && x < 0):
-				sprite.play("left")
-		"down":
-			if(y < 0):
-				sprite.play("up")
-			elif(y == 0 && x > 0):
-				sprite.play("right")
-			elif(y == 0 && x < 0):
-				sprite.play("left")
-		"left":
-			if(x > 0):
-				sprite.play("right")
-			elif(x == 0 && y > 0):
-				sprite.play("down")
-			elif(x == 0 && y < 0):
-				sprite.play("up")
 		"right":
-			if(x < 0):
-				sprite.play("left")
-			elif(x == 0 && y > 0):
-				sprite.play("down")
-			elif(x == 0 && y < 0):
-				sprite.play("up")
+			if(x<=0 || velocity.x == 0.0):
+				if(x<0): sprite.animation = "left"
+				if(y>0): sprite.animation = "down"
+				elif(y<0): sprite.animation = "up"
+		"left":
+			if(x>=0 || velocity.x == 0.0):
+				if(x>0): sprite.animation = "right"
+				if(y>0): sprite.animation = "down"
+				elif(y<0): sprite.animation = "up"
+		"down":
+			if(y<=0 || velocity.y == 0.0):
+				if(y<0): sprite.animation = "up"
+				if(x>0): sprite.animation = "right"
+				elif(x<0): sprite.animation = "left"
+					
+		"up":
+			if(y>=0 || velocity.y == 0.0):
+				if(y>0): sprite.animation = "down"
+				if(x>0): sprite.animation = "right"
+				elif(x<0): sprite.animation = "left"
+	if(velocity != Vector2.ZERO):
+		sprite.set_frame_and_progress(frame, frame_progress)
+		if(!sprite.is_playing()):
+			if(vars.player_character == self): settings.player_save.data.step_encounter[0] += 1
+			sprite.frame = 1
+			sprite.play(sprite.animation)
+	if(velocity == Vector2.ZERO):
+		sprite.stop()
+		sprite.frame = 0
 
 func get_position_on_screen() -> Vector2:
 	return Vector2(320,240) + global_position - vars.scene_cam.get_screen_center_position()
+
+func move_to(new_position : Vector2, move_speed : float = 0.5):
+	while(true):
+		if global_position.distance_to(new_position) <= move_speed:
+			global_position = new_position
+			x = 0
+			y = 0
+			break
+		if(global_position.direction_to(new_position).x > 0): x = move_speed
+		elif(global_position.direction_to(new_position).x < 0): x = -move_speed
+		if(global_position.direction_to(new_position).y > 0): y = move_speed
+		elif(global_position.direction_to(new_position).y < 0): y = -move_speed
+		await get_tree().process_frame
