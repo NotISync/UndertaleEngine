@@ -40,6 +40,9 @@ func inputs():
 						text_container.get_node("file_saved").visible = true
 						mode = 1
 						settings.player_save.data.place_name = vars.scene.get_place_text()
+						settings.player_save.data.name = settings.player_save.player.name
+						settings.player_save.data.save_name = settings.player_save.player.name
+						settings.player_save.data.lv = settings.player_save.player.lv
 						settings.save_game()
 						refresh()
 					1:
@@ -57,7 +60,7 @@ func hud_update():
 	match(mode):
 		0:
 			heart.visible = true
-			heart.global_position = options[selection_index].global_position + Vector2(-28,6)
+			heart.global_position = options[selection_index].global_position + Vector2(-26,6)
 			text_container.modulate = Color.WHITE
 		1:
 			heart.visible = false
@@ -89,8 +92,8 @@ func close():
 
 func refresh():
 	var old_player_save = ResourceLoader.load("user://saved.tres").duplicate()
-	text_container.get_node("name").text = str(old_player_save.player.name)
-	text_container.get_node("lv").text = "LV %d" %[old_player_save.player.lv]
+	text_container.get_node("name").text = str(old_player_save.data.save_name)
+	text_container.get_node("lv").text = "LV %d" %[old_player_save.data.lv]
 	text_container.get_node("place").text = old_player_save.data.place_name
 	var minutes = floorf(old_player_save.data.time / 60)
 	if(minutes >= 10):

@@ -53,6 +53,7 @@ var fonts = {
 	"sans" : "res://assets/fonts/sans.ttf",
 	"sans_ow" : "res://assets/fonts/sans_fixed.tres",
 	"papyrus" : "res://assets/fonts/papyrus.ttf",
+	"monster" : "res://assets/fonts/dialogue_fixed.tres",
 	}
 var sounds = {
 	"none" : [],
@@ -67,8 +68,17 @@ var sounds = {
 
 var faces = {
 	"none" : null,
-	"toriel" : {"glad" : [load("res://assets/sprite_frames/overworld/faces/toriel/glad.tres"), Vector2(2,2)]},
-	"sans" : {"normal" : [load("res://assets/sprite_frames/overworld/faces/sans/normal.tres"),Vector2(.2,.2)]}
+	"toriel" : {"0" : [load("res://assets/sprite_frames/overworld/faces/toriel/0.tres"), Vector2(2,2)]},
+	"papyrus" : {"0" : [load("res://assets/sprite_frames/overworld/faces/papyrus/0.tres"), Vector2(2,2)]},
+	"sans" : {
+		"0" : [load("res://assets/sprite_frames/overworld/faces/sans/0.tres"),Vector2(2, 2)],
+		"1" : [load("res://assets/sprite_frames/overworld/faces/sans/1.tres"),Vector2(2, 2)],
+		"2" : [load("res://assets/sprite_frames/overworld/faces/sans/2.tres"),Vector2(2, 2)],
+		"3" : [load("res://assets/sprite_frames/overworld/faces/sans/3.tres"),Vector2(2, 2)],
+		"4" : [load("res://assets/sprite_frames/overworld/faces/sans/4.tres"),Vector2(2, 2)],
+		"5" : [load("res://assets/sprite_frames/overworld/faces/sans/5.tres"),Vector2(2, 2)],
+		"6" : [load("res://assets/sprite_frames/overworld/faces/sans/6.tres"),Vector2(2, 2)]
+		}
 }
 #--------- PROPERTIES ----------
 func _ready():
@@ -141,7 +151,22 @@ func parse():
 				added_bb_code += len(bb_code_add)
 				text = text.substr(0,start_index + 1) + bb_code_add + temp_string
 				continue
-				
+			elif(property in ["lp"]):
+				var start_index = i.get_start() - 1 - removed_chars + added_bb_code
+				var bb_code_add = ""
+				var temp_string = text.substr(start_index + 3 + len(i.get_string(1)),len(text))
+				bb_code_add = "("
+				removed_chars += len(i.get_string(0)) - 1
+				text = text.substr(0,start_index + 1) + bb_code_add + temp_string
+				continue
+			elif(property in ["rp"]):
+				var start_index = i.get_start() - 1 - removed_chars + added_bb_code
+				var bb_code_add = ""
+				var temp_string = text.substr(start_index + 3 + len(i.get_string(1)),len(text))
+				bb_code_add = ")"
+				removed_chars += len(i.get_string(0)) - 1
+				text = text.substr(0,start_index + 1) + bb_code_add + temp_string
+				continue
 			
 			var start_index = i.get_start() - 1 - removed_chars + added_bb_code
 			removed_chars += len(i.get_string(0))
@@ -210,6 +235,7 @@ func writer_event(index):
 				delay_func.call_deferred()
 				await delay_done
 			elif(i[0] == "pause"):
+				if(is_instance_valid(face)): if(face.sprite_frames != null): face.play("idle")
 				type_done.emit()
 				paused = true
 				await unpaused
@@ -225,6 +251,7 @@ func writer_event(index):
 					writer_text = ""
 				visible_characters = 0
 			elif(i[0] == "pc"):
+				if(is_instance_valid(face)): if(face.sprite_frames != null): face.play("idle")
 				type_done.emit()
 				paused = true
 				await unpaused
