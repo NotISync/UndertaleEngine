@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://degyuuickyrk6"]
+
+[ext_resource type="Script" path="res://scripts/mobile_display_manager.gd" id="1_04bmd"]
+[ext_resource type="PackedScene" uid="uid://b5ohgm67lvip5" path="res://scenes/display_manager.tscn" id="1_xksa3"]
+[ext_resource type="PackedScene" uid="uid://btfappkqcf7xt" path="res://objects/global/joystick.tscn" id="3_au4s2"]
+[ext_resource type="PackedScene" uid="uid://doxc0amns4byo" path="res://objects/global/touch_buttons.tscn" id="4_brr0k"]
+
+[sub_resource type="GDScript" id="GDScript_q34xc"]
+script/source = "extends CanvasLayer
+
+@onready var joystick = $joystick
+@onready var touch_buttons = $touch_buttons
+"
+
+[sub_resource type="GDScript" id="GDScript_thulo"]
+script/source = "extends Node2D
+
+func _ready():
+	visible = OS.is_debug_build()
+"
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_yxdro"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_pfbm6"]
+
+[node name="mobile_display_manager" type="Node2D"]
+script = ExtResource("1_04bmd")
+
+[node name="container" type="SubViewportContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sub_viewport" type="SubViewport" parent="container"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+canvas_item_default_texture_repeat = 1
+size = Vector2i(640, 480)
+render_target_update_mode = 4
+
+[node name="display_manager" parent="container/sub_viewport" instance=ExtResource("1_xksa3")]
+
+[node name="touch_controls" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_q34xc")
+
+[node name="joystick" parent="touch_controls" instance=ExtResource("3_au4s2")]
+position = Vector2(120, 360)
+scale = Vector2(1.5, 1.5)
+
+[node name="touch_buttons" parent="touch_controls" instance=ExtResource("4_brr0k")]
+position = Vector2(360, 360)
+scale = Vector2(1.5, 1.5)
+
+[node name="debug_controls" type="Node2D" parent="touch_controls"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(160, 20)
+script = SubResource("GDScript_thulo")
+
+[node name="border" type="TouchScreenButton" parent="touch_controls/debug_controls"]
+scale = Vector2(124, 89)
+texture_normal = SubResource("CanvasTexture_yxdro")
+texture_pressed = SubResource("CanvasTexture_pfbm6")
+action = "border"
+
+[node name="restart" type="TouchScreenButton" parent="touch_controls/debug_controls"]
+position = Vector2(150, 0)
+scale = Vector2(124, 89)
+texture_normal = SubResource("CanvasTexture_yxdro")
+texture_pressed = SubResource("CanvasTexture_pfbm6")
+action = "restart"

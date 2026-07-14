@@ -1,78 +1,234 @@
-[gd_scene load_steps=6 format=3 uid="uid://b5ohgm67lvip5"]
+[gd_scene load_steps=16 format=3 uid="uid://b5ohgm67lvip5"]
 
 [ext_resource type="Script" path="res://scripts/display_manager.gd" id="1_hd0aj"]
 [ext_resource type="Script" path="res://scripts/debug.gd" id="2_hsb8s"]
-[ext_resource type="Shader" path="res://assets/effects/blur.gdshader" id="2_yx4qb"]
+[ext_resource type="Shader" path="res://assets/effects/backgroundblur.gdshader" id="3_08pwl"]
 [ext_resource type="FontFile" uid="uid://1tmrx86kyjfv" path="res://assets/fonts/health.ttf" id="3_gofok"]
+[ext_resource type="Shader" path="res://assets/effects/tilescroll.gdshader" id="4_67ws1"]
+[ext_resource type="Texture2D" uid="uid://bfcroiuxs5pgm" path="res://assets/sprites/global/borders/0.png" id="4_6441f"]
+[ext_resource type="Texture2D" uid="uid://dbrm1gro4b00j" path="res://assets/sprites/battle/dust_particle.png" id="6_5ail3"]
+[ext_resource type="PackedScene" uid="uid://fu8uhn61cttl" path="res://objects/global/shaders.tscn" id="6_off53"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hp1cl"]
+viewport_path = NodePath("container/sub_viewport/game/game_container/sub_viewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bvdax"]
-shader = ExtResource("2_yx4qb")
-shader_parameter/lod = 1.0
+shader = ExtResource("3_08pwl")
+shader_parameter/fX = 5.0
+shader_parameter/fY = 5.0
+shader_parameter/fA = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hyjrp"]
+shader = ExtResource("4_67ws1")
+shader_parameter/zoom = 1.0
+shader_parameter/offset = Vector2(0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7241g"]
+viewport_path = NodePath("container/sub_viewport/game/game_container/sub_viewport/scene_container/sub_viewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6k8sf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a78yr"]
+shader = ExtResource("4_67ws1")
+shader_parameter/zoom = 1.0
+shader_parameter/offset = Vector2(0, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tk2ot"]
+viewport_path = NodePath("container/sub_viewport")
 
 [node name="display_manager" type="Node2D"]
 script = ExtResource("1_hd0aj")
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(320, 240)
+ignore_rotation = false
 
-[node name="border" type="Node2D" parent="."]
+[node name="container" type="SubViewportContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -30.0
+offset_right = 800.0
+offset_bottom = 510.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="container" type="SubViewportContainer" parent="border"]
-offset_left = -158.0
-offset_top = -125.0
-offset_right = 482.0
-offset_bottom = 355.0
-scale = Vector2(1.5, 1.5)
-
-[node name="sub_viewport" type="SubViewport" parent="border/container"]
+[node name="sub_viewport" type="SubViewport" parent="container"]
 handle_input_locally = false
-snap_2d_vertices_to_pixel = true
 canvas_item_default_texture_filter = 0
-size = Vector2i(640, 480)
+canvas_item_default_texture_repeat = 1
+size = Vector2i(960, 540)
 render_target_update_mode = 4
 
-[node name="camera" type="Camera2D" parent="border/container/sub_viewport"]
-position = Vector2(320, 240)
+[node name="camera" type="Camera2D" parent="container/sub_viewport"]
+position = Vector2(480, 270)
+ignore_rotation = false
 
-[node name="border_overlay" type="ColorRect" parent="border"]
-offset_left = -158.0
-offset_top = -125.0
-offset_right = 802.0
-offset_bottom = 597.0
-color = Color(0, 0, 0, 0.815686)
+[node name="border" type="Node2D" parent="container/sub_viewport"]
+position = Vector2(480, 270)
 
-[node name="border_blur" type="ColorRect" parent="border"]
+[node name="viewport" type="Sprite2D" parent="container/sub_viewport/border"]
+scale = Vector2(1.5, 1.5)
+texture = SubResource("ViewportTexture_hp1cl")
+
+[node name="border_blur" type="Sprite2D" parent="container/sub_viewport/border"]
 material = SubResource("ShaderMaterial_bvdax")
-offset_left = -158.0
-offset_top = -125.0
-offset_right = 802.0
-offset_bottom = 597.0
+scale = Vector2(960, 720)
+texture = ExtResource("6_5ail3")
 
-[node name="border_outline" type="ColorRect" parent="border"]
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 642.0
-offset_bottom = 482.0
+[node name="border_overlay" type="Sprite2D" parent="container/sub_viewport/border"]
+modulate = Color(0, 0, 0, 0.6)
+scale = Vector2(960, 720)
+texture = ExtResource("6_5ail3")
 
-[node name="game" type="Node2D" parent="."]
+[node name="border_image" type="Sprite2D" parent="container/sub_viewport/border"]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_6441f")
 
-[node name="container" type="SubViewportContainer" parent="game"]
-offset_right = 640.0
-offset_bottom = 480.0
+[node name="game" type="Node2D" parent="container/sub_viewport"]
+position = Vector2(480, 270)
 
-[node name="sub_viewport" type="SubViewport" parent="game/container"]
+[node name="game_outline" type="ColorRect" parent="container/sub_viewport/game"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -323.0
+offset_top = -243.0
+offset_right = 323.0
+offset_bottom = 243.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(320, 240)
+color = Color(0, 0, 0, 1)
+
+[node name="white_line" type="ColorRect" parent="container/sub_viewport/game/game_outline"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -322.0
+offset_top = -242.0
+offset_right = 322.0
+offset_bottom = 242.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(320, 240)
+
+[node name="black_line" type="ColorRect" parent="container/sub_viewport/game/game_outline"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.0
+offset_top = -241.0
+offset_right = 321.0
+offset_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(320, 240)
+color = Color(0, 0, 0, 1)
+
+[node name="game_container" type="SubViewportContainer" parent="container/sub_viewport/game"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sub_viewport" type="SubViewport" parent="container/sub_viewport/game/game_container"]
+process_mode = 1
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
 canvas_item_default_texture_repeat = 1
 size = Vector2i(640, 480)
 render_target_update_mode = 4
 
-[node name="fade_overlay" type="ColorRect" parent="."]
-offset_right = 640.0
-offset_bottom = 480.0
+[node name="scene_container" type="SubViewportContainer" parent="container/sub_viewport/game/game_container/sub_viewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -240.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sub_viewport" type="SubViewport" parent="container/sub_viewport/game/game_container/sub_viewport/scene_container"]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+canvas_item_default_texture_repeat = 1
+size = Vector2i(640, 480)
+render_target_update_mode = 4
+
+[node name="game_screen" type="Sprite2D" parent="container/sub_viewport/game/game_container/sub_viewport"]
+material = SubResource("ShaderMaterial_hyjrp")
+position = Vector2(320, 240)
+texture = SubResource("ViewportTexture_7241g")
+
+[node name="game_shaders" parent="container/sub_viewport/game/game_container/sub_viewport" instance=ExtResource("6_off53")]
+material = SubResource("ShaderMaterial_6k8sf")
+position = Vector2(320, 240)
+
+[node name="fade_overlay" type="ColorRect" parent="container/sub_viewport/game/game_container/sub_viewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
+[node name="pause" type="Control" parent="container/sub_viewport/game"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -320.0
+offset_top = -240.0
+offset_right = -280.0
+offset_bottom = -200.0
+
+[node name="quit" type="RichTextLabel" parent="container/sub_viewport/game"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+clip_contents = false
+offset_left = -317.0
+offset_top = -240.0
+offset_right = -54.0
+offset_bottom = -94.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("3_gofok")
+theme_override_font_sizes/normal_font_size = 24
+text = "QUITTING"
+scroll_active = false
+
+[node name="screen" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_a78yr")
+position = Vector2(320, 240)
+texture = SubResource("ViewportTexture_tk2ot")
+
+[node name="shaders" parent="." instance=ExtResource("6_off53")]
+position = Vector2(320, 240)
+
 [node name="debug" type="Node2D" parent="."]
+visible = false
 modulate = Color(1, 0, 0, 1)
 script = ExtResource("2_hsb8s")
 
@@ -84,7 +240,7 @@ offset_right = 272.0
 offset_bottom = 154.0
 theme_override_fonts/normal_font = ExtResource("3_gofok")
 theme_override_font_sizes/normal_font_size = 19
-text = "Engine by Soldier
+text = "Engine by 
 HP = INFINITE
 FPS = 0
 Timer = 0

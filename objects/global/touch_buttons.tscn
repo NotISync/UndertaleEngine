@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=3 uid="uid://doxc0amns4byo"]
+
+[ext_resource type="Texture2D" uid="uid://dvf12uehss0c5" path="res://assets/sprites/global/mobile/buttons/confirm/0.png" id="1_6m802"]
+[ext_resource type="Script" path="res://scripts/global/touch_buttons.gd" id="1_nmdf1"]
+[ext_resource type="Texture2D" uid="uid://c6rkfw433bu0j" path="res://assets/sprites/global/mobile/buttons/confirm/1.png" id="2_4jl4j"]
+[ext_resource type="Texture2D" uid="uid://ctq2ivf0ejwvk" path="res://assets/sprites/global/mobile/buttons/exit/0.png" id="3_sj7ok"]
+[ext_resource type="Texture2D" uid="uid://6ru58f1hicso" path="res://assets/sprites/global/mobile/buttons/exit/1.png" id="4_hcrko"]
+[ext_resource type="Texture2D" uid="uid://dk34ng843orcu" path="res://assets/sprites/global/mobile/buttons/hud_toggle/0.png" id="5_nqdap"]
+[ext_resource type="Texture2D" uid="uid://c4825mrvga63b" path="res://assets/sprites/global/mobile/buttons/hud_toggle/1.png" id="6_opsm5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw2ph"]
+size = Vector2(27, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptpbx"]
+size = Vector2(27, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeema"]
+size = Vector2(27, 29)
+
+[node name="touch_buttons" type="Node2D"]
+script = ExtResource("1_nmdf1")
+
+[node name="confirm" type="TouchScreenButton" parent="."]
+scale = Vector2(2, 2)
+texture_normal = ExtResource("1_6m802")
+texture_pressed = ExtResource("2_4jl4j")
+shape = SubResource("RectangleShape2D_xw2ph")
+passby_press = true
+action = "confirm"
+
+[node name="exit" type="TouchScreenButton" parent="."]
+position = Vector2(54, 0)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_sj7ok")
+texture_pressed = ExtResource("4_hcrko")
+shape = SubResource("RectangleShape2D_ptpbx")
+passby_press = true
+action = "exit"
+
+[node name="hud_toggle" type="TouchScreenButton" parent="."]
+position = Vector2(108, 0)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_nqdap")
+texture_pressed = ExtResource("6_opsm5")
+shape = SubResource("RectangleShape2D_eeema")
+passby_press = true
+action = "hud_toggle"
