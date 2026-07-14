@@ -1,19 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bv7lano8il5ix"]
+[gd_scene load_steps=8 format=3 uid="uid://cpkgif4mb2s22"]
 
-[ext_resource type="Script" path="res://scripts/battle/game_over.gd" id="1_7a2xn"]
-[ext_resource type="Texture2D" uid="uid://b5j3kxbhl6cb" path="res://assets/sprites/battle/heart/heart_0.png" id="2_nwdmv"]
-[ext_resource type="Texture2D" uid="uid://ctn35e0d21yea" path="res://assets/sprites/battle/heart/heart_break.png" id="3_wyr42"]
-[ext_resource type="Texture2D" uid="uid://dsbbt3chpva8p" path="res://assets/sprites/global/gameover.png" id="5_532jb"]
-[ext_resource type="FontVariation" uid="uid://b33vk35w50275" path="res://assets/fonts/main_mono_gameover.tres" id="6_2ejy2"]
+[ext_resource type="Script" path="res://scripts/battle/game_over.gd" id="1_wsrlr"]
+[ext_resource type="Texture2D" uid="uid://bpnmjtjwvc4mj" path="res://assets/sprites/battle/heart/heart.png" id="2_0m0sh"]
+[ext_resource type="Texture2D" uid="uid://6j1g8pxisjh3" path="res://assets/sprites/battle/heart/heart_break.png" id="2_8u3a6"]
+[ext_resource type="Texture2D" uid="uid://dsbbt3chpva8p" path="res://assets/sprites/global/gameover.png" id="3_cki57"]
+[ext_resource type="FontVariation" uid="uid://b33vk35w50275" path="res://assets/fonts/main_mono_gameover.tres" id="4_osad3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qonci"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_nwdmv")
+"texture": ExtResource("2_0m0sh")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_wyr42")
+"texture": ExtResource("2_8u3a6")
 }],
 "loop": true,
 "name": &"default",
@@ -25,7 +25,7 @@ script/source = "extends Writer
 "
 
 [node name="game_over" type="Node2D"]
-script = ExtResource("1_7a2xn")
+script = ExtResource("1_wsrlr")
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(320, 240)
@@ -37,7 +37,7 @@ sprite_frames = SubResource("SpriteFrames_qonci")
 [node name="game_over" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 position = Vector2(324, 124)
-texture = ExtResource("5_532jb")
+texture = ExtResource("3_cki57")
 
 [node name="writer" type="RichTextLabel" parent="."]
 clip_contents = false
@@ -45,7 +45,7 @@ offset_left = 160.0
 offset_top = 321.0
 offset_right = 487.0
 offset_bottom = 411.0
-theme_override_fonts/normal_font = ExtResource("6_2ejy2")
+theme_override_fonts/normal_font = ExtResource("4_osad3")
 theme_override_font_sizes/normal_font_size = 32
 scroll_active = false
 autowrap_mode = 0

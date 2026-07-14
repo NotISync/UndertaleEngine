@@ -1,0 +1,159 @@
+[gd_scene load_steps=12 format=3 uid="uid://c5goof31sywi2"]
+
+[ext_resource type="PackedScene" uid="uid://bwshu8s0atk5j" path="res://objects/overworld/overworld_hud.tscn" id="2_2mo0v"]
+[ext_resource type="PackedScene" uid="uid://df6i78fv1eoj6" path="res://objects/overworld/overworld_writer.tscn" id="3_gysqm"]
+
+[sub_resource type="GDScript" id="GDScript_ch82y"]
+script/source = "extends OverworldRoom
+
+func _ready():
+	room_sprite = $room
+	#room_changers = [$room_changer]
+	room_spawnpoint = $spawn_point
+	room_savepos = $save_pos
+	super._ready()
+
+func get_place_text() -> String:
+	return \"Room 0\"
+"
+
+[sub_resource type="MeshTexture" id="MeshTexture_vkpbp"]
+image_size = Vector2(1000, 1000)
+
+[sub_resource type="GDScript" id="GDScript_c6nv5"]
+script/source = "extends Character
+
+func _init():
+	super._init(load(\"res://assets/sprite_frames/overworld/characters/papyrus.tres\"))
+
+func _ready():
+	super._ready()
+	scale = Vector2(2,2)
+	await sprite.sprite_frames_changed
+	sprite.animation = \"down\"
+	sprite.offset.y = -10
+"
+
+[sub_resource type="GDScript" id="GDScript_xirqd"]
+script/source = "extends Interactable
+
+func event():
+	super.event()
+	match($\"..\".sprite.animation):
+		\"right\", \"left\", \"bottom\":
+			$\"..\".sprite.animation += \"_talk\"
+			$\"..\".sprite.play()
+	(vars as vars).main_writer.writer_text = \"(face:papyrus/0)(font:papyrus)(sound:papyrus)HUMAAAAAAAAAAN!(pc)\"
+	await (vars as vars).main_writer.type_done
+	match($\"..\".sprite.animation):
+		\"right_talk\", \"left_talk\", \"bottom_talk\":
+			$\"..\".sprite.animation = $\"..\".sprite.animation.substr(0, $\"..\".sprite.animation.length()-5)
+	await (vars as vars).main_writer.done
+	await (vars.scene as OverworldRoom).go_to_battle_anim(Vector2(0, 80))
+	(vars as vars).display.change_scene(load(\"res://scenes/battles/example_battles/battle_example.tscn\"),true)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ik136"]
+size = Vector2(42, 20)
+
+[sub_resource type="GDScript" id="GDScript_oh1rc"]
+script/source = "extends Character
+
+func _init():
+	super._init(load(\"res://assets/sprite_frames/overworld/characters/papyrus.tres\"))
+
+func _ready():
+	super._ready()
+	scale = Vector2(2,2)
+	await sprite.sprite_frames_changed
+	sprite.animation = \"down\"
+	sprite.offset.y = -10
+"
+
+[sub_resource type="GDScript" id="GDScript_c0fqy"]
+script/source = "extends Interactable
+
+func event():
+	super.event()
+	match($\"..\".sprite.animation):
+		\"right\", \"left\", \"bottom\":
+			$\"..\".sprite.animation += \"_talk\"
+			$\"..\".sprite.play()
+	(vars as vars).main_writer.writer_text = \"(face:papyrus/0)(font:papyrus)(sound:papyrus)YOU WILL FIGHT\\nKING ASGORE!(pc)\"
+	await (vars as vars).main_writer.type_done
+	match($\"..\".sprite.animation):
+		\"right_talk\", \"left_talk\", \"bottom_talk\":
+			$\"..\".sprite.animation = $\"..\".sprite.animation.substr(0, $\"..\".sprite.animation.length()-5)
+	await (vars as vars).main_writer.done
+	await (vars.scene as OverworldRoom).go_to_battle_anim(Vector2(0, 80))
+	(vars as vars).display.change_scene(load(\"res://scenes/battles/example_battles/battle_example_asgore.tscn\"),true)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwx7a"]
+size = Vector2(42, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1plrx"]
+size = Vector2(200, 200)
+
+[node name="room_0" type="Node2D"]
+script = SubResource("GDScript_ch82y")
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(9999, 9999)
+
+[node name="room" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -500.0
+offset_right = 500.0
+offset_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("MeshTexture_vkpbp")
+
+[node name="spawn_point" type="Marker2D" parent="."]
+
+[node name="save_pos" type="Marker2D" parent="."]
+
+[node name="overworld_canvas" type="CanvasLayer" parent="."]
+
+[node name="overworld_hud" parent="overworld_canvas" instance=ExtResource("2_2mo0v")]
+visible = false
+
+[node name="message_border" parent="overworld_canvas" instance=ExtResource("3_gysqm")]
+visible = false
+
+[node name="papyrus" type="CharacterBody2D" parent="."]
+position = Vector2(-76, -113)
+script = SubResource("GDScript_c6nv5")
+
+[node name="interact" type="Area2D" parent="papyrus"]
+script = SubResource("GDScript_xirqd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="papyrus/interact"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_ik136")
+
+[node name="papyrus2" type="CharacterBody2D" parent="."]
+position = Vector2(-185, -113)
+script = SubResource("GDScript_oh1rc")
+
+[node name="interact" type="Area2D" parent="papyrus2"]
+script = SubResource("GDScript_c0fqy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="papyrus2/interact"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_iwx7a")
+
+[node name="collisions" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions"]
+position = Vector2(177.5, 55)
+shape = SubResource("RectangleShape2D_1plrx")
+
+[editable path="overworld_canvas/message_border"]

@@ -1,10 +1,49 @@
-[gd_scene load_steps=5 format=3 uid="uid://frb40ffyat0v"]
+[gd_scene load_steps=14 format=3 uid="uid://frb40ffyat0v"]
 
 [ext_resource type="Script" path="res://scripts/battle/player_heart.gd" id="1_hpkp1"]
-[ext_resource type="Texture2D" uid="uid://b5j3kxbhl6cb" path="res://assets/sprites/battle/heart/heart_0.png" id="1_kquxx"]
+[ext_resource type="Texture2D" uid="uid://bpnmjtjwvc4mj" path="res://assets/sprites/battle/heart/heart.png" id="1_kquxx"]
+[ext_resource type="Texture2D" uid="uid://nia3dj1f7ajf" path="res://assets/sprites/battle/heart/green/shield_barrier.png" id="3_g8ovf"]
+[ext_resource type="Texture2D" uid="uid://bjwq3bcwefm7a" path="res://assets/sprites/battle/heart/green/shield_0.png" id="4_muq4k"]
+[ext_resource type="Texture2D" uid="uid://c64g3naltrr7g" path="res://assets/sprites/battle/heart/green/shield_1.png" id="5_2531c"]
+[ext_resource type="Texture2D" uid="uid://gttvwe3dnljc" path="res://assets/sprites/battle/heart/heart_flee_1.png" id="6_f0tx1"]
+[ext_resource type="Texture2D" uid="uid://b6i528vehqv13" path="res://assets/sprites/battle/heart/heart_flee_2.png" id="7_2nf5o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ryvu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_f0tx1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2nf5o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gbhmy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2531c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_muq4k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_muyji"]
 size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah1sk"]
+size = Vector2(57, 3)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yeu77"]
+radius = 30.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2x2a2"]
 size = Vector2(6, 6)
@@ -12,12 +51,42 @@ size = Vector2(6, 6)
 [node name="player_heart" type="CharacterBody2D"]
 script = ExtResource("1_hpkp1")
 
+[node name="sprite_flee" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, 4)
+sprite_frames = SubResource("SpriteFrames_7ryvu")
+autoplay = "default"
+frame_progress = 0.2065
+
 [node name="sprite" type="Sprite2D" parent="."]
 self_modulate = Color(1, 0, 0, 1)
 texture = ExtResource("1_kquxx")
 
+[node name="shield_barrier" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_g8ovf")
+
+[node name="shield" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_gbhmy")
+frame = 1
+frame_progress = 1.0
+
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_muyji")
+
+[node name="shield_hitbox" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="shield_hitbox"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_ah1sk")
+disabled = true
+
+[node name="barrier_hitbox" type="Area2D" parent="."]
+
+[node name="collision" type="CollisionShape2D" parent="barrier_hitbox"]
+shape = SubResource("CircleShape2D_yeu77")
+disabled = true
 
 [node name="hitbox" type="Area2D" parent="."]
 

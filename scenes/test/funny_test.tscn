@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://dibn1a0h1iah7"]
+
+[sub_resource type="GDScript" id="GDScript_4sgy7"]
+script/source = "extends AttackManager
+
+func gaster_blaster(type : Bullet.e_type, start_position : Vector2, end_position : Vector2,
+end_rotation : float, scale : Vector2, wait_time : float = 0, blast_time : float = 0,
+masked = false, sounds : Array = []) -> BGasterBlaster:
+	var gaster_blaster = preload(\"res://objects/battle/bullets/sans/gaster_blaster.tscn\").instantiate()
+	gaster_blaster.masked = false
+	gaster_blaster.scale = scale
+	gaster_blaster.wait_time = wait_time
+	gaster_blaster.blast_time = blast_time
+	gaster_blaster.end_position = end_position
+	gaster_blaster.end_rotation = end_rotation
+	gaster_blaster.global_position = start_position
+	add_child(gaster_blaster)
+	gaster_blaster.type = type
+	return gaster_blaster
+
+func _ready():
+	vars.attack_manager = self
+	start()
+
+func start():
+	var count = 360
+	for i in range(count):
+		await get_tree().create_timer(.01).timeout
+		var angle = i * 10 - 90
+		var pre_radius = 640.0
+		var post_radius = 160.0
+		var formula = deg_to_rad(angle)+(2*PI)*(i/count)
+		var pre_position = Vector2(320, 240) + Vector2(pre_radius * cos(formula), pre_radius * sin(formula))
+		var post_position = Vector2(320, 240) + Vector2(post_radius * cos(formula), post_radius * sin(formula))
+		var gb = vars.attack_manager.gaster_blaster(0, pre_position, post_position, rad_to_deg(formula) + 90, Vector2(0.5, 1), 1, 0.1)
+		gb.rotation_degrees = rad_to_deg(formula) - 90
+"
+
+[node name="funny_test" type="Node2D"]
+script = SubResource("GDScript_4sgy7")

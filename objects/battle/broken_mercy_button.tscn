@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://c2ydm48k8n7oh"]
+
+[ext_resource type="Texture2D" uid="uid://d3r6bmt45e8cw" path="res://assets/sprites/battle/hud/buttons/mercy/broken/0.png" id="1_nqp3j"]
+[ext_resource type="Texture2D" uid="uid://duth2ef2uybkt" path="res://assets/sprites/battle/hud/buttons/mercy/broken/1.png" id="2_q071c"]
+[ext_resource type="Texture2D" uid="uid://llxc0ndodr7h" path="res://assets/sprites/battle/hud/buttons/mercy/broken/2.png" id="3_dolpv"]
+[ext_resource type="Texture2D" uid="uid://bu7onylyik585" path="res://assets/sprites/battle/hud/buttons/mercy/broken/3.png" id="4_cp7to"]
+[ext_resource type="Texture2D" uid="uid://bqt50haviii6p" path="res://assets/sprites/battle/hud/buttons/mercy/broken/4.png" id="5_554n5"]
+[ext_resource type="Texture2D" uid="uid://bxb8w1vc07t7r" path="res://assets/sprites/battle/hud/buttons/mercy/broken/5.png" id="6_6lh5l"]
+[ext_resource type="Texture2D" uid="uid://d2jwfhignxpb7" path="res://assets/sprites/battle/hud/buttons/mercy/broken/6.png" id="7_duo87"]
+[ext_resource type="Texture2D" uid="uid://bjmc3qfpx4w8m" path="res://assets/sprites/battle/hud/buttons/mercy/broken/7.png" id="8_hoare"]
+[ext_resource type="Texture2D" uid="uid://i2uy5kuhvt0a" path="res://assets/sprites/battle/hud/buttons/mercy/broken/8.png" id="9_jmeax"]
+[ext_resource type="Texture2D" uid="uid://dx1sbxbkj4ern" path="res://assets/sprites/battle/hud/buttons/mercy/broken/9.png" id="10_ech40"]
+[ext_resource type="Texture2D" uid="uid://cs3j528ox6wis" path="res://assets/sprites/battle/hud/buttons/mercy/broken/10.png" id="11_rtuss"]
+
+[node name="broken_mercy_button" type="Sprite2D"]
+
+[node name="0" type="Sprite2D" parent="."]
+position = Vector2(-20, 1)
+texture = ExtResource("1_nqp3j")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(-13.5, 0.5)
+texture = ExtResource("2_q071c")
+
+[node name="2" type="Sprite2D" parent="."]
+position = Vector2(-1, 2)
+texture = ExtResource("3_dolpv")
+
+[node name="3" type="Sprite2D" parent="."]
+position = Vector2(14.5, 1)
+texture = ExtResource("4_cp7to")
+
+[node name="4" type="Sprite2D" parent="."]
+position = Vector2(32, 2)
+texture = ExtResource("5_554n5")
+
+[node name="5" type="Sprite2D" parent="."]
+position = Vector2(44, 0.5)
+texture = ExtResource("6_6lh5l")
+
+[node name="6" type="Sprite2D" parent="."]
+position = Vector2(-34, 0)
+texture = ExtResource("7_duo87")
+
+[node name="7" type="Sprite2D" parent="."]
+position = Vector2(38.5, 0)
+texture = ExtResource("8_hoare")
+
+[node name="8" type="Sprite2D" parent="."]
+position = Vector2(-39, 2)
+texture = ExtResource("9_jmeax")
+
+[node name="9" type="Sprite2D" parent="."]
+position = Vector2(2.5, 20)
+texture = ExtResource("10_ech40")
+
+[node name="10" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
+texture = ExtResource("11_rtuss")

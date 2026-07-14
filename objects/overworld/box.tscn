@@ -1,0 +1,133 @@
+[gd_scene load_steps=12 format=3 uid="uid://bhx25wx4dks5w"]
+
+[ext_resource type="Script" path="res://scripts/overworld/box.gd" id="1_urqum"]
+[ext_resource type="Texture2D" uid="uid://d0c6r24fb524a" path="res://assets/sprites/overworld/objects/box.png" id="2_kcups"]
+[ext_resource type="Texture2D" uid="uid://df6wweoh6stjd" path="res://assets/sprites/battle/border.png" id="3_ew17u"]
+[ext_resource type="Shader" path="res://assets/effects/battle_box.gdshader" id="3_uhynl"]
+[ext_resource type="FontFile" uid="uid://w8mnhdxac4io" path="res://assets/fonts/main.ttf" id="4_x4rdt"]
+[ext_resource type="Texture2D" uid="uid://dwkhqcmnbbm0s" path="res://assets/sprites/battle/heart/small_heart.png" id="5_6ahx3"]
+
+[sub_resource type="GDScript" id="GDScript_ckbg1"]
+script/source = "extends Interactable
+
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y88ll"]
+size = Vector2(18, 18.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kq130"]
+size = Vector2(20, 14)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4yhbv"]
+shader = ExtResource("3_uhynl")
+shader_parameter/fill = Vector4(0, 0, 0, 0.75)
+shader_parameter/border = Vector4(1, 1, 1, 1)
+shader_parameter/outline = Vector4(0, 0, 0, 1)
+shader_parameter/inline = Vector4(0, 0, 0, 1)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_t41h1"]
+
+[node name="box" type="Node2D"]
+script = ExtResource("1_urqum")
+
+[node name="area" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+script = SubResource("GDScript_ckbg1")
+
+[node name="collision" type="CollisionShape2D" parent="area"]
+shape = SubResource("RectangleShape2D_y88ll")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="collision2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 11)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_kq130")
+
+[node name="sprite" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_kcups")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="selection_border" type="NinePatchRect" parent="CanvasLayer"]
+visible = false
+material = SubResource("ShaderMaterial_4yhbv")
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 624.0
+offset_bottom = 464.0
+texture = ExtResource("3_ew17u")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="text_container" type="Node2D" parent="CanvasLayer/selection_border"]
+position = Vector2(-108, -118)
+
+[node name="inventory" type="RichTextLabel" parent="CanvasLayer/selection_border/text_container"]
+clip_contents = false
+offset_left = 192.0
+offset_top = 132.0
+offset_right = 316.0
+offset_bottom = 160.0
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("4_x4rdt")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "INVENTORY"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="box" type="RichTextLabel" parent="CanvasLayer/selection_border/text_container"]
+clip_contents = false
+offset_left = 524.0
+offset_top = 132.0
+offset_right = 564.0
+offset_bottom = 160.0
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("4_x4rdt")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "BOX"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="finish" type="RichTextLabel" parent="CanvasLayer/selection_border/text_container"]
+clip_contents = false
+offset_left = 292.0
+offset_top = 508.0
+offset_right = 524.0
+offset_bottom = 536.0
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("4_x4rdt")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Press [X] to Finish"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="line" type="Sprite2D" parent="CanvasLayer/selection_border/text_container"]
+position = Vector2(406, 346)
+scale = Vector2(1, 300)
+texture = SubResource("CanvasTexture_t41h1")
+
+[node name="line2" type="Sprite2D" parent="CanvasLayer/selection_border/text_container"]
+position = Vector2(408, 346)
+scale = Vector2(1, 300)
+texture = SubResource("CanvasTexture_t41h1")
+
+[node name="items_list" type="Node2D" parent="CanvasLayer/selection_border/text_container"]
+position = Vector2(163, 182)
+
+[node name="heart" type="TextureRect" parent="CanvasLayer"]
+visible = false
+self_modulate = Color(1, 0, 0, 1)
+z_index = 5
+offset_left = 49.0
+offset_top = 143.0
+offset_right = 71.0
+offset_bottom = 165.0
+texture = ExtResource("5_6ahx3")

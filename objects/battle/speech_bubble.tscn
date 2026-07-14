@@ -1,0 +1,93 @@
+[gd_scene load_steps=11 format=3 uid="uid://bqlwgrg4fm36n"]
+
+[ext_resource type="Shader" path="res://assets/effects/battle_box.gdshader" id="1_2u33g"]
+[ext_resource type="Script" path="res://scripts/battle/speech_bubble.gd" id="2_42a8x"]
+[ext_resource type="Texture2D" uid="uid://byoj2u5ypni13" path="res://assets/sprites/battle/speech_bubble/speech_bubble.png" id="2_xx8w2"]
+[ext_resource type="FontFile" uid="uid://by1t61y0vn6n6" path="res://assets/fonts/dialogue.ttf" id="4_dms48"]
+[ext_resource type="Texture2D" uid="uid://cmfalm23voe88" path="res://assets/sprites/battle/speech_bubble/speech_bubble_tail.png" id="4_ewl17"]
+[ext_resource type="Shader" path="res://assets/effects/mask.gdshader" id="4_p1rfo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3ne5"]
+shader = ExtResource("1_2u33g")
+shader_parameter/fill = Vector4(0, 0, 0, 0.75)
+shader_parameter/border = Vector4(1, 1, 1, 1)
+shader_parameter/outline = Vector4(0, 0, 0, 1)
+shader_parameter/inline = Vector4(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3rgyf"]
+shader = ExtResource("4_p1rfo")
+
+[sub_resource type="FontVariation" id="FontVariation_82obt"]
+base_font = ExtResource("4_dms48")
+spacing_bottom = 4
+
+[sub_resource type="GDScript" id="GDScript_51cbx"]
+script/source = "extends Writer
+"
+
+[node name="speech_bubble" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="buffer" type="BackBufferCopy" parent="."]
+copy_mode = 2
+
+[node name="speech_container" type="NinePatchRect" parent="buffer"]
+visible = false
+material = SubResource("ShaderMaterial_a3ne5")
+offset_left = -110.0
+offset_top = -52.0
+offset_right = 110.0
+offset_bottom = 52.0
+pivot_offset = Vector2(110, 52)
+texture = ExtResource("2_xx8w2")
+patch_margin_left = 17
+patch_margin_top = 17
+patch_margin_right = 17
+patch_margin_bottom = 17
+script = ExtResource("2_42a8x")
+
+[node name="mask" type="TextureRect" parent="buffer/speech_container"]
+material = SubResource("ShaderMaterial_3rgyf")
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -9.0
+offset_right = 6.0
+offset_bottom = 9.0
+grow_vertical = 2
+pivot_offset = Vector2(22, 9)
+texture = ExtResource("4_ewl17")
+
+[node name="tail" type="TextureRect" parent="buffer/speech_container"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -9.0
+offset_right = 6.0
+offset_bottom = 9.0
+grow_vertical = 2
+pivot_offset = Vector2(22, 9)
+texture = ExtResource("4_ewl17")
+
+[node name="speech_writer" type="RichTextLabel" parent="buffer/speech_container"]
+layout_mode = 1
+offset_left = 14.0
+offset_top = 18.0
+offset_right = 208.0
+offset_bottom = 86.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = SubResource("FontVariation_82obt")
+theme_override_font_sizes/normal_font_size = 13
+bbcode_enabled = true
+fit_content = true
+autowrap_mode = 0
+visible_characters_behavior = 1
+script = SubResource("GDScript_51cbx")
+
+[connection signal="item_rect_changed" from="buffer/speech_container" to="buffer/speech_container" method="_on_item_rect_changed"]

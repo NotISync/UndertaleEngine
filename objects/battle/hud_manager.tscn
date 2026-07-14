@@ -1,115 +1,132 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdhye7ndiak02"]
+[gd_scene load_steps=21 format=3 uid="uid://cdhye7ndiak02"]
 
 [ext_resource type="Script" path="res://scripts/battle/hud_manager.gd" id="1_7w3su"]
+[ext_resource type="Texture2D" uid="uid://spw1081goit8" path="res://assets/sprites/battle/hud/healthbar_outline.png" id="5_cn0ym"]
+[ext_resource type="Texture2D" uid="uid://cxlq4b45a31d5" path="res://assets/sprites/battle/hud/buttons/fight/0.png" id="5_xuk6t"]
 [ext_resource type="FontFile" uid="uid://1tmrx86kyjfv" path="res://assets/fonts/health.ttf" id="6_1ye0q"]
 [ext_resource type="FontFile" uid="uid://ch4lp3qjrxfou" path="res://assets/fonts/ut-hp-font.otf" id="7_cm6b2"]
-[ext_resource type="Texture2D" uid="uid://b7ny54ocom6f5" path="res://assets/sprites/battle/hud/buttons/fight/0.png" id="8_7kvfb"]
-[ext_resource type="Texture2D" uid="uid://ci6jiouof0oif" path="res://assets/sprites/battle/hud/buttons/fight/1.png" id="9_lkvsr"]
-[ext_resource type="Texture2D" uid="uid://dsikgyt414x2p" path="res://assets/sprites/battle/hud/buttons/act/0.png" id="10_ywt7e"]
-[ext_resource type="Texture2D" uid="uid://b4yqkljk01m1o" path="res://assets/sprites/battle/hud/buttons/act/1.png" id="11_hnwro"]
-[ext_resource type="Texture2D" uid="uid://ccqx1bgwif064" path="res://assets/sprites/battle/hud/buttons/item/0.png" id="12_s500d"]
-[ext_resource type="Texture2D" uid="uid://dsx65q8ooo1nd" path="res://assets/sprites/battle/hud/buttons/item/1.png" id="13_fjl78"]
-[ext_resource type="Texture2D" uid="uid://giolyh7g56fi" path="res://assets/sprites/battle/hud/buttons/mercy/0.png" id="14_bws02"]
-[ext_resource type="Texture2D" uid="uid://c8yr4lt58ogs1" path="res://assets/sprites/battle/hud/buttons/mercy/1.png" id="15_gqxil"]
+[ext_resource type="Texture2D" uid="uid://bu7n343l3miny" path="res://assets/sprites/battle/hud/buttons/fight/1.png" id="7_np66v"]
+[ext_resource type="Texture2D" uid="uid://dtumup5tc8wb3" path="res://assets/sprites/battle/hud/buttons/act/0.png" id="8_b7nec"]
+[ext_resource type="Texture2D" uid="uid://o42amjh6pt3o" path="res://assets/sprites/battle/hud/buttons/act/1.png" id="9_uyc4l"]
+[ext_resource type="Texture2D" uid="uid://xyiexroaanjt" path="res://assets/sprites/battle/hud/buttons/item/0.png" id="10_be7qg"]
+[ext_resource type="Texture2D" uid="uid://b8fln1tpkr76f" path="res://assets/sprites/battle/hud/buttons/item/1.png" id="11_l1arn"]
+[ext_resource type="Texture2D" uid="uid://cdlcdx7ox4130" path="res://assets/sprites/battle/hud/buttons/mercy/0.png" id="12_87738"]
+[ext_resource type="Texture2D" uid="uid://525n1hypj8gc" path="res://assets/sprites/battle/hud/buttons/mercy/1.png" id="13_hmipj"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0rflg"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_g0i0h"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_7kvfb")
+"texture": ExtResource("5_xuk6t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_lkvsr")
+"texture": ExtResource("7_np66v")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bsyv"]
+size = Vector2(112, 44)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m1fy0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_ywt7e")
+"texture": ExtResource("8_b7nec")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_hnwro")
+"texture": ExtResource("9_uyc4l")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ka11i"]
+size = Vector2(112, 44)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hl06y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_s500d")
+"texture": ExtResource("10_be7qg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_fjl78")
+"texture": ExtResource("11_l1arn")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_as87r"]
+size = Vector2(112, 44)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujgel"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("14_bws02")
+"texture": ExtResource("12_87738")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_gqxil")
+"texture": ExtResource("13_hmipj")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vkt4"]
+size = Vector2(112, 44)
+
 [node name="hud_manager" type="Node2D"]
+position = Vector2(320, 240)
 script = ExtResource("1_7w3su")
 
 [node name="display" type="Node2D" parent="."]
 
 [node name="name" type="RichTextLabel" parent="display"]
 clip_contents = false
-offset_left = 30.0
-offset_top = 400.0
-offset_right = 114.0
-offset_bottom = 418.0
+offset_left = -290.0
+offset_top = 160.0
+offset_right = -206.0
+offset_bottom = 178.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/normal_font = ExtResource("6_1ye0q")
 theme_override_font_sizes/normal_font_size = 24
-text = "Rose"
+text = "Name"
 scroll_active = false
 autowrap_mode = 0
 visible_characters_behavior = 1
 
 [node name="lv" type="RichTextLabel" parent="display"]
 clip_contents = false
-offset_left = 117.0
-offset_top = 400.0
-offset_right = 201.0
-offset_bottom = 422.0
+offset_left = -200.0
+offset_top = 160.0
+offset_right = -134.0
+offset_bottom = 182.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/normal_font = ExtResource("6_1ye0q")
 theme_override_font_sizes/normal_font_size = 24
-text = "LV 19"
+text = "LV 1"
 scroll_active = false
 autowrap_mode = 0
 visible_characters_behavior = 1
 
 [node name="hp" type="RichTextLabel" parent="display"]
 clip_contents = false
-offset_left = 224.0
-offset_top = 405.0
-offset_right = 248.0
-offset_bottom = 415.0
+offset_left = -76.0
+offset_top = 165.0
+offset_right = -53.0
+offset_bottom = 175.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/normal_font = ExtResource("7_cm6b2")
 theme_override_font_sizes/normal_font_size = 10
@@ -118,13 +135,49 @@ scroll_active = false
 autowrap_mode = 0
 visible_characters_behavior = 1
 
+[node name="hp_bar" type="Node2D" parent="display"]
+position = Vector2(-45, 160)
+
+[node name="mask" type="BackBufferCopy" parent="display/hp_bar"]
+
+[node name="hp_bar_max" type="ColorRect" parent="display/hp_bar/mask"]
+offset_left = 1.52588e-05
+offset_right = 24.0
+offset_bottom = 21.0
+color = Color(1, 0, 0, 1)
+
+[node name="hp_bar_karma" type="ColorRect" parent="display/hp_bar/mask/hp_bar_max"]
+layout_mode = 0
+color = Color(1, 0.141176, 1, 1)
+
+[node name="hp_bar_current" type="ColorRect" parent="display/hp_bar/mask/hp_bar_max"]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 21.0
+color = Color(1, 1, 0, 1)
+
+[node name="corner" type="NinePatchRect" parent="display/hp_bar/mask"]
+self_modulate = Color(0, 0, 0, 1)
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 26.0
+offset_bottom = 23.0
+texture = ExtResource("5_cn0ym")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_use_anchors_ = true
+
 [node name="kr" type="RichTextLabel" parent="display"]
+visible = false
 clip_contents = false
-offset_left = 375.0
-offset_top = 405.0
-offset_right = 399.0
-offset_bottom = 415.0
+offset_left = -76.0
+offset_top = 165.0
+offset_right = -53.0
+offset_bottom = 175.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/normal_font = ExtResource("7_cm6b2")
 theme_override_font_sizes/normal_font_size = 10
@@ -135,90 +188,56 @@ visible_characters_behavior = 1
 
 [node name="health" type="RichTextLabel" parent="display"]
 clip_contents = false
-offset_left = 415.0
-offset_top = 400.0
-offset_right = 512.0
-offset_bottom = 422.0
+offset_left = -6.0
+offset_top = 160.0
+offset_right = 84.0
+offset_bottom = 182.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 9
 theme_override_fonts/normal_font = ExtResource("6_1ye0q")
 theme_override_font_sizes/normal_font_size = 24
-text = "92 / 92"
+text = "20 / 20"
 scroll_active = false
 autowrap_mode = 0
 visible_characters_behavior = 1
 
-[node name="hp_bar_outline" type="ColorRect" parent="display"]
-offset_left = 252.0
-offset_top = 397.0
-offset_right = 369.0
-offset_bottom = 424.0
-color = Color(0, 0, 0, 1)
-
-[node name="hp_bar_max" type="ColorRect" parent="display"]
-offset_left = 255.0
-offset_top = 400.0
-offset_right = 366.0
-offset_bottom = 421.0
-color = Color(0.752941, 0, 0, 1)
-
-[node name="hp_bar_karma" type="ColorRect" parent="display/hp_bar_max"]
-layout_mode = 0
-offset_bottom = 21.0
-color = Color(1, 0.141176, 1, 1)
-
-[node name="hp_bar_current" type="ColorRect" parent="display/hp_bar_max"]
-layout_mode = 0
-offset_right = 111.0
-offset_bottom = 21.0
-color = Color(1, 1, 0, 1)
-
 [node name="buttons" type="Node2D" parent="."]
 
 [node name="fight" type="AnimatedSprite2D" parent="buttons"]
-position = Vector2(87, 453)
-sprite_frames = SubResource("SpriteFrames_0rflg")
+position = Vector2(-233, 213)
+sprite_frames = SubResource("SpriteFrames_g0i0h")
 
-[node name="outline" type="ColorRect" parent="buttons/fight"]
-show_behind_parent = true
-offset_left = -57.0
-offset_top = -23.0
-offset_right = 57.0
-offset_bottom = 23.0
-color = Color(0, 0, 0, 1)
+[node name="hitbox" type="Area2D" parent="buttons/fight"]
+
+[node name="collision" type="CollisionShape2D" parent="buttons/fight/hitbox"]
+shape = SubResource("RectangleShape2D_5bsyv")
 
 [node name="act" type="AnimatedSprite2D" parent="buttons"]
-position = Vector2(240, 453)
+position = Vector2(-80, 213)
 sprite_frames = SubResource("SpriteFrames_m1fy0")
 
-[node name="outline2" type="ColorRect" parent="buttons/act"]
-show_behind_parent = true
-offset_left = -57.0
-offset_top = -23.0
-offset_right = 57.0
-offset_bottom = 23.0
-color = Color(0, 0, 0, 1)
+[node name="hitbox" type="Area2D" parent="buttons/act"]
+
+[node name="collision" type="CollisionShape2D" parent="buttons/act/hitbox"]
+shape = SubResource("RectangleShape2D_ka11i")
 
 [node name="item" type="AnimatedSprite2D" parent="buttons"]
-position = Vector2(400, 453)
+position = Vector2(80, 213)
 sprite_frames = SubResource("SpriteFrames_hl06y")
 
-[node name="outline3" type="ColorRect" parent="buttons/item"]
-show_behind_parent = true
-offset_left = -57.0
-offset_top = -23.0
-offset_right = 57.0
-offset_bottom = 23.0
-color = Color(0, 0, 0, 1)
+[node name="hitbox" type="Area2D" parent="buttons/item"]
+
+[node name="collision" type="CollisionShape2D" parent="buttons/item/hitbox"]
+shape = SubResource("RectangleShape2D_as87r")
 
 [node name="mercy" type="AnimatedSprite2D" parent="buttons"]
-position = Vector2(555, 453)
+position = Vector2(235, 213)
 sprite_frames = SubResource("SpriteFrames_ujgel")
 
-[node name="outline4" type="ColorRect" parent="buttons/mercy"]
-show_behind_parent = true
-offset_left = -57.0
-offset_top = -23.0
-offset_right = 57.0
-offset_bottom = 23.0
-color = Color(0, 0, 0, 1)
+[node name="hitbox" type="Area2D" parent="buttons/mercy"]
+
+[node name="collision" type="CollisionShape2D" parent="buttons/mercy/hitbox"]
+shape = SubResource("RectangleShape2D_0vkt4")
+
+[node name="player" type="Marker2D" parent="."]

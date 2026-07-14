@@ -1,75 +1,219 @@
-[gd_scene load_steps=37 format=3 uid="uid://tkcsf1ljdqnn"]
+[gd_scene load_steps=85 format=3 uid="uid://xehrci021fee"]
 
-[ext_resource type="Texture2D" uid="uid://cbhcc3qrqgn7i" path="res://assets/sprites/battle/enemies/sans_undertale/head/0.png" id="1_2r8j3"]
-[ext_resource type="Texture2D" uid="uid://c0fk22bwsicj2" path="res://assets/sprites/battle/enemies/speech_bubble.png" id="2_51m0u"]
-[ext_resource type="Texture2D" uid="uid://dn4sjhsj23syn" path="res://assets/sprites/battle/enemies/sans_undertale/head/1.png" id="2_s0ike"]
-[ext_resource type="PackedScene" uid="uid://cdhye7ndiak02" path="res://objects/battle/hud_manager.tscn" id="3_5e3ix"]
-[ext_resource type="Texture2D" uid="uid://ruiirtvcnvwx" path="res://assets/sprites/battle/enemies/sans_undertale/head/2.png" id="3_d2a6i"]
-[ext_resource type="PackedScene" uid="uid://budogvo5p1iw6" path="res://objects/battle/battle_box.tscn" id="4_4yajr"]
-[ext_resource type="Texture2D" uid="uid://lphq3cfp7j8a" path="res://assets/sprites/battle/enemies/sans_undertale/head/3.png" id="4_i6yqr"]
-[ext_resource type="Texture2D" uid="uid://cpgdbhhqq4ohw" path="res://assets/sprites/battle/enemies/sans_undertale/head/4.png" id="5_0qo5m"]
-[ext_resource type="FontFile" uid="uid://ds6wqfq03pwda" path="res://assets/fonts/main_mono.ttf" id="5_wlkg8"]
-[ext_resource type="Texture2D" uid="uid://cxbk0on8j1d3x" path="res://assets/sprites/battle/enemies/sans_undertale/head/5.png" id="6_tk6b8"]
-[ext_resource type="PackedScene" uid="uid://frb40ffyat0v" path="res://objects/battle/player_heart.tscn" id="7_1vkjp"]
-[ext_resource type="PackedScene" uid="uid://dccycw0oi0itb" path="res://objects/battle/attack_manager.tscn" id="7_2tvut"]
-[ext_resource type="Texture2D" uid="uid://dwwni3sm5c01o" path="res://assets/sprites/battle/enemies/sans_undertale/head/6.png" id="7_uuvf4"]
-[ext_resource type="Texture2D" uid="uid://tkfrn6c4jswe" path="res://assets/sprites/battle/enemies/sans_undertale/head/eye/0.png" id="8_wmrrv"]
-[ext_resource type="Texture2D" uid="uid://bbap5sf6pf88g" path="res://assets/sprites/battle/enemies/sans_undertale/head/eye/1.png" id="9_r6cby"]
-[ext_resource type="Texture2D" uid="uid://binrk8nwkj501" path="res://assets/sprites/battle/enemies/sans_undertale/torso.png" id="10_peh6k"]
-[ext_resource type="Texture2D" uid="uid://b05o17e400038" path="res://assets/sprites/battle/enemies/sans_undertale/torso_shrug.png" id="11_5tt4b"]
-[ext_resource type="Texture2D" uid="uid://cx7sbjvngblx1" path="res://assets/sprites/battle/enemies/sans_undertale/legs.png" id="12_rt360"]
-[ext_resource type="Shader" path="res://assets/effects/battle_box.gdshader" id="13_b1tlx"]
-[ext_resource type="FontFile" uid="uid://dviicdom810ab" path="res://assets/fonts/sans.ttf" id="15_01c4w"]
+[ext_resource type="Texture2D" uid="uid://b6wvo0e8prms1" path="res://assets/sprites/battle/effect/speedlines/0.png" id="4_1rplx"]
+[ext_resource type="Texture2D" uid="uid://bqqdcn33860bk" path="res://assets/sprites/battle/effect/speedlines/1.png" id="5_tal5a"]
+[ext_resource type="Texture2D" uid="uid://d185xcbxn3hsq" path="res://assets/sprites/battle/effect/speedlines/2.png" id="6_u4cuy"]
+[ext_resource type="Texture2D" uid="uid://dlhvcef4plcjy" path="res://assets/sprites/battle/effect/speedlines/3.png" id="7_tjd2r"]
+[ext_resource type="Texture2D" uid="uid://d3e6202wfn231" path="res://assets/sprites/battle/effect/speedlines/4.png" id="8_t3mgi"]
+[ext_resource type="Texture2D" uid="uid://vbjf1dvt27ai" path="res://assets/sprites/battle/enemies/sans/legs.png" id="9_5rgvx"]
+[ext_resource type="Texture2D" uid="uid://0ru41v3a4hq6" path="res://assets/sprites/battle/effect/speedlines/5.png" id="9_f51ut"]
+[ext_resource type="Texture2D" uid="uid://c04xao4sh1ppf" path="res://assets/sprites/battle/enemies/sans/slam/down/0.png" id="10_dh63r"]
+[ext_resource type="Texture2D" uid="uid://cun8numq8h644" path="res://assets/sprites/battle/effect/speedlines/6.png" id="10_tq3q2"]
+[ext_resource type="Texture2D" uid="uid://bassyuem6xk0y" path="res://assets/sprites/battle/effect/speedlines/7.png" id="11_fhrcp"]
+[ext_resource type="Texture2D" uid="uid://bugtsktbg213k" path="res://assets/sprites/battle/enemies/sans/slam/down/1.png" id="11_s7qof"]
+[ext_resource type="Texture2D" uid="uid://cf8hpemj52wxc" path="res://assets/sprites/battle/enemies/sans/slam/down/2.png" id="12_jne6x"]
+[ext_resource type="Texture2D" uid="uid://tqo0ttxanym3" path="res://assets/sprites/battle/enemies/sans/slam/down/3.png" id="13_jyui6"]
+[ext_resource type="Texture2D" uid="uid://5vfp1rd8f3dx" path="res://assets/sprites/battle/enemies/sans/slam/down/4.png" id="14_pgqwq"]
+[ext_resource type="Texture2D" uid="uid://dbydbqn01f6wn" path="res://assets/sprites/battle/enemies/sans/slam/right/5.png" id="15_6ttou"]
+[ext_resource type="Texture2D" uid="uid://bh13w3nr8pmn4" path="res://assets/sprites/battle/enemies/sans/slam/right/4.png" id="16_61tu2"]
+[ext_resource type="Texture2D" uid="uid://5kcg6m080dbl" path="res://assets/sprites/battle/enemies/sans/slam/right/3.png" id="17_sgn4r"]
+[ext_resource type="Texture2D" uid="uid://cafg3pcu8nd0f" path="res://assets/sprites/battle/enemies/sans/slam/right/2.png" id="18_gruk2"]
+[ext_resource type="Texture2D" uid="uid://jx38eupuo40p" path="res://assets/sprites/battle/enemies/sans/slam/right/1.png" id="19_xxf8p"]
+[ext_resource type="Texture2D" uid="uid://dmi0hjjdp6lrm" path="res://assets/sprites/battle/enemies/sans/slam/right/0.png" id="20_uc7aj"]
+[ext_resource type="Texture2D" uid="uid://dckey6ghh3n1e" path="res://assets/sprites/battle/enemies/sans/slam/up/0.png" id="21_7ch5l"]
+[ext_resource type="Texture2D" uid="uid://doxwbmhdgdyld" path="res://assets/sprites/battle/enemies/sans/slam/up/1.png" id="22_nslxd"]
+[ext_resource type="Texture2D" uid="uid://cgtloet6yqgoe" path="res://assets/sprites/battle/enemies/sans/slam/up/2.png" id="23_xsoxf"]
+[ext_resource type="Texture2D" uid="uid://dkghmox7ed82t" path="res://assets/sprites/battle/enemies/sans/slam/up/3.png" id="24_maygb"]
+[ext_resource type="Texture2D" uid="uid://rgp4eptyok7t" path="res://assets/sprites/battle/enemies/sans/slam/up/4.png" id="25_845xm"]
+[ext_resource type="Texture2D" uid="uid://ruiirtvcnvwx" path="res://assets/sprites/battle/enemies/sans/head/2.png" id="25_hi8ky"]
+[ext_resource type="Texture2D" uid="uid://budb6yqn6aer6" path="res://assets/sprites/battle/enemies/sans/slam/up/5.png" id="26_o0jjy"]
+[ext_resource type="Texture2D" uid="uid://lphq3cfp7j8a" path="res://assets/sprites/battle/enemies/sans/head/3.png" id="26_xag2l"]
+[ext_resource type="Texture2D" uid="uid://rep0dk2ky6q6" path="res://assets/sprites/battle/enemies/sans/torso.png" id="27_aw282"]
+[ext_resource type="Texture2D" uid="uid://cpgdbhhqq4ohw" path="res://assets/sprites/battle/enemies/sans/head/4.png" id="27_uuf03"]
+[ext_resource type="Texture2D" uid="uid://bggkhy3dod2ag" path="res://assets/sprites/battle/enemies/sans/torso_shrug.png" id="28_nmaut"]
+[ext_resource type="Texture2D" uid="uid://cxbk0on8j1d3x" path="res://assets/sprites/battle/enemies/sans/head/5.png" id="28_yoeil"]
+[ext_resource type="Texture2D" uid="uid://n53n04y0qf67" path="res://assets/sprites/battle/enemies/sans/head/0.png" id="29_kp5wf"]
+[ext_resource type="Texture2D" uid="uid://dwwni3sm5c01o" path="res://assets/sprites/battle/enemies/sans/head/6.png" id="29_us234"]
+[ext_resource type="Texture2D" uid="uid://btyydf6018xo8" path="res://assets/sprites/battle/enemies/sans/head/1.png" id="30_ixrus"]
+[ext_resource type="Texture2D" uid="uid://tkfrn6c4jswe" path="res://assets/sprites/battle/enemies/sans/head/eye/0.png" id="36_fh1or"]
+[ext_resource type="Texture2D" uid="uid://bbap5sf6pf88g" path="res://assets/sprites/battle/enemies/sans/head/eye/1.png" id="37_y42bn"]
+[ext_resource type="Texture2D" uid="uid://xkxgxp7yp4gq" path="res://assets/sprites/battle/enemies/sans/head/sweat/0.png" id="38_43vi1"]
+[ext_resource type="Texture2D" uid="uid://bjiu8ptqh2s57" path="res://assets/sprites/battle/enemies/sans/head/sweat/1.png" id="39_g44hg"]
+[ext_resource type="Texture2D" uid="uid://d05y7y77u3qt1" path="res://assets/sprites/battle/enemies/sans/head/sweat/2.png" id="40_7nvsm"]
+[ext_resource type="FontFile" uid="uid://dviicdom810ab" path="res://assets/fonts/sans.ttf" id="42_cnk4j"]
+[ext_resource type="PackedScene" uid="uid://bqlwgrg4fm36n" path="res://objects/battle/speech_bubble.tscn" id="83_xrmcy"]
+[ext_resource type="PackedScene" uid="uid://cdhye7ndiak02" path="res://objects/battle/hud_manager.tscn" id="84_3waak"]
+[ext_resource type="PackedScene" uid="uid://budogvo5p1iw6" path="res://objects/battle/battle_box.tscn" id="93_vun2w"]
+[ext_resource type="Shader" path="res://assets/effects/battle_box.gdshader" id="94_wpjq1"]
+[ext_resource type="FontFile" uid="uid://ds6wqfq03pwda" path="res://assets/fonts/main_mono.ttf" id="95_egopq"]
+[ext_resource type="PackedScene" uid="uid://dccycw0oi0itb" path="res://objects/battle/attack_manager.tscn" id="96_wceby"]
+[ext_resource type="PackedScene" uid="uid://frb40ffyat0v" path="res://objects/battle/player_heart.tscn" id="97_2g0ev"]
+[ext_resource type="Shader" path="res://assets/effects/screen_center_distortion.gdshader" id="98_mooy6"]
+[ext_resource type="Shader" path="res://assets/effects/chromatic.gdshader" id="99_7po5p"]
+[ext_resource type="Shader" path="res://assets/effects/screen_grayscale.gdshader" id="100_6cd2q"]
+[ext_resource type="Shader" path="res://assets/effects/screen_simple_glitch.gdshader" id="101_exjvu"]
+[ext_resource type="Shader" path="res://assets/effects/backgroundblur.gdshader" id="102_r2k8e"]
+[ext_resource type="Shader" path="res://assets/effects/screen_panorama.gdshader" id="103_ba3yn"]
 
-[sub_resource type="GDScript" id="GDScript_60in0"]
+[sub_resource type="GDScript" id="GDScript_y35us"]
 script/source = "extends BattleRoom
+
+var intro_skip = settings.player_save.data.death_count>0
 
 func _ready():
 	super._ready()
-	vars.hud_manager.reset()
+	flee = false
+	vars.hud_manager.serious_mode = true
+	vars.player_heart.jump_speed_multiplier = 1.75
+	settings.player_save.player.lv = 19
+	settings.player_save.player.current_hp = 92
+	settings.player_save.player.max_hp = 92
+	settings.player_save.player.atk = 36
+	settings.player_save.player.def = 4
+	settings.player_save.player.exp = 50000
+	settings.player_save.player.weapon = \"real_knife\"
+	settings.player_save.player.armor = \"the_locket\"
+	settings.player_save.player.gold = 3094
+	settings.player_save.player.kills = 107
+	settings.player_save.inventory = [ #Don't erase indexes from this Array!!!!
+		\"butterscotch_pie\",
+		\"instant_noodles\",
+		\"face_steak\",
+		\"legendary_hero\",
+		\"legendary_hero\",
+		\"legendary_hero\",
+		\"legendary_hero\",
+		\"legendary_hero\"
+		]
+	intro(true)#intro(intro_skip)
+	#vars.hud_manager.show_kr_text = true
+	#audio.play_music(\"music/harderlovania\", audio.global_volume, 1, randf_range(0, 177))
+	#vars.enemies.get_node(\"sans\").animation_mode = 1
+	#vars.hud_manager.reset()
+	#vars.hud_manager.disable()
+	#var attack = vars.attack_manager.pre_custom_attack(load(\"res://scripts/battle/attacks/examples/attack_heal_2.gd\"))
+	#attack.start_attack()
+
+func intro(skip : bool = false):
+	intro_skip = skip
+	audio.play_music(\"music/mus_birdnoise\")
+	vars.hud_manager.disable()
+	vars.battle_box.visible = false
+	var enemy = vars.enemies.get_node(\"sans\")
+	enemy.get_node(\"sprite_anchor/head\").frame = 2
+	await get_tree().create_timer(.4).timeout
+	enemy.speech_bubble.visible = true
+	if(skip):
+		enemy.speech_writer.writer_text = \"(disable:x)(speed:0.0666667)(sound:sans)ready?(pc)\"
+		await enemy.speech_writer.done
+		enemy.speech_bubble.visible = false
+		vars.attack_manager.black_screen(0.05)
+		audio.stop_music()
+		vars.hud_manager.show_kr_text = true
+		vars.battle_box.visible = true
+		vars.player_heart.visible = true
+		enemy.get_node(\"sprite_anchor/head\").frame = 1
+		var attack = vars.attack_manager.pre_custom_attack(load(\"res://scripts/battle/attacks/examples/attack_intro.gd\"))
+		attack.start_attack()
+	else:
+		enemy.speech_writer.writer_text = \"(disable:x)(speed:0.0666667)(sound:sans)it's a beautiful\\nday outside.(pc)\"
+		await enemy.speech_writer.done
+		enemy.speech_writer.writer_text = \"(speed:0.0666667)(sound:sans)birds are singing,(delay:0.5)\\nflowers are blooming...(pc)\"
+		await enemy.speech_writer.done
+		enemy.speech_writer.writer_text = \"(speed:0.0666667)(sound:sans)on days like these,(delay:0.5)\\nkids like you...(pc)\"
+		await enemy.speech_writer.done
+		enemy.speech_bubble.visible = false
+		await get_tree().create_timer(0.05).timeout
+		vars.attack_manager.black_screen(0.1)
+		audio.stop_music()
+		vars.hud_manager.show_kr_text = true
+		vars.battle_box.visible = true
+		vars.player_heart.visible = true
+		await get_tree().create_timer(0.05).timeout
+		enemy.get_node(\"sprite_anchor/head\").frame = 1
+		var attack = vars.attack_manager.pre_custom_attack(load(\"res://scripts/battle/attacks/examples/attack_intro.gd\"))
+		await get_tree().create_timer(0.1).timeout
+		enemy.speech_bubble.tail_texture(load(\"res://assets/sprites/battle/speech_bubble/speech_bubble_tail_small.png\"))
+		enemy.speech_bubble.offset_right = -16
+		enemy.speech_bubble.offset_bottom = 68
+		enemy.speech_bubble.tail_pos = enemy.speech_bubble.get_tail_middle()
+		enemy.speech_bubble.visible = true
+		enemy.speech_writer.get(\"theme_override_fonts/normal_font\").set_base_font(load(\"res://assets/fonts/dialogue.ttf\"))
+		enemy.speech_writer.get(\"theme_override_fonts/normal_font\").spacing_glyph = 0
+		enemy.speech_writer.get(\"theme_override_fonts/normal_font\").spacing_space = 0
+		enemy.speech_writer.get(\"theme_override_fonts/normal_font\").spacing_bottom = 4
+		enemy.speech_writer.writer_text = \"(speed:0.13333333)(size:13)(sound:none)Should\\nbe\\nburning\\nin hell.(pc)\"
+		await enemy.speech_writer.done
+		enemy.speech_bubble.visible = false
+		attack.start_attack()
+	await vars.attack_manager.attack_done
 	audio.play_music(\"music/harderlovania\")
 "
 
-[sub_resource type="Gradient" id="Gradient_tuxiy"]
-colors = PackedColorArray(0.0235294, 0.490196, 0.741176, 1, 0, 0, 0, 0)
+[sub_resource type="SpriteFrames" id="SpriteFrames_6o464"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1rplx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tal5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u4cuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_tjd2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_t3mgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_f51ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_tq3q2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fhrcp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fkand"]
-gradient = SubResource("Gradient_tuxiy")
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
-
-[sub_resource type="GDScript" id="GDScript_wftwh"]
-script/source = "extends TextureRect
-
-var t = 0.0
-
-func _process(delta):
-	t += delta
-	texture.gradient.offsets[1] = max(sin(t) / 2 + .5, 0)
-"
-
-[sub_resource type="GDScript" id="GDScript_ohi4s"]
+[sub_resource type="GDScript" id="GDScript_d23qb"]
 script/source = "extends Enemy
 
-@onready var torso_position = $torso.position
-@onready var head_position = $head.position
+@onready var torso_position = $sprite_anchor/torso.position
+@onready var head_position = $sprite_anchor/head.position
 
 var torso_offset := Vector2.ZERO
 var head_offset := Vector2.ZERO
 var siner := 0.0
+var slam_speed = 8.0
+var slam_timer := 0
+var thrown := false
 
-var animation_mode := 1
+var animation_mode := 0
 
 func _init():
 	super._init(\"Sans\",1,1)
-	
+
 func _ready():
-	sprite = $legs
+	speech_bubble.tail_side = \"left\"
+	speech_bubble.tail_pos = speech_bubble.get_tail_top_left()
+	can_spare = false
+	sprite = $sprite_anchor/legs
 	damage_anchor = $damage_anchor
 	show_health_bar = false
 	dodge = e_dodge.dodge
+	act_options = {
+		\"Check\" : check,
+		}
 
 func _process(delta):
+	super._process(delta)
 	siner += 30 * delta
 	match(animation_mode):
 		0: torso_offset = Vector2(0, 0)
@@ -77,249 +221,954 @@ func _process(delta):
 		2: torso_offset.y = sin(siner / 15) * 4
 		3: torso_offset.y = sin(siner / 18) * 2
 	
-	$torso.position = torso_position + Vector2(torso_offset.x, torso_offset.y / 1.5)
-	$head.position = head_position + (torso_offset + head_offset)
+	$sprite_anchor/torso.position = torso_position + Vector2(torso_offset.x, torso_offset.y / 1.5)
+	$sprite_anchor/head.position = head_position + (torso_offset + head_offset)
+
+func _on_legs_frame_changed():
+	match($sprite_anchor/legs.animation):
+		\"down\":
+			match($sprite_anchor/legs.frame):
+				1: head_offset = Vector2(0, -4)
+				2:
+					head_offset = Vector2(0, 2)
+					if(!thrown): vars.attack_manager.throw(0, slam_speed)
+				3: 
+					thrown = false
+					head_offset = Vector2(0, 4)
+		\"left\":
+			match($sprite_anchor/legs.frame):
+				1: head_offset = Vector2(2, 0)
+				2: 
+					head_offset = Vector2(4, 0)
+					if(!thrown): vars.attack_manager.throw(90, slam_speed)
+				3: 
+					thrown = false
+					head_offset = Vector2(-6, 0)
+				4: head_offset = Vector2(-4, 0)
+				5: head_offset = Vector2(-2, 0)
+		\"right\":
+			match($sprite_anchor/legs.frame):
+				1: head_offset = Vector2(-6, 0)
+				2: head_offset = Vector2(-4, 0)
+				3:
+					head_offset = Vector2(4, 0)
+					if(!thrown): vars.attack_manager.throw(270, slam_speed)
+				4: 
+					thrown = false
+					head_offset = Vector2(2, 0)
+		\"up\":
+			match($sprite_anchor/legs.frame):
+				1: head_offset = Vector2(0, 4)
+				2:
+					head_offset = Vector2(0, -4)
+					if(!thrown): vars.attack_manager.throw(180, slam_speed)
+				3: 
+					thrown = false
+					head_offset = Vector2(0, -2)
+
+func slam(dir, throw = true):
+	thrown = !throw
+	$sprite_anchor/legs.stop()
+	$sprite_anchor/legs.play(dir)
+	head_offset = Vector2.ZERO
+	$sprite_anchor/torso.visible = false
+	match(dir):
+		\"down\":
+			$sprite_anchor/legs.offset = Vector2(-1, -24)
+			head_offset = Vector2(0, -2)
+		\"left\":
+			$sprite_anchor/legs.offset = Vector2(14, -12.5)
+		\"right\":
+			$sprite_anchor/legs.offset = Vector2(14, -12.5)
+		\"up\":
+			$sprite_anchor/legs.offset = Vector2(-1, -22)
+			head_offset = Vector2(0, 2)
+	await $sprite_anchor/legs.animation_finished
+	for i in range(30):
+		if($sprite_anchor/legs.is_playing()): return
+		await get_tree().process_frame
+	idle()
+
+func idle():
+	$sprite_anchor/legs.animation = \"default\"
+	head_offset = Vector2.ZERO
+	$sprite_anchor/legs.offset = Vector2(0, 0)
+	$sprite_anchor/torso.visible = true
 
 func check():
 	vars.hud_manager.mode = -1
 	vars.player_heart.visible = false
-	vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* Sans 1 ATK 1 DEF\\n* Test!(pc)\"
+	match(vars.attack_manager.turn_num):
+		0:
+			vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* SANS 1 ATK 1 DEF\\n* The easiest enemy.(delay:0.5)\\n* Can only deal 1 damage.(pc)\"
+		_:
+			vars.main_writer.writer_text = \"(enable:z)(sound:mono2)* SANS 1 ATK 1 DEF\\n* The easiest enemy.(delay:0.5)\\n* Can only deal 1 damage.(pc)* Can't keep dodging forever.(delay:0.5)\\n* Keep attacking.(pc)\"
 	await vars.main_writer.done
-	vars.hud_manager.reset()
+	var attack = vars.attack_manager.pre_heal_attack()
+	if vars.battle_box.margin != vars.battle_box.target:
+		await vars.battle_box.resize_finished
+	attack.start_attack()
+
+func spare():
+	audio.stop_music()
+	vars.hud_manager.disable()
+	var attack = vars.attack_manager.pre_custom_attack(load(\"res://scripts/battle/attacks/examples/attack_spare.gd\"))
+	speech_bubble.visible = true
+	$sprite_anchor/head.frame = 2
+	speech_writer.writer_text = \"(sound:sans)...(pc)\"
+	await speech_writer.done
+	speech_writer.writer_text = \"(sound:sans)you're sparing me?(pc)\"
+	await speech_writer.done
+	$sprite_anchor/head.frame = 4
+	speech_writer.writer_text = \"(sound:sans)finally.(pc)\"
+	await speech_writer.done
+	$sprite_anchor/head.frame = 3
+	speech_writer.writer_text = \"(sound:sans)buddy.(delay:0.5)\\npal.(pc)\"
+	await speech_writer.done
+	$sprite_anchor/head.frame = 2
+	speech_writer.writer_text = \"(sound:sans)i know how hard\\nit must be...(pc)\"
+	await speech_writer.done
+	speech_writer.writer_text = \"(sound:sans)to make that\\nchoice.(pc)\"
+	await speech_writer.done
+	speech_writer.writer_text = \"(sound:sans)to go back on\\neverything you've\\nworked up to.(pc)\"
+	await speech_writer.done
+	$sprite_anchor/head.frame = 0
+	speech_writer.writer_text = \"(sound:sans)i want you to\\nknow...(delay:0.5)\\ni won't let it\\ngo to waste.(pc)\"
+	await speech_writer.done
+	$sprite_anchor/torso.frame = 1
+	speech_writer.writer_text = \"(sound:sans)...(pc)\"
+	await speech_writer.done
+	$sprite_anchor/head.frame = 3
+	speech_writer.writer_text = \"(sound:sans)c'mere,(delay:0.5) pal.(pc)\"
+	await speech_writer.done
+	speech_bubble.visible = false
+	$sprite_anchor/head.frame = 0
+	$sprite_anchor/torso.frame = 0
+	if vars.battle_box.margin != vars.battle_box.target:
+		await vars.battle_box.resize_finished
+	attack.start_attack()
 "
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_u1rbl"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_0lva5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_rt360")
+"texture": ExtResource("9_5rgvx")
 }],
 "loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_dh63r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_s7qof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jne6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jyui6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_pgqwq")
+}],
+"loop": false,
+"name": &"down",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_6ttou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_61tu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_sgn4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_gruk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xxf8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_uc7aj")
+}],
+"loop": false,
+"name": &"left",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_uc7aj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_xxf8p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_gruk2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_sgn4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_61tu2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_6ttou")
+}],
+"loop": false,
+"name": &"right",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_7ch5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_nslxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xsoxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_maygb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_845xm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_o0jjy")
+}],
+"loop": false,
+"name": &"up",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w850v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_aw282")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_nmaut")
+}],
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_eyef1"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_58uuw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_peh6k")
+"texture": ExtResource("29_kp5wf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_5tt4b")
+"texture": ExtResource("30_ixrus")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_hi8ky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_xag2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_uuf03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_yoeil")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_us234")
 }],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_sw7ow"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_2r8j3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_s0ike")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_d2a6i")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_i6yqr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_0qo5m")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_tk6b8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_uuvf4")
-}],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_wmrrv")
+"texture": ExtResource("36_fh1or")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_r6cby")
+"texture": ExtResource("37_y42bn")
 }],
 "loop": true,
 "name": &"flash",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kp5a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_43vi1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_g44hg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_7nvsm")
+}],
+"loop": false,
+"name": &"default",
 "speed": 5.0
 }]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_y80lc"]
-shader = ExtResource("13_b1tlx")
-shader_parameter/fgcolor = Vector4(0, 0, 0, 0.5)
-shader_parameter/bgcolor = Vector4(1, 1, 1, 1)
+[sub_resource type="FontVariation" id="FontVariation_5pjna"]
+base_font = ExtResource("42_cnk4j")
+spacing_glyph = 2
+spacing_space = 4
+spacing_bottom = 4
 
-[sub_resource type="GDScript" id="GDScript_uiy3g"]
-script/source = "extends Writer
-"
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_paome"]
+resource_local_to_scene = true
+size = Vector2(108, 142)
 
-[sub_resource type="GDScript" id="GDScript_5temn"]
+[sub_resource type="GDScript" id="GDScript_dg0gj"]
 script/source = "extends HudManager
 
+func setup_hud():
+	var create_text : Callable = func(position : Vector2):
+		var textblock = RichTextLabel.new()
+		textblock.bbcode_enabled = true
+		textblock.add_theme_font_override(\"normal_font\", load(\"res://assets/fonts/main_mono.ttf\"))
+		textblock.add_theme_font_size_override(\"normal_font_size\", 32)
+		textblock.set(\"theme_override_colors/font_outline_color\", Color(0, 0, 0))
+		textblock.set(\"theme_override_constants/outline_size\", 9)
+		textblock.set(\"theme_override_colors/font_shadow_color\", true)
+		textblock.position = position - vars.battle_box.position
+		textblock.size = Vector2(100,100)
+		textblock.clip_contents = false
+		textblock.scroll_active = false
+		textblock.autowrap_mode = TextServer.AUTOWRAP_OFF
+		vars.battle_box.add_child(textblock)
+		return textblock
+	
+	for row in range(3):
+		for col in range(2):
+			var i = row * 2 + col
+			var location : Vector2 = Vector2(100 if col < 1 else 340, 271 + row * 31)
+			var text : RichTextLabel = create_text.call(location)
+			display.item_texts.append(text)
+	display.page_text = create_text.call(Vector2(388,334))
+	
+	display_update()
+	
+	display.lv_text.position = display.name_text.position + Vector2((len(display.name_text.get_parsed_text()) * 14) + 32,0)
 "
 
-[sub_resource type="GDScript" id="GDScript_yenlp"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2g73f"]
+shader = ExtResource("94_wpjq1")
+shader_parameter/fill = Vector4(0, 0, 0, 0.5)
+shader_parameter/border = Vector4(1, 1, 1, 1)
+shader_parameter/outline = Vector4(0, 0, 0, 1)
+shader_parameter/inline = Vector4(0, 0, 0, 1)
+
+[sub_resource type="GDScript" id="GDScript_qkho1"]
 script/source = "extends BattleBox
 "
 
-[sub_resource type="GDScript" id="GDScript_jri2l"]
+[sub_resource type="GDScript" id="GDScript_msb1h"]
+script/source = "extends AnimatedSprite2D
+
+func _ready():
+	await vars.scene.ready
+	vars.main_writer.unpaused.connect(func():if(sprite_frames != null): animation = \"default\")
+	vars.main_writer.done.connect(func(): if(sprite_frames != null): animation = \"idle\")
+"
+
+[sub_resource type="GDScript" id="GDScript_dsewu"]
 script/source = "extends Writer
+
+func _ready():
+	face = $\"../face\"
 "
 
-[sub_resource type="GDScript" id="GDScript_riu00"]
-script/source = "extends PlayerHeart
-"
-
-[sub_resource type="GDScript" id="GDScript_c0lm0"]
+[sub_resource type="GDScript" id="GDScript_7hybg"]
 script/source = "extends AttackManager
 
+var encounter_text = \"(disable:z)(sound:mono2)* Error!\"
+
 func _init():
-	attacks = [preload(\"res://scripts/battle/attacks/test_attack.gd\")]
+	attacks = [load(\"res://scripts/battle/attacks/examples/attack_example_1.gd\"), load(\"res://scripts/battle/attacks/examples/attack_example_2.gd\"), load(\"res://scripts/battle/attacks/examples/attack_example_3.gd\")]
+	heal_attacks = [load(\"res://scripts/battle/attacks/examples/attack_heal_1.gd\"), load(\"res://scripts/battle/attacks/examples/attack_heal_2.gd\")]
 
 func _ready():
 	super._ready()
+	attack_done.connect(func(): set_encounter_text())
 
 func set_writer_text():
-	vars.main_writer.writer_text = \"(disable:z)(sound:mono2)* Credit to Soldier\"
+	vars.main_writer.writer_text = encounter_text
+
+func set_encounter_text():
+	match(vars.attack_manager.turn_num):
+		0:
+			encounter_text = \"(disable:z)(sound:mono2)* You feel like you're going to\\n  have a bad time.\"
+		4:
+			encounter_text = \"(disable:z)(sound:mono2)* Sans's movements grow a little\\n  wearier.\"
+		9:
+			encounter_text = \"(disable:z)(sound:mono2)* Sans's movements seem to be slower.\"
+		13:
+			encounter_text = \"(disable:z)(sound:mono2)* Sans is sparing you.\"
+		_:
+			encounter_text = \"(disable:z)(sound:mono2)* Just keep attacking.\"
+			if(settings.player_save.player.current_kr>=0&&10>=settings.player_save.player.current_kr):
+				encounter_text = \"(disable:z)(sound:mono2)* You felt your sins crawling on\\n  your back.\"
+			elif(settings.player_save.player.current_kr>10&&20>=settings.player_save.player.current_kr):
+				encounter_text = \"(disable:z)(sound:mono2)* You felt your sins weighing on\\n  your neck.\"
+			elif(settings.player_save.player.current_kr>20&&30>=settings.player_save.player.current_kr):
+				encounter_text = \"(disable:z)(sound:mono2)* KARMA coursing through your\\n  veins.\"
+			elif(settings.player_save.player.current_kr>30):
+				encounter_text = \"(disable:z)(sound:mono2)* Doomed to death of KARMA!\"
 "
 
-[sub_resource type="GDScript" id="GDScript_vt12r"]
+[sub_resource type="GDScript" id="GDScript_pmb7k"]
+script/source = "extends PlayerHeart
+"
+
+[sub_resource type="GDScript" id="GDScript_hgwku"]
 script/source = "extends DialougeManager
 
 func start():
-	var enemy = vars.enemies.get_child(0)
-	enemy.speech_bubble.visible = true
-	enemy.get_node(\"head\").frame = 3
-	enemy.get_node(\"torso\").frame = 1
-	enemy.speech_writer.writer_text = \"(sound:sans)how are you?(pc)\"
-	await enemy.speech_writer.done
-	enemy.speech_bubble.visible = false
-	enemy.get_node(\"head\").frame = 0
-	enemy.get_node(\"torso\").frame = 0
+	var enemy = vars.enemies.get_node(\"sans\")
+	match(vars.attack_manager.turn_num):
+		0:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 3
+			enemy.get_node(\"sprite_anchor/torso\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)what?(delay:0.5)\\nyou think i'm just\\ngonna stand there\\nand take it?(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.get_node(\"sprite_anchor/torso\").frame = 0
+		1:
+			enemy.speech_bubble.visible = true
+			enemy.speech_writer.writer_text = \"(sound:sans)our reports showed\\na massive anomaly\\nin the timespace\\ncontinuum.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_writer.writer_text = \"(sound:sans)timelines jumping\\nleft and right,\\nstopping and\\nstarting...(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+		2:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.speech_writer.writer_text = \"(sound:sans)until suddenly,(delay:0.5)\\neverything ends.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+		3:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.speech_writer.writer_text = \"(sound:sans)heh heh heh...(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)that's your fault,(delay:0.5)\\nisn't it?(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+		4:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 4
+			enemy.speech_writer.writer_text = \"(sound:sans)you can't understand\\nhow this feels.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+		5:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.speech_writer.writer_text = \"(sound:sans)knowing that one\\nday,(delay:0.5) without any\\nwarning...(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 6
+			enemy.speech_writer.writer_text = \"(sound:sans)it's all going to\\nbe reset.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+		6:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 6
+			enemy.get_node(\"sprite_anchor/torso\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)look.(delay:0.5)\\ni gave up trying\\nto go back a long\\ntime ago.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.get_node(\"sprite_anchor/torso\").frame = 0
+		7:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.get_node(\"sprite_anchor/torso\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)and getting to the\\nsurface doesn't\\nreally appeal\\nanymore,(delay:0.5) either.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.get_node(\"sprite_anchor/torso\").frame = 0
+		8:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.get_node(\"sprite_anchor/torso\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)cause even if we\\ndo...(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)we'll just end up\\nright back here,(delay:0.5)\\nwithout any memory\\nof it,(delay:0.5) right?(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.get_node(\"sprite_anchor/torso\").frame = 0
+		9:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 4
+			enemy.get_node(\"sprite_anchor/torso\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)to be blunt...(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.speech_writer.writer_text = \"(sound:sans)it makes it kind\\nof hard to give\\nit my all.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.get_node(\"sprite_anchor/torso\").frame = 0
+		10:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 4
+			enemy.get_node(\"sprite_anchor/torso\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)... or is that just\\na poor excuse for\\nbeing lazy...?(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 3
+			enemy.speech_writer.writer_text = \"(sound:sans)hell if i know.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.get_node(\"sprite_anchor/torso\").frame = 0
+		11:
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.get_node(\"sprite_anchor/torso\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)all i know is...(delay:0.5)\\nseeing what comes\\nnext...(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 6
+			enemy.speech_writer.writer_text = \"(sound:sans)i can't afford not\\nto care anymore.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.get_node(\"sprite_anchor/torso\").frame = 0
+		12: #MERCY
+			audio.stop_music()
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head/sweat\").frame = 1
+			enemy.get_node(\"sprite_anchor/head/sweat\").visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 6
+			enemy.speech_writer.writer_text = \"(sound:sans)ugh...(delay:0.5)\\nthat being said...(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 4
+			enemy.speech_writer.writer_text = \"(sound:sans)you,(delay:0.5) uh,(delay:0.5) really\\nlike swinging that\\nthing around,(delay:0.5)\\nhuh?(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.speech_writer.writer_text = \"(sound:sans)...(pc)\"
+			audio.play_music(\"music/mus_chokedup\")
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.speech_writer.writer_text = \"(sound:sans)listen.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_writer.writer_text = \"(sound:sans)i know you didn't\\nanswer me before,(delay:0.5)\\nbut...(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_writer.writer_text = \"(sound:sans)somewhere in\\nthere.(delay:0.5)\\ni can feel it.(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.speech_writer.writer_text = \"(sound:sans)there's a glimmer\\nof a good person\\ninside of you.(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.speech_writer.writer_text = \"(sound:sans)the memory of\\nsomeone who once\\nwanted to do the\\nright thing.(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 4
+			enemy.speech_writer.writer_text = \"(sound:sans)someone who,(delay:0.5) in\\nanother time,(delay:0.5)\\nmight have even\\nbeen...(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.speech_writer.writer_text = \"(sound:sans)a friend?(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 3
+			enemy.speech_writer.writer_text = \"(sound:sans)c'mon,(delay:0.5) buddy.(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.speech_writer.writer_text = \"(sound:sans)do you remember\\nme?(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.speech_writer.writer_text = \"(sound:sans)please,(delay:0.5) if you're\\nlistening...(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 6
+			enemy.speech_writer.writer_text = \"(sound:sans)let's forget all\\nthis,(delay:0.5) ok?(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 3
+			enemy.speech_writer.writer_text = \"(sound:sans)just lay down\\nyour weapon,(delay:0.5) and...(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 2
+			enemy.speech_writer.writer_text = \"(sound:sans)well,(delay:0.5) my job\\nwill be a lot\\neasier.(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.can_spare = true
+			vars.attack_manager.attacks = []
+			vars.attack_manager.heal_attacks = []
+			done.emit()
+			vars.attack_manager.current_attack.end_attack()
+		13:
+			audio.stop_music()
+			enemy.can_spare = false
+			enemy.speech_bubble.visible = true
+			enemy.get_node(\"sprite_anchor/head\").frame = 3
+			enemy.get_node(\"sprite_anchor/torso\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)welp,(delay:0.5) it was\\nworth a shot.(pc)\"
+			await enemy.speech_writer.done
+			enemy.get_node(\"sprite_anchor/head\").frame = 1
+			enemy.speech_writer.writer_text = \"(sound:sans)guess you like\\ndoing things the\\nhard way,(delay:0.5) huh?(pc)\"
+			await enemy.speech_writer.done
+			enemy.speech_bubble.visible = false
+			enemy.get_node(\"sprite_anchor/head\").frame = 0
+			enemy.get_node(\"sprite_anchor/torso\").frame = 0
+			audio.play_music(\"music/harderlovania\")
+			vars.attack_manager.attacks = []
+			vars.attack_manager.heal_attacks = []
 	await get_tree().process_frame
 	done.emit()
 "
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s6jr8"]
+shader = ExtResource("98_mooy6")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_sf8bg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ylk0"]
+shader = ExtResource("99_7po5p")
+shader_parameter/mode = 4
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/r_displacement = Vector2(0, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(0, 0)
+shader_parameter/radius = 1.5
+shader_parameter/angle = 0.0
+shader_parameter/speed = 8.0
+shader_parameter/time = 0.0
+
+[sub_resource type="GDScript" id="GDScript_w11j1"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	material.set_shader_parameter(\"time\", material.get_shader_parameter(\"time\") + 1 * delta)
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ky6ar"]
+shader = ExtResource("99_7po5p")
+shader_parameter/mode = 2
+shader_parameter/offset = Vector2(0, 20)
+shader_parameter/r_displacement = Vector2(0, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(0, 0)
+shader_parameter/radius = 0.0
+shader_parameter/angle = 0.0
+shader_parameter/speed = 1.0
+shader_parameter/time = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_li7nu"]
+shader = ExtResource("100_6cd2q")
+shader_parameter/intensity = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x8ufq"]
+shader = ExtResource("101_exjvu")
+shader_parameter/time = 0.0
+shader_parameter/AMT = 0.4
+shader_parameter/STR = 0.1
+shader_parameter/SPEED = 0.02
+
+[sub_resource type="GDScript" id="GDScript_fx4a1"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	material.set_shader_parameter(\"time\", material.get_shader_parameter(\"time\") + 1 * delta)
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2h8b"]
+shader = ExtResource("102_r2k8e")
+shader_parameter/fX = 5.0
+shader_parameter/fY = 5.0
+shader_parameter/fA = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cif52"]
+shader = ExtResource("103_ba3yn")
+shader_parameter/zoom = 140
+shader_parameter/smoothed = true
+shader_parameter/vertical = false
+shader_parameter/noWrap = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qfa71"]
+shader = ExtResource("99_7po5p")
+shader_parameter/mode = 2
+shader_parameter/offset = Vector2(0, -20)
+shader_parameter/r_displacement = Vector2(0, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(0, 0)
+shader_parameter/radius = 0.0
+shader_parameter/angle = 0.0
+shader_parameter/speed = 1.0
+shader_parameter/time = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_go2os"]
+shader = ExtResource("99_7po5p")
+shader_parameter/mode = 2
+shader_parameter/offset = Vector2(100, 0)
+shader_parameter/r_displacement = Vector2(0, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(0, 0)
+shader_parameter/radius = 0.0
+shader_parameter/angle = 0.0
+shader_parameter/speed = 1.0
+shader_parameter/time = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8084s"]
+shader = ExtResource("99_7po5p")
+shader_parameter/mode = 2
+shader_parameter/offset = Vector2(-100, 0)
+shader_parameter/r_displacement = Vector2(0, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(0, 0)
+shader_parameter/radius = 0.0
+shader_parameter/angle = 0.0
+shader_parameter/speed = 1.0
+shader_parameter/time = 0.0
+
 [node name="battle_example" type="Node2D"]
-script = SubResource("GDScript_60in0")
+script = SubResource("GDScript_y35us")
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(320, 240)
 ignore_rotation = false
 
-[node name="gradient" type="TextureRect" parent="."]
-offset_left = -1.0
-offset_top = 328.0
-offset_right = 640.0
-offset_bottom = 481.0
-texture = SubResource("GradientTexture2D_fkand")
-script = SubResource("GDScript_wftwh")
+[node name="bg" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(320, 240)
+sprite_frames = SubResource("SpriteFrames_6o464")
+autoplay = "default"
+frame_progress = 0.394529
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="example_enemy" type="Node2D" parent="enemies"]
-position = Vector2(324, 183)
-script = SubResource("GDScript_ohi4s")
+[node name="sans" type="Node2D" parent="enemies"]
+position = Vector2(320, 177)
+script = SubResource("GDScript_d23qb")
 
-[node name="damage_anchor" type="Node2D" parent="enemies/example_enemy"]
+[node name="damage_anchor" type="Node2D" parent="enemies/sans"]
 position = Vector2(0, -79)
 
-[node name="legs" type="AnimatedSprite2D" parent="enemies/example_enemy"]
-position = Vector2(-1, 42)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_u1rbl")
+[node name="sprite_anchor" type="Node2D" parent="enemies/sans"]
+position = Vector2(0, 65)
 
-[node name="torso" type="AnimatedSprite2D" parent="enemies/example_enemy"]
-position = Vector2(-2, -4)
+[node name="legs" type="AnimatedSprite2D" parent="enemies/sans/sprite_anchor"]
+position = Vector2(-1, -23)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_eyef1")
+sprite_frames = SubResource("SpriteFrames_0lva5")
 
-[node name="head" type="AnimatedSprite2D" parent="enemies/example_enemy"]
-position = Vector2(-2, -45)
+[node name="torso" type="AnimatedSprite2D" parent="enemies/sans/sprite_anchor"]
+position = Vector2(-2, -69)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_sw7ow")
+sprite_frames = SubResource("SpriteFrames_w850v")
 
-[node name="speech_bubble" type="NinePatchRect" parent="enemies/example_enemy"]
+[node name="head" type="AnimatedSprite2D" parent="enemies/sans/sprite_anchor"]
+position = Vector2(-2, -112)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_58uuw")
+
+[node name="sweat" type="AnimatedSprite2D" parent="enemies/sans/sprite_anchor/head"]
 visible = false
-material = SubResource("ShaderMaterial_y80lc")
-offset_left = 53.0
-offset_top = -72.0
-offset_right = 233.0
-offset_bottom = 20.0
-texture = ExtResource("2_51m0u")
-patch_margin_left = 31
-patch_margin_top = 44
-patch_margin_right = 22
-patch_margin_bottom = 10
+sprite_frames = SubResource("SpriteFrames_1kp5a")
 
-[node name="speech_writer" type="RichTextLabel" parent="enemies/example_enemy/speech_bubble"]
-layout_mode = 0
-offset_left = 37.0
-offset_top = 7.0
-offset_right = 169.0
-offset_bottom = 85.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("15_01c4w")
+[node name="speech_bubble" parent="enemies/sans" instance=ExtResource("83_xrmcy")]
+offset_left = 200.0
+offset_top = -20.0
+offset_right = 200.0
+offset_bottom = -20.0
+
+[node name="speech_writer" parent="enemies/sans/speech_bubble/buffer/speech_container" index="2"]
+theme_override_fonts/normal_font = SubResource("FontVariation_5pjna")
 theme_override_font_sizes/normal_font_size = 14
-bbcode_enabled = true
-visible_characters_behavior = 1
-script = SubResource("GDScript_uiy3g")
 
-[node name="hud_manager" parent="." instance=ExtResource("3_5e3ix")]
-script = SubResource("GDScript_5temn")
+[node name="area" type="Area2D" parent="enemies/sans" groups=["bullet_hitbox"]]
+visible = false
+metadata/bullet = NodePath("../..")
 
-[node name="battle_box" parent="." instance=ExtResource("4_4yajr")]
-offset_left = 32.0
-offset_top = 250.0
-offset_right = 607.0
-offset_bottom = 390.0
-script = SubResource("GDScript_yenlp")
+[node name="collision" type="CollisionShape2D" parent="enemies/sans/area"]
+position = Vector2(-2.22, -6)
+shape = SubResource("RectangleShape2D_paome")
 
-[node name="battle_writer" type="RichTextLabel" parent="."]
+[node name="hud_manager" parent="." instance=ExtResource("84_3waak")]
+script = SubResource("GDScript_dg0gj")
+
+[node name="battle_box" parent="." instance=ExtResource("93_vun2w")]
+material = SubResource("ShaderMaterial_2g73f")
+script = SubResource("GDScript_qkho1")
+
+[node name="face" type="AnimatedSprite2D" parent="battle_box"]
+visible = false
+position = Vector2(76, 75)
+script = SubResource("GDScript_msb1h")
+
+[node name="battle_writer" type="RichTextLabel" parent="battle_box"]
 clip_contents = false
-offset_left = 52.0
-offset_top = 270.0
-offset_right = 601.0
-offset_bottom = 384.0
-theme_override_colors/font_shadow_color = Color(0.11, 0.11, 0.39, 1)
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
-theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/normal_font = ExtResource("5_wlkg8")
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 574.0
+offset_bottom = 139.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("95_egopq")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
 scroll_active = false
 autowrap_mode = 0
 visible_characters_behavior = 1
-script = SubResource("GDScript_jri2l")
+script = SubResource("GDScript_dsewu")
 
-[node name="player_heart" parent="." instance=ExtResource("7_1vkjp")]
-script = SubResource("GDScript_riu00")
+[node name="attack_manager" parent="." instance=ExtResource("96_wceby")]
+script = SubResource("GDScript_7hybg")
 
-[node name="attack_manager" parent="." instance=ExtResource("7_2tvut")]
-script = SubResource("GDScript_c0lm0")
+[node name="player_heart" parent="." instance=ExtResource("97_2g0ev")]
+self_modulate = Color(1, 0, 0, 1)
+script = SubResource("GDScript_pmb7k")
 
 [node name="dialouge_manager" type="Node2D" parent="."]
-script = SubResource("GDScript_vt12r")
+script = SubResource("GDScript_hgwku")
 
-[node name="black_screen" type="ColorRect" parent="."]
+[node name="hud" type="CanvasLayer" parent="."]
+
+[node name="black_screen" type="ColorRect" parent="hud"]
 visible = false
-z_index = 255
+z_index = 1
 offset_right = 640.0
 offset_bottom = 480.0
 color = Color(0, 0, 0, 1)
 
-[node name="white_screen" type="ColorRect" parent="."]
+[node name="BackBufferCopy9" type="BackBufferCopy" parent="hud"]
 visible = false
-z_index = 255
-offset_right = 640.0
-offset_bottom = 480.0
+copy_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/BackBufferCopy9"]
+material = SubResource("ShaderMaterial_s6jr8")
+position = Vector2(320, 240)
+scale = Vector2(640, 480)
+texture = SubResource("CanvasTexture_sf8bg")
+
+[node name="RGBOffset" type="BackBufferCopy" parent="hud"]
+visible = false
+copy_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/RGBOffset"]
+material = SubResource("ShaderMaterial_2ylk0")
+position = Vector2(320, 240)
+scale = Vector2(640, 480)
+texture = SubResource("CanvasTexture_sf8bg")
+script = SubResource("GDScript_w11j1")
+
+[node name="BackBufferCopy8" type="BackBufferCopy" parent="hud"]
+visible = false
+copy_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/BackBufferCopy8"]
+modulate = Color(1, 1, 1, 0.901961)
+material = SubResource("ShaderMaterial_ky6ar")
+position = Vector2(320, 320)
+scale = Vector2(640, 140)
+texture = SubResource("CanvasTexture_sf8bg")
+
+[node name="Grayscale" type="BackBufferCopy" parent="hud"]
+visible = false
+copy_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/Grayscale"]
+modulate = Color(1, 1, 1, 0.8)
+material = SubResource("ShaderMaterial_li7nu")
+position = Vector2(320, 240)
+scale = Vector2(640, 480)
+texture = SubResource("CanvasTexture_sf8bg")
+
+[node name="GlitchOffset" type="BackBufferCopy" parent="hud"]
+visible = false
+copy_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/GlitchOffset"]
+material = SubResource("ShaderMaterial_x8ufq")
+position = Vector2(320, 240)
+scale = Vector2(640, 480)
+texture = SubResource("CanvasTexture_sf8bg")
+script = SubResource("GDScript_fx4a1")
+
+[node name="Blur" type="BackBufferCopy" parent="hud"]
+visible = false
+copy_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/Blur"]
+material = SubResource("ShaderMaterial_j2h8b")
+position = Vector2(320, 240)
+scale = Vector2(640, 480)
+texture = SubResource("CanvasTexture_sf8bg")
+
+[node name="Panaroma" type="BackBufferCopy" parent="hud"]
+visible = false
+copy_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/Panaroma"]
+material = SubResource("ShaderMaterial_cif52")
+position = Vector2(320, 240)
+scale = Vector2(640, 480)
+texture = SubResource("CanvasTexture_sf8bg")
+
+[node name="BackBufferCopy3" type="BackBufferCopy" parent="hud"]
+visible = false
+copy_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/BackBufferCopy3"]
+material = SubResource("ShaderMaterial_ky6ar")
+position = Vector2(160, 240)
+scale = Vector2(320, 480)
+texture = SubResource("CanvasTexture_sf8bg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="hud/BackBufferCopy3"]
+material = SubResource("ShaderMaterial_qfa71")
+position = Vector2(480, 240)
+scale = Vector2(320, 480)
+texture = SubResource("CanvasTexture_sf8bg")
+
+[node name="BackBufferCopy4" type="BackBufferCopy" parent="hud"]
+visible = false
+copy_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="hud/BackBufferCopy4"]
+material = SubResource("ShaderMaterial_go2os")
+position = Vector2(320, 120)
+scale = Vector2(640, 240)
+texture = SubResource("CanvasTexture_sf8bg")
+
+[node name="Sprite2D2" type="Sprite2D" parent="hud/BackBufferCopy4"]
+material = SubResource("ShaderMaterial_8084s")
+position = Vector2(320, 360)
+scale = Vector2(640, 240)
+texture = SubResource("CanvasTexture_sf8bg")
+
+[connection signal="frame_changed" from="enemies/sans/sprite_anchor/legs" to="enemies/sans" method="_on_legs_frame_changed"]
+
+[editable path="enemies/sans/speech_bubble"]

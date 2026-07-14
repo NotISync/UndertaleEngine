@@ -1,11 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://cuy13ul1spjw2"]
+[gd_scene load_steps=23 format=3 uid="uid://cuy13ul1spjw2"]
 
 [ext_resource type="Texture2D" uid="uid://cs1ivvpwxh3q" path="res://assets/sprites/overworld/rooms/room0.png" id="1_wamv2"]
 [ext_resource type="PackedScene" uid="uid://bwshu8s0atk5j" path="res://objects/overworld/overworld_hud.tscn" id="2_vqwt6"]
-[ext_resource type="Texture2D" uid="uid://c0pijlyibwwdh" path="res://assets/sprites/battle/border.png" id="3_gkd32"]
-[ext_resource type="FontFile" uid="uid://ds6wqfq03pwda" path="res://assets/fonts/main_mono.ttf" id="4_matlr"]
+[ext_resource type="PackedScene" uid="uid://df6i78fv1eoj6" path="res://objects/overworld/overworld_writer.tscn" id="3_cyuek"]
 [ext_resource type="PackedScene" uid="uid://d2iugqudyx670" path="res://objects/overworld/room_changer.tscn" id="5_vv1ln"]
-[ext_resource type="PackedScene" uid="uid://bb2gb3gs40lfr" path="res://objects/overworld/save_point.tscn" id="6_v1pck"]
 
 [sub_resource type="GDScript" id="GDScript_ch82y"]
 script/source = "extends OverworldRoom
@@ -13,47 +11,12 @@ script/source = "extends OverworldRoom
 func _ready():
 	room_sprite = $room
 	room_changers = [$room_changer]
+	room_spawnpoint = $spawn_point
+	room_savepos = $save_pos
 	super._ready()
 
 func get_place_text() -> String:
 	return \"Room 0\"
-"
-
-[sub_resource type="GDScript" id="GDScript_wuevt"]
-script/source = "extends NinePatchRect
-
-@onready var writer : Writer = $overworld_writer
-
-func _ready():
-	writer.unpaused.connect(func():
-		visible = true
-		if(is_instance_valid(vars.player_character)):
-			if(vars.player_character.get_position_on_screen().y >= 240):
-				position = Vector2(32,10)
-			else:
-				position = Vector2(32,318))
-	writer.done.connect(func(): visible = false)
-"
-
-[sub_resource type="GDScript" id="GDScript_70vne"]
-script/source = "extends AnimatedSprite2D
-
-
-func _ready():
-	await vars.scene.ready
-	vars.main_writer.unpaused.connect(func():if(sprite_frames != null): animation = \"default\")
-	vars.main_writer.done.connect(func(): if(sprite_frames != null): animation = \"idle\")
-"
-
-[sub_resource type="GDScript" id="GDScript_s5v74"]
-script/source = "extends Writer
-
-func _ready():
-	super._ready()
-	await vars.scene.ready
-	player_character = vars.player_character
-	border = $\"..\"
-	face = $\"../face\"
 "
 
 [sub_resource type="GDScript" id="GDScript_7yd8t"]
@@ -61,7 +24,7 @@ script/source = "extends Interactable
 
 func event():
 	super.event()
-	(vars as vars).main_writer.writer_text = \"(sound:mono1)* The flowers...(pc)\"
+	(vars as vars).main_writer.writer_text = \"(face:none)(sound:mono1)* The flowers...(pc)\"
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nrgjn"]
@@ -72,48 +35,48 @@ resource_local_to_scene = true
 size = Vector2(82, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ikbe"]
-size = Vector2(363, 32)
+size = Vector2(80, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c42wb"]
-size = Vector2(33, 126)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqitd"]
+size = Vector2(80, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tn62h"]
-size = Vector2(113.75, 72)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7yvv"]
+size = Vector2(40, 441.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f6ui"]
-size = Vector2(79.75, 72.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnl0w"]
+size = Vector2(44, 33)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3x0o"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tmgm"]
+size = Vector2(760, 167)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abjpg"]
 size = Vector2(634, 33)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtl4q"]
-size = Vector2(887, 39)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i46y"]
+size = Vector2(40, 440)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6o3n"]
-size = Vector2(280, 32.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ima7"]
+size = Vector2(40, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_01w51"]
-size = Vector2(71, 39.25)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bdf5"]
+size = Vector2(80, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ves61"]
-size = Vector2(58.5, 39.625)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wsfv"]
+size = Vector2(120, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0tt6"]
-size = Vector2(58.5, 39.8125)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vw8tb"]
+size = Vector2(1280, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_waj7w"]
-size = Vector2(31.25, 200.906)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xms37"]
+size = Vector2(880, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_co2sx"]
-size = Vector2(108, 71.7266)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o072"]
+size = Vector2(840, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aht7v"]
-size = Vector2(45, 81.125)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3yw3"]
+size = Vector2(1280, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gh1lw"]
-size = Vector2(89, 33)
-
-[node name="test_room" type="Node2D"]
+[node name="room_0" type="Node2D"]
 script = SubResource("GDScript_ch82y")
 
 [node name="camera" type="Camera2D" parent="."]
@@ -123,42 +86,19 @@ position = Vector2(9999, 9999)
 scale = Vector2(2, 2)
 texture = ExtResource("1_wamv2")
 
+[node name="spawn_point" type="Marker2D" parent="."]
+position = Vector2(-380, 20)
+
+[node name="save_pos" type="Marker2D" parent="."]
+position = Vector2(-380, 20)
+
 [node name="overworld_canvas" type="CanvasLayer" parent="."]
 
 [node name="overworld_hud" parent="overworld_canvas" instance=ExtResource("2_vqwt6")]
 visible = false
 
-[node name="message_border" type="NinePatchRect" parent="overworld_canvas"]
+[node name="message_border" parent="overworld_canvas" instance=ExtResource("3_cyuek")]
 visible = false
-offset_left = 32.0
-offset_top = 10.0
-offset_right = 611.0
-offset_bottom = 163.0
-texture = ExtResource("3_gkd32")
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
-script = SubResource("GDScript_wuevt")
-
-[node name="face" type="AnimatedSprite2D" parent="overworld_canvas/message_border"]
-position = Vector2(71, 70)
-script = SubResource("GDScript_70vne")
-
-[node name="overworld_writer" type="RichTextLabel" parent="overworld_canvas/message_border"]
-clip_contents = false
-layout_mode = 0
-offset_left = 28.0
-offset_top = 20.0
-offset_right = 458.0
-offset_bottom = 148.0
-theme_override_constants/line_separation = 4
-theme_override_fonts/normal_font = ExtResource("4_matlr")
-theme_override_font_sizes/normal_font_size = 32
-bbcode_enabled = true
-scroll_active = false
-autowrap_mode = 0
-script = SubResource("GDScript_s5v74")
 
 [node name="flower_interact" type="Area2D" parent="."]
 script = SubResource("GDScript_7yd8t")
@@ -178,65 +118,96 @@ shape = SubResource("RectangleShape2D_7qiep")
 [node name="player_spawn" parent="room_changer" index="1"]
 position = Vector2(57, 29)
 
-[node name="save_point" parent="." instance=ExtResource("6_v1pck")]
-position = Vector2(-470, 93)
-
 [node name="collisions" type="StaticBody2D" parent="."]
 
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="collisions"]
+position = Vector2(-433, -104)
+build_mode = 1
+polygon = PackedVector2Array(1073, 164, 1029, 164, 1029, 131, 947, 131, 947, 164, 313, 164, 313, 4, 233, 4, 233, -36, -127, -36, -127, 4, -207, 4, -207, 204, -167, 204, -167, 244, -127, 244, -127, 284, -87, 284, -87, 324, 193, 324, 193, 284, 233, 284, 233, 244, 1073, 244)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-381.5, -156)
+visible = false
+position = Vector2(-600, -120)
 shape = SubResource("RectangleShape2D_6ikbe")
-
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-103.5, -37)
-shape = SubResource("RectangleShape2D_c42wb")
-
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-142.875, -136)
-shape = SubResource("RectangleShape2D_tn62h")
-
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-200, 215.75)
-shape = SubResource("RectangleShape2D_1f6ui")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions"]
-position = Vector2(197, 43.5)
-shape = SubResource("RectangleShape2D_v3x0o")
+disabled = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="collisions"]
-position = Vector2(243.5, 159.5)
-shape = SubResource("RectangleShape2D_dtl4q")
+visible = false
+position = Vector2(-160, -120)
+shape = SubResource("RectangleShape2D_gqitd")
+disabled = true
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-380, 236)
-shape = SubResource("RectangleShape2D_e6o3n")
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="collisions"]
+visible = false
+position = Vector2(660, 40.75)
+shape = SubResource("RectangleShape2D_i7yvv")
+disabled = true
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-555.5, 199.625)
-shape = SubResource("RectangleShape2D_01w51")
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="collisions"]
+visible = false
+position = Vector2(618, 43.5)
+shape = SubResource("RectangleShape2D_wnl0w")
+disabled = true
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-588.75, 159.813)
-shape = SubResource("RectangleShape2D_ves61")
-
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-628, 119.906)
-shape = SubResource("RectangleShape2D_j0tt6")
-
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-655.375, -0.546875)
-shape = SubResource("RectangleShape2D_waj7w")
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="collisions"]
+visible = false
+position = Vector2(260, -56.5)
+shape = SubResource("RectangleShape2D_8tmgm")
+disabled = true
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="collisions"]
-position = Vector2(-617, -136.137)
-shape = SubResource("RectangleShape2D_co2sx")
+visible = false
+position = Vector2(197, 43.5)
+shape = SubResource("RectangleShape2D_abjpg")
+disabled = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="collisions"]
-position = Vector2(662.5, 100.125)
-shape = SubResource("RectangleShape2D_aht7v")
+visible = false
+position = Vector2(-660, 40)
+shape = SubResource("RectangleShape2D_5i46y")
+disabled = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="collisions"]
-position = Vector2(640.5, 43.5)
-shape = SubResource("RectangleShape2D_gh1lw")
+visible = false
+position = Vector2(-620, 120)
+shape = SubResource("RectangleShape2D_5ima7")
+disabled = true
 
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="collisions"]
+visible = false
+position = Vector2(-600, 160)
+shape = SubResource("RectangleShape2D_2bdf5")
+disabled = true
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="collisions"]
+visible = false
+position = Vector2(-580, 200)
+shape = SubResource("RectangleShape2D_1wsfv")
+disabled = true
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="collisions"]
+visible = false
+position = Vector2(0, 240)
+shape = SubResource("RectangleShape2D_vw8tb")
+disabled = true
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="collisions"]
+visible = false
+position = Vector2(200, 200)
+shape = SubResource("RectangleShape2D_xms37")
+disabled = true
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="collisions"]
+visible = false
+position = Vector2(220, 160)
+shape = SubResource("RectangleShape2D_5o072")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisions"]
+visible = false
+position = Vector2(0, -160)
+shape = SubResource("RectangleShape2D_l3yw3")
+disabled = true
+
+[editable path="overworld_canvas/message_border"]
 [editable path="room_changer"]

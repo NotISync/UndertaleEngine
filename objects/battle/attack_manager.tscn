@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dccycw0oi0itb"]
+[gd_scene load_steps=8 format=3 uid="uid://dccycw0oi0itb"]
 
 [ext_resource type="Script" path="res://scripts/battle/buffer.gd" id="1_1hsqs"]
 [ext_resource type="Shader" path="res://assets/effects/mask.gdshader" id="1_8casw"]
 [ext_resource type="Script" path="res://scripts/battle/attack_manager.gd" id="1_td4c6"]
-[ext_resource type="Texture2D" uid="uid://cn080tr3k362p" path="res://assets/sprites/battle/border_mask.png" id="2_eofwa"]
+[ext_resource type="Texture2D" uid="uid://ltrv8g42xuyt" path="res://assets/sprites/battle/border_mask.png" id="2_eofwa"]
+[ext_resource type="Texture2D" uid="uid://cw6n8jd34o5u5" path="res://assets/sprites/battle/border_transparent.png" id="5_2n72l"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y7b04"]
+shader = ExtResource("1_8casw")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_grdk6"]
 shader = ExtResource("1_8casw")
 
 [node name="attack_manager" type="Node2D"]
@@ -17,6 +21,35 @@ script = ExtResource("1_1hsqs")
 
 [node name="masks" type="Node2D" parent="buffer"]
 material = SubResource("ShaderMaterial_y7b04")
+
+[node name="box_mask" type="Node2D" parent="buffer/masks"]
+material = SubResource("ShaderMaterial_grdk6")
+
+[node name="top_left" type="Sprite2D" parent="buffer/masks/box_mask"]
+use_parent_material = true
+position = Vector2(-6660, -3582)
+scale = Vector2(250, 250)
+texture = ExtResource("2_eofwa")
+
+[node name="bottom_right" type="Sprite2D" parent="buffer/masks/box_mask"]
+use_parent_material = true
+position = Vector2(-6660, -3582)
+scale = Vector2(250, 250)
+texture = ExtResource("2_eofwa")
+flip_h = true
+flip_v = true
+
+[node name="box" type="NinePatchRect" parent="buffer/masks/box_mask"]
+use_parent_material = true
+offset_left = -3330.0
+offset_top = -1791.0
+offset_right = -3290.0
+offset_bottom = -1751.0
+texture = ExtResource("5_2n72l")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="top_left" type="Sprite2D" parent="buffer/masks"]
 use_parent_material = true

@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bb2gb3gs40lfr"]
+[gd_scene load_steps=14 format=3 uid="uid://bb2gb3gs40lfr"]
 
-[ext_resource type="Texture2D" uid="uid://hngwwl7pte36" path="res://assets/sprites/overworld/save_point.png" id="1_juuqp"]
+[ext_resource type="Texture2D" uid="uid://hngwwl7pte36" path="res://assets/sprites/overworld/objects/save_point.png" id="1_juuqp"]
 [ext_resource type="Script" path="res://scripts/overworld/save_point.gd" id="1_rcif2"]
-[ext_resource type="Texture2D" uid="uid://c0pijlyibwwdh" path="res://assets/sprites/battle/border.png" id="5_g2nn4"]
+[ext_resource type="Shader" path="res://assets/effects/battle_box.gdshader" id="3_nhfx8"]
+[ext_resource type="Texture2D" uid="uid://df6wweoh6stjd" path="res://assets/sprites/battle/border.png" id="5_g2nn4"]
 [ext_resource type="FontFile" uid="uid://w8mnhdxac4io" path="res://assets/fonts/main.ttf" id="6_5nan0"]
 [ext_resource type="Texture2D" uid="uid://dwkhqcmnbbm0s" path="res://assets/sprites/battle/heart/small_heart.png" id="7_lp4vu"]
 
@@ -15,7 +16,7 @@ script/source = "extends Interactable
 size = Vector2(18, 18.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kq130"]
-size = Vector2(16.5, 15)
+size = Vector2(20, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cgng5"]
 atlas = ExtResource("1_juuqp")
@@ -39,6 +40,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_07aoq"]
+shader = ExtResource("3_nhfx8")
+shader_parameter/fill = Vector4(0, 0, 0, 0.75)
+shader_parameter/border = Vector4(1, 1, 1, 1)
+shader_parameter/outline = Vector4(0, 0, 0, 1)
+shader_parameter/inline = Vector4(0, 0, 0, 1)
+
 [node name="save_point" type="Node2D"]
 script = ExtResource("1_rcif2")
 
@@ -52,7 +60,7 @@ shape = SubResource("RectangleShape2D_y88ll")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="collision2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0.5, 0)
+position = Vector2(0, 11)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_kq130")
 
@@ -65,15 +73,16 @@ frame_progress = 0.929455
 
 [node name="selection_border" type="NinePatchRect" parent="CanvasLayer"]
 visible = false
+material = SubResource("ShaderMaterial_07aoq")
 offset_left = 108.0
 offset_top = 118.0
 offset_right = 532.0
 offset_bottom = 292.0
 texture = ExtResource("5_g2nn4")
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="text_container" type="Node2D" parent="CanvasLayer/selection_border"]
 position = Vector2(-108, -118)
@@ -88,7 +97,7 @@ theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("6_5nan0")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "Rose"
+text = "Chara"
 scroll_active = false
 autowrap_mode = 0
 
@@ -102,7 +111,7 @@ theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("6_5nan0")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "Snowdin - Box Road"
+text = "--"
 scroll_active = false
 autowrap_mode = 0
 
@@ -116,7 +125,7 @@ theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("6_5nan0")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "LV 6"
+text = "LV 1"
 scroll_active = false
 autowrap_mode = 0
 
@@ -130,7 +139,7 @@ theme_override_constants/line_separation = 4
 theme_override_fonts/normal_font = ExtResource("6_5nan0")
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "54:25"
+text = "0:00"
 scroll_active = false
 autowrap_mode = 0
 
@@ -179,10 +188,10 @@ scroll_active = false
 autowrap_mode = 0
 
 [node name="heart" type="TextureRect" parent="CanvasLayer/selection_border"]
+self_modulate = Color(1, 0, 0, 1)
 layout_mode = 0
-offset_left = 34.0
-offset_top = 128.0
-offset_right = 74.0
-offset_bottom = 167.999
-scale = Vector2(0.45, 0.45)
+offset_left = 33.0
+offset_top = 127.0
+offset_right = 55.0
+offset_bottom = 149.0
 texture = ExtResource("7_lp4vu")
