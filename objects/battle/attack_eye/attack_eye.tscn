@@ -1,0 +1,208 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7res5mecihpe"]
+
+[ext_resource type="Texture2D" uid="uid://devh3bhee8g5l" path="res://assets/sprites/battle/hud/weapons/attack_eye/eye.png" id="1_1mo6j"]
+[ext_resource type="Texture2D" uid="uid://h7yqmmfeyxhu" path="res://assets/sprites/battle/hud/weapons/attack_eye/0.png" id="2_r7anb"]
+[ext_resource type="Texture2D" uid="uid://cldjlvu68haxi" path="res://assets/sprites/battle/hud/weapons/attack_eye/1.png" id="3_cvble"]
+[ext_resource type="Texture2D" uid="uid://dwdrmya3a6dbw" path="res://assets/sprites/battle/hud/weapons/attack_eye/2.png" id="4_btxew"]
+[ext_resource type="Texture2D" uid="uid://cb74a2iu8ji54" path="res://assets/sprites/battle/hud/weapons/attack_eye/3.png" id="5_120op"]
+[ext_resource type="Texture2D" uid="uid://c7fmdd7fnxsi4" path="res://assets/sprites/battle/hud/weapons/attack_eye/4.png" id="6_elg6o"]
+
+[sub_resource type="GDScript" id="GDScript_0627q"]
+script/source = "extends AttackEye
+
+@onready var eye = $eye
+@onready var bar = $bar
+
+var bar_moving = true
+var distance = 0
+var bar_active = []
+var reticles_hit := 0
+var reticles_perfect_hit := 0
+var score = 0
+var dmg := 0
+var speed = 10 + randi_range(0, 2)
+var bar_positioned = -1
+
+func _ready():
+	speed = 10 + randi_range(0, 2)
+	match(settings.player_save.player.weapon):
+		\"toy_knife\":
+			speed *= 1.25
+		\"tough_glove\":
+			speed *= 1.2
+		\"ballet_shoes\":
+			bar_positioned = -1
+			speed = 10
+		\"torn_notebook\", \"burnt_pan\":
+			bar_positioned = 1
+			speed = 10
+		\"empty_gun\":
+			bar_positioned = -1
+			speed = 15
+	bar.position.x = 310*bar_positioned
+	bar_active.append(bar)
+	for i in range(settings.player_save.get_weapon().reticles-1):
+		var extra_bar = bar.duplicate()
+		extra_bar.frame = 1
+		extra_bar.position.x = (310+(100*(i+1))+[-25, 25].pick_random())*bar_positioned
+		bar_active.append(extra_bar)
+		add_child(extra_bar)
+	eye_start.emit()
+	position = Vector2(293,75)
+
+func _process(delta):
+	if(bar_moving):
+		if(settings.player_save.get_weapon().reticles>1):
+			if(bar_active[0]): bar_active[0].frame = 0
+			for i in bar_active:
+				i.position.x += (speed*-bar_positioned) * delta * 30
+			if(eye.position.distance_to(bar_active[0].position+Vector2(eye.position.x + (eye.size.x/2) * -bar_positioned, eye.position.y)) > 310):
+				create_tween().tween_property(bar_active[0], \"self_modulate:a\",0,0.1)
+				create_tween().tween_property(bar_active[0], \"position:x\",bar_active[0].position.x-30*bar_positioned,0.1)
+				if(bar_active.size() == 1):
+					if(reticles_hit > 0):
+						get_tree().create_tween().tween_property(eye,\"self_modulate:a\", 0,.4).set_trans(Tween.TRANS_SINE)
+						weapon_dmg_calculation(score)
+					else:
+						get_tree().create_tween().tween_property(eye,\"self_modulate:a\", 0,.4).set_trans(Tween.TRANS_SINE)
+						weapon_dmg_calculation(-1)
+				else:
+					bar_active.remove_at(0)
+			elif(Input.is_action_just_pressed(\"confirm\")):
+				#ChEATTER!1!11# bar_active[0].position = eye.position-Vector2(eye.position.x, eye.position.y)
+				var wepspeed = (speed*bar_positioned) * delta * 30
+				reticles_hit += 1
+				create_tween().tween_property(bar_active[0], \"self_modulate:a\",0,0.25)
+				create_tween().tween_property(bar_active[0], \"scale\",Vector2(2, 2),0.25)
+				distance = eye.position.distance_to(bar_active[0].position+Vector2(eye.position.x + ((eye.size.x/2) * -bar_positioned), eye.position.y))
+				var middle_point = eye.position.distance_to(Vector2(eye.position.x + ((eye.size.x/2) * -bar_positioned), eye.position.y))
+				if(((distance > middle_point-wepspeed)&&(distance < middle_point+wepspeed))if(bar_positioned==1)else(distance < middle_point-wepspeed)&&(distance > middle_point+wepspeed)):
+					bar_active[0].play(\"hit\")
+					audio.play(\"weapons/snd_victor\")
+					bar_active[0].position.x = 0 #snapping for good looks
+					score += 110
+					reticles_perfect_hit += 1
+				elif(((distance > middle_point-wepspeed*9)&&(distance < middle_point+wepspeed*9))if(bar_positioned==1)else((distance < middle_point-wepspeed*9)&&(distance > middle_point+wepspeed*9))):
+					bar_active[0].set_animation(\"hit\")
+					bar_active[0].frame = 1
+					audio.play(\"weapons/snd_hit\")
+					if(((distance > middle_point-wepspeed*3)&&(distance < middle_point+wepspeed*3))if(bar_positioned==1)else((distance < middle_point-wepspeed*3)&&(distance > middle_point+wepspeed*3))):
+						score += 90
+					elif(((distance > middle_point-wepspeed*5)&&(distance < middle_point+wepspeed*5))if(bar_positioned==1)else((distance < middle_point-wepspeed*5)&&(distance > middle_point+wepspeed*5))):
+						score += 80
+					elif(((distance > middle_point-wepspeed*7)&&(distance < middle_point+wepspeed*7))if(bar_positioned==1)else((distance < middle_point-wepspeed*7)&&(distance > middle_point+wepspeed*7))):
+						score += 70
+					else:
+						score += 50
+				else:
+					bar_active[0].set_animation(\"hit\")
+					bar_active[0].frame = 2
+					if(((distance > middle_point-wepspeed*17)&&(distance < middle_point+wepspeed*17))if(bar_positioned==1)else((distance < middle_point-wepspeed*17)&&(distance > middle_point+wepspeed*17))):
+						score += 40
+					if(((distance > middle_point-wepspeed*29)&&(distance < middle_point+wepspeed*29))if(bar_positioned==1)else((distance < middle_point-wepspeed*29)&&(distance > middle_point+wepspeed*29))):
+						score += 20
+					if(((distance > middle_point-wepspeed*41)&&(distance < middle_point+wepspeed*41))if(bar_positioned==1)else((distance < middle_point-wepspeed*41)&&(distance > middle_point+wepspeed*41))):
+						score += 15
+					else:
+						score += 10
+				bar_active.remove_at(0)
+				if(bar_active.size() == 0):
+					get_tree().create_tween().tween_property(eye,\"self_modulate:a\", 0,.4).set_trans(Tween.TRANS_SINE)
+					weapon_dmg_calculation(score)
+		else:
+			bar.position.x += (speed*-bar_positioned) * delta * 30
+			if(eye.position.distance_to(bar.position+Vector2(eye.position.x, eye.position.y)) > 310):
+				weapon_dmg_calculation(-1)
+				bar.visible = false
+			elif(Input.is_action_just_pressed(\"confirm\")):
+				#ChEATTER!1!11# bar.position = eye.position-Vector2(eye.position.x, eye.position.y)
+				distance = eye.position.distance_to(bar.position+Vector2(eye.position.x, eye.position.y))
+				weapon_dmg_calculation(distance)
+
+func weapon_dmg_calculation(distance : float):
+	bar_moving = false
+	var player_dmg = (settings.player_save.player.base_atk + settings.player_save.player.atk) + (settings.player_save.get_weapon().attack + settings.player_save.get_armor().attack) + vars.player_heart.attack_buff
+	if(distance!=-1):
+		weapon.attack_animation()
+		match(settings.player_save.player.weapon):
+			\"tough_glove\":
+				bar.play()
+				await weapon.final_hit
+				if(score>0):
+					dmg = roundi((player_dmg + randi_range(0,2) - enemy.def) * (score/4.0) * (2.1 if distance <= 5 else ((546 - distance)/546) * 2))
+				else:
+					dmg = -1
+			\"ballet_shoes\", \"torn_notebook\", \"burnt_pan\", \"empty_gun\":
+				if(score>400): score *= 1.25
+				elif(score>430): score *= 2.25
+				dmg = roundi((player_dmg - enemy.def) * ((score/160.0) * (4/reticles_hit)) + randi_range(0,2))
+			_: 
+				bar.play()
+				dmg = roundi((player_dmg + randi_range(0,2) - enemy.def) * (2.2 if distance <= 5 else ((546 - distance)/546) * 2))
+	else:
+		dmg = -1
+	attack(dmg)
+
+func attack(amount : float):
+	eye_hit.emit()
+	enemy.attack(amount)
+	await enemy.done_being_attacked
+	bar.visible = false
+	reparent(vars.hud_manager)
+	get_tree().create_tween().tween_property(eye,\"offset_left\",0.0,.45).set_trans(Tween.TRANS_SINE)
+	get_tree().create_tween().tween_property(eye,\"offset_right\",0.0,.45).set_trans(Tween.TRANS_SINE)
+	get_tree().create_tween().tween_property(eye,\"self_modulate:a\", 0,.4).set_trans(Tween.TRANS_SINE)
+	await get_tree().create_timer(.45, false).timeout
+	weapon.queue_free()
+	queue_free()
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3w4x8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_r7anb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cvble")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_btxew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_120op")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_elg6o")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 20.0
+}]
+
+[node name="attack" type="Node2D"]
+script = SubResource("GDScript_0627q")
+
+[node name="eye" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -57.0
+offset_right = 273.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(273, 0)
+texture = ExtResource("1_1mo6j")
+expand_mode = 1
+
+[node name="bar" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3w4x8")
