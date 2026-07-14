@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://cmriy5ep1ymgd"]
+
+[ext_resource type="Script" path="res://scripts/items/weapons/attack_animation/glove.gd" id="1_g3yic"]
+[ext_resource type="Texture2D" uid="uid://22hlexxl5rlo" path="res://assets/sprites/battle/hud/weapons/glove/tip_0.png" id="2_61bfe"]
+[ext_resource type="Texture2D" uid="uid://dw82bya12osg2" path="res://assets/sprites/battle/hud/weapons/glove/tip_1.png" id="3_1nrxw"]
+[ext_resource type="Texture2D" uid="uid://chrf85eoc3ko8" path="res://assets/sprites/battle/hud/weapons/glove/0.png" id="4_c8hho"]
+[ext_resource type="Texture2D" uid="uid://cet82jldhb3yn" path="res://assets/sprites/battle/hud/weapons/glove/1.png" id="5_c6jcm"]
+[ext_resource type="Texture2D" uid="uid://bb4kr6bs5m2g3" path="res://assets/sprites/battle/hud/weapons/glove/2.png" id="6_02ck2"]
+[ext_resource type="Texture2D" uid="uid://bu7vmb1rq60p5" path="res://assets/sprites/battle/hud/weapons/glove/3.png" id="7_jmh61"]
+[ext_resource type="Texture2D" uid="uid://bhh8turc08f8m" path="res://assets/sprites/battle/hud/weapons/glove/4.png" id="8_8xopg"]
+[ext_resource type="Texture2D" uid="uid://cmc061q3f3nq3" path="res://assets/sprites/battle/hud/weapons/glove/5.png" id="9_kfevq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjek3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1nrxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_61bfe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x6g1c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_c8hho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c6jcm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_02ck2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jmh61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8xopg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kfevq")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="weapon" type="Node2D"]
+visible = false
+script = ExtResource("1_g3yic")
+
+[node name="tip" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xjek3")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_x6g1c")

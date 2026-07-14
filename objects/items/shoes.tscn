@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://bj72b556bobko"]
+
+[ext_resource type="Script" path="res://scripts/items/weapons/attack_animation/shoes.gd" id="1_sm6l1"]
+[ext_resource type="Texture2D" uid="uid://bq50qvqmpcdap" path="res://assets/sprites/battle/hud/weapons/shoes/0.png" id="2_184pl"]
+[ext_resource type="Texture2D" uid="uid://bpsgllxy8ahkk" path="res://assets/sprites/battle/hud/weapons/shoes/1.png" id="3_8n7es"]
+[ext_resource type="Texture2D" uid="uid://byha6ketj16dp" path="res://assets/sprites/battle/hud/weapons/shoes/2.png" id="4_jrepv"]
+[ext_resource type="Texture2D" uid="uid://bm2p2vfkdh5a5" path="res://assets/sprites/battle/hud/weapons/shoes/3.png" id="5_rpjf3"]
+[ext_resource type="Texture2D" uid="uid://dc1lwovm0ptsy" path="res://assets/sprites/battle/hud/weapons/shoes/4.png" id="6_ay2wg"]
+[ext_resource type="Texture2D" uid="uid://ceokis5te3d8c" path="res://assets/sprites/battle/hud/weapons/shoes/5.png" id="7_q1gnd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s2bww"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_184pl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8n7es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jrepv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_rpjf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ay2wg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q1gnd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="weapon" type="Node2D"]
+visible = false
+script = ExtResource("1_sm6l1")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s2bww")

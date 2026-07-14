@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbtcbmfg2xtgb"]
+
+[ext_resource type="Script" path="res://scripts/items/weapons/attack_animation/notebook.gd" id="1_b1tys"]
+[ext_resource type="Texture2D" uid="uid://bwgiju26gnv13" path="res://assets/sprites/battle/hud/weapons/notebook/notebook.png" id="2_5rh6u"]
+[ext_resource type="Texture2D" uid="uid://n1a1yccxd8g" path="res://assets/sprites/battle/hud/weapons/notebook/0.png" id="3_wlmph"]
+[ext_resource type="Texture2D" uid="uid://c50pkym4qrrhj" path="res://assets/sprites/battle/hud/weapons/notebook/1.png" id="4_ax7p3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xmiy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5rh6u")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wlmph")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ax7p3")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 20.0
+}]
+
+[node name="weapon" type="Node2D"]
+visible = false
+script = ExtResource("1_b1tys")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_xmiy2")

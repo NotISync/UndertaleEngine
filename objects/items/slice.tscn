@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=3 uid="uid://bjq5g6nqyy4oy"]
+
+[ext_resource type="Script" path="res://scripts/items/weapons/attack_animation/slice.gd" id="1_4bo62"]
+[ext_resource type="Texture2D" uid="uid://mfo4i33u5oo7" path="res://assets/sprites/battle/hud/weapons/slice/0.png" id="2_dyi30"]
+[ext_resource type="Texture2D" uid="uid://kmfj3g0w60st" path="res://assets/sprites/battle/hud/weapons/slice/1.png" id="3_ihqrh"]
+[ext_resource type="Texture2D" uid="uid://ycdcyu7qcoix" path="res://assets/sprites/battle/hud/weapons/slice/2.png" id="4_o3e1m"]
+[ext_resource type="Texture2D" uid="uid://blul6udrho1yg" path="res://assets/sprites/battle/hud/weapons/slice/3.png" id="5_wl2hc"]
+[ext_resource type="Texture2D" uid="uid://rmhduuclbu64" path="res://assets/sprites/battle/hud/weapons/slice/4.png" id="6_tulqr"]
+[ext_resource type="Texture2D" uid="uid://cq3jwyffqw6mu" path="res://assets/sprites/battle/hud/weapons/slice/5.png" id="7_t0ln5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3mjos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dyi30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ihqrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o3e1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wl2hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tulqr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t0ln5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="weapon" type="Node2D"]
+visible = false
+script = ExtResource("1_4bo62")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3mjos")

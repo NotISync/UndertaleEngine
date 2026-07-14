@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwbd34w404w0x"]
+
+[ext_resource type="Script" path="res://scripts/items/weapons/attack_animation/gun.gd" id="1_d7v8j"]
+[ext_resource type="Texture2D" uid="uid://cfiy7c6med26b" path="res://assets/sprites/battle/hud/weapons/gun/0.png" id="2_3ynxb"]
+[ext_resource type="Texture2D" uid="uid://ctk7p17k26bk6" path="res://assets/sprites/battle/hud/weapons/gun/1.png" id="3_oa7qc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsrcg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3ynxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oa7qc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3ynxb")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="weapon" type="Node2D"]
+visible = false
+script = ExtResource("1_d7v8j")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fsrcg")
