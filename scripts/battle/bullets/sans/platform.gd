@@ -19,12 +19,11 @@ var platform_type : e_platform_type = e_platform_type.stick :
 @onready var stick_collision: Node = $platform/stick/collision
 @onready var slide_collision: Node = $platform/slide/collision
 
-
 func _physics_process(delta):
 	position += Vector2(x,y) * speed * delta
 	color.size.x = platform.size.x
-	var collision_size: Vector2 = platform.size * 0.5
-	stick_collision.position = collision_size
+	var collision_size: Vector2 = (platform.size - Vector2(8, 0)) / 2
+	stick_collision.position = collision_size + Vector2(4, 0)
 	stick_collision.shape.extents = collision_size
-	slide_collision.position = collision_size
+	slide_collision.position = collision_size + Vector2(4, 0)
 	slide_collision.shape.extents = collision_size

@@ -1,0 +1,115 @@
+[gd_scene load_steps=17 format=3 uid="uid://rmxpydiq1sqs"]
+
+[ext_resource type="Script" path="res://scripts/battle/bullets/player/player_bullet.gd" id="1_w16eh"]
+[ext_resource type="Texture2D" uid="uid://bjn2378jp1t7r" path="res://assets/sprites/battle/heart/yellow/charged_bullet_0.png" id="2_6y1hd"]
+[ext_resource type="Texture2D" uid="uid://o8hbnaa3nu8j" path="res://assets/sprites/battle/heart/yellow/bullet_0.png" id="2_hkpis"]
+[ext_resource type="Texture2D" uid="uid://casheylocwoxo" path="res://assets/sprites/battle/heart/yellow/bullet_1.png" id="3_y8gcj"]
+[ext_resource type="Texture2D" uid="uid://cr1o4msk7n0ks" path="res://assets/sprites/battle/heart/yellow/bullet_2.png" id="4_kr5fm"]
+[ext_resource type="Texture2D" uid="uid://dnip7wesc2i6o" path="res://assets/sprites/battle/heart/yellow/bullet_3.png" id="5_iv68k"]
+[ext_resource type="Texture2D" uid="uid://ejxw5jlcris0" path="res://assets/sprites/battle/heart/yellow/bullet_4.png" id="6_3ma1t"]
+[ext_resource type="Texture2D" uid="uid://8qjbm4pi4spt" path="res://assets/sprites/battle/heart/yellow/bullet_5.png" id="7_4mpx4"]
+[ext_resource type="Texture2D" uid="uid://bikn56gdx7w3g" path="res://assets/sprites/battle/heart/yellow/bullet_dimish_0_0.png" id="8_o63qv"]
+[ext_resource type="Texture2D" uid="uid://ct7mqkvbuj7g8" path="res://assets/sprites/battle/heart/yellow/bullet_dimish_0_1.png" id="9_l8gwp"]
+[ext_resource type="Texture2D" uid="uid://cclwdrd7wqov4" path="res://assets/sprites/battle/heart/yellow/bullet_dimish_0_2.png" id="10_hkarl"]
+[ext_resource type="Texture2D" uid="uid://cuav6g7ifx1f" path="res://assets/sprites/battle/heart/yellow/bullet_dimish_0_3.png" id="11_gq5lm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_swmtq"]
+size = Vector2(8, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_noyuj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hkpis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y8gcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kr5fm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iv68k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3ma1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4mpx4")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_o63qv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_l8gwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hkarl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_gq5lm")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nydga"]
+resource_local_to_scene = true
+size = Vector2(28, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i6hy2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6y1hd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="bullet" type="Node2D"]
+script = ExtResource("1_w16eh")
+
+[node name="offscreen" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-3.57628e-07, 23)
+scale = Vector2(1.4, 2.3)
+
+[node name="normal" type="Node2D" parent="."]
+
+[node name="area" type="Area2D" parent="normal" groups=["bullet_hitbox"]]
+position = Vector2(0, 8)
+metadata/bullet = NodePath("../../..")
+
+[node name="collision" type="CollisionShape2D" parent="normal/area"]
+shape = SubResource("RectangleShape2D_swmtq")
+disabled = true
+
+[node name="sprite" type="AnimatedSprite2D" parent="normal"]
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_noyuj")
+autoplay = "default"
+
+[node name="charged" type="Node2D" parent="."]
+visible = false
+
+[node name="area" type="Area2D" parent="charged" groups=["bullet_hitbox"]]
+position = Vector2(0, 23)
+metadata/bullet = NodePath("../../..")
+
+[node name="collision" type="CollisionShape2D" parent="charged/area"]
+shape = SubResource("RectangleShape2D_nydga")
+disabled = true
+
+[node name="sprite" type="AnimatedSprite2D" parent="charged"]
+position = Vector2(0, 23)
+sprite_frames = SubResource("SpriteFrames_i6hy2")
+autoplay = "default"
+
+[connection signal="screen_exited" from="offscreen" to="." method="_on_offscreen_screen_exited"]

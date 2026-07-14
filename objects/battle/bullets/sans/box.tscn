@@ -1,0 +1,132 @@
+[gd_scene load_steps=12 format=3 uid="uid://p3trncvmigkd"]
+
+[ext_resource type="Script" path="res://scripts/battle/bullets/sans/box.gd" id="1_g87t4"]
+[ext_resource type="Shader" path="res://assets/effects/battle_box.gdshader" id="2_l8tuh"]
+[ext_resource type="Texture2D" uid="uid://df6wweoh6stjd" path="res://assets/sprites/battle/border.png" id="3_5k7wk"]
+[ext_resource type="Script" path="res://scripts/battle/battle_box.gd" id="4_1lqvh"]
+[ext_resource type="Shader" path="res://assets/effects/mask.gdshader" id="5_7hswr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ek0td"]
+shader = ExtResource("5_7hswr")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idq8d"]
+size = Vector2(575, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f4vmr"]
+size = Vector2(575, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gw7p4"]
+size = Vector2(5, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km0x6"]
+size = Vector2(5, 140)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5t44q"]
+shader = ExtResource("2_l8tuh")
+shader_parameter/fill = Vector4(0, 0, 0, 0.75)
+shader_parameter/border = Vector4(1, 1, 1, 1)
+shader_parameter/outline = Vector4(0, 0, 0, 1)
+shader_parameter/inline = Vector4(0, 0, 0, 1)
+
+[node name="box" type="Node2D"]
+script = ExtResource("1_g87t4")
+
+[node name="box_mask" type="NinePatchRect" parent="."]
+material = SubResource("ShaderMaterial_ek0td")
+offset_left = 27.0
+offset_top = 245.0
+offset_right = 612.0
+offset_bottom = 395.0
+pivot_offset = Vector2(292.5, 75)
+texture = ExtResource("3_5k7wk")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+script = ExtResource("4_1lqvh")
+
+[node name="collisions" type="StaticBody2D" parent="box_mask"]
+position = Vector2(5, 5)
+
+[node name="up" type="CollisionShape2D" parent="box_mask/collisions"]
+position = Vector2(287.5, 2.5)
+shape = SubResource("RectangleShape2D_idq8d")
+
+[node name="down" type="CollisionShape2D" parent="box_mask/collisions"]
+position = Vector2(287.5, 137.5)
+shape = SubResource("RectangleShape2D_f4vmr")
+
+[node name="left" type="CollisionShape2D" parent="box_mask/collisions"]
+position = Vector2(2.5, 70)
+shape = SubResource("RectangleShape2D_gw7p4")
+
+[node name="right" type="CollisionShape2D" parent="box_mask/collisions"]
+position = Vector2(572.5, 70)
+shape = SubResource("RectangleShape2D_km0x6")
+
+[node name="corner_top" type="Marker2D" parent="box_mask"]
+position = Vector2(5, 5)
+
+[node name="corner_top_inner" type="Marker2D" parent="box_mask"]
+position = Vector2(10, 10)
+
+[node name="corner_top_outer" type="Marker2D" parent="box_mask"]
+
+[node name="corner_bottom" type="Marker2D" parent="box_mask"]
+position = Vector2(580, 145)
+
+[node name="corner_bottom_inner" type="Marker2D" parent="box_mask"]
+position = Vector2(575, 140)
+
+[node name="corner_bottom_outer" type="Marker2D" parent="box_mask"]
+position = Vector2(585, 150)
+
+[node name="battle_box" type="NinePatchRect" parent="."]
+material = SubResource("ShaderMaterial_5t44q")
+offset_left = 27.0
+offset_top = 245.0
+offset_right = 612.0
+offset_bottom = 395.0
+pivot_offset = Vector2(292.5, 75)
+texture = ExtResource("3_5k7wk")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+script = ExtResource("4_1lqvh")
+
+[node name="collisions" type="StaticBody2D" parent="battle_box"]
+position = Vector2(5, 5)
+
+[node name="up" type="CollisionShape2D" parent="battle_box/collisions"]
+position = Vector2(287.5, 2.5)
+shape = SubResource("RectangleShape2D_idq8d")
+
+[node name="down" type="CollisionShape2D" parent="battle_box/collisions"]
+position = Vector2(287.5, 137.5)
+shape = SubResource("RectangleShape2D_f4vmr")
+
+[node name="left" type="CollisionShape2D" parent="battle_box/collisions"]
+position = Vector2(2.5, 70)
+shape = SubResource("RectangleShape2D_gw7p4")
+
+[node name="right" type="CollisionShape2D" parent="battle_box/collisions"]
+position = Vector2(572.5, 70)
+shape = SubResource("RectangleShape2D_km0x6")
+
+[node name="corner_top" type="Marker2D" parent="battle_box"]
+position = Vector2(5, 5)
+
+[node name="corner_top_inner" type="Marker2D" parent="battle_box"]
+position = Vector2(10, 10)
+
+[node name="corner_top_outer" type="Marker2D" parent="battle_box"]
+
+[node name="corner_bottom" type="Marker2D" parent="battle_box"]
+position = Vector2(580, 145)
+
+[node name="corner_bottom_inner" type="Marker2D" parent="battle_box"]
+position = Vector2(575, 140)
+
+[node name="corner_bottom_outer" type="Marker2D" parent="battle_box"]
+position = Vector2(585, 150)

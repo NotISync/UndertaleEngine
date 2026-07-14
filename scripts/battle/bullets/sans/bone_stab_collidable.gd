@@ -1,5 +1,5 @@
 extends Bullet
-class_name BBoneStab
+class_name BBoneStabCollidable
 
 @onready var pivot_offset = $pivot_offset
 @onready var bones = $pivot_offset/bones
@@ -20,14 +20,7 @@ var bone_rotation := 0:
 		bone_rotation = value
 		pivot_offset.rotation_degrees = value
 
-func _init():
-	curse = e_curse.karma
-	damage = 5
-	karma = 2
-
 func _ready():
-	super._ready()
-	area2d = $pivot_offset/area
 	audio.play(sound_warn)
 	warning.size.x = length + fmod(length,12)
 	warning.offset_top = -bone_height
@@ -37,10 +30,10 @@ func _ready():
 	var bone_count = ceil(bones.size.x / 12)
 	for i in range(bone_count):
 		var collision = CollisionShape2D.new()
-		area2d.add_child(collision)
+		$pivot_offset/area.add_child(collision)
 		collision.shape = RectangleShape2D.new()
 		collision.position.y = bones.size.y / 2
-		collision.shape.size = Vector2(6,bones.size.y)
+		collision.shape.size = Vector2(10,bones.size.y)
 		collision.position.x = 6 + i * 12
 
 func change_color():
@@ -62,7 +55,7 @@ func _process(delta: float) -> void:
 			pivot_offset.pivot_offset = warning.size / 2 + Vector2(0,-bone_height)
 		270:
 			pivot_offset.pivot_offset = Vector2(warning.size.x,warning.size.x) / 2 + Vector2(0,-bone_height)
-	for i in area2d.get_children():
+	for i in $pivot_offset/area.get_children():
 		i.position.y = (bones.offset_bottom + bones.offset_top) / 2
 		i.shape.size.y = bones.size.y
 	if(state == 0):

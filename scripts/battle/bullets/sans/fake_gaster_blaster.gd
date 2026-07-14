@@ -1,5 +1,5 @@
 extends Bullet
-class_name BGasterBlaster
+class_name FakeBGasterBlaster
 
 signal done
 
@@ -8,7 +8,6 @@ signal done
 @onready var laser_main := $laser/main
 @onready var laser_top := $laser/top
 @onready var laser_top2 := $laser/top2
-@onready var laser_bottom := $laser/bottom
 @onready var laser_hitbox := $laser/area
 @onready var laser_hitbox_col := $laser/area/collision
 
@@ -18,21 +17,19 @@ var blast_time := 0.0
 var blast_size := 0.0
 var end_position := Vector2(320, 240)
 var end_rotation := -90.0
-var sound_entry = "battle/mus_sfx_segapower"
-var sound_blast = "battle/mus_sfx_rainbowbeam_1"
 
 var leaving_speed := 0.0
 var blast_timer := 0.0
 
 func _init():
 	curse = e_curse.karma
-	damage = 5
-	karma = 2
+	damage = 1
+	karma = 1
 
 func _ready():
 	super._ready()
-	audio.stop_sound(sound_entry)
-	audio.play(sound_entry, audio.global_volume, 1.2)
+	audio.stop_sound("battle/gaster_blaster")
+	audio.play("battle/gaster_blaster", audio.global_volume, 1.2)
 
 func _process(delta):
 	match(state):
@@ -67,26 +64,31 @@ func _process(delta):
 		2:
 			if(blast_timer <= blast_time):
 				if(blast_timer == 0):
-					laser.visible = true
-					laser_hitbox_col.disabled = false
-					audio.stop_sound(sound_blast)
-					audio.play(sound_blast,audio.global_volume,1.2)
-					if scale.x >= 1: vars.display.screen_shake(10)
+					#laser.visible = true
+					#laser_hitbox_col.disabled = false
+					gravity_drag.y = -100
+					audio.stop_sound("battle/mus_sfx_gigapunch")
+					audio.stop_sound("battle/gaster_blastnt")
+					audio.play("battle/mus_sfx_gigapunch",audio.global_volume,1.2)
+					audio.play("battle/gaster_blastnt",audio.global_volume)
+					if scale.x >= 1: vars.display.screen_shake(5)
 			
 			if(blast_timer < 10):
-				blast_size += floor((25.0 * spr.scale.x) * 0.125) * delta * 30
+				blast_size += floor((35.0 * spr.scale.x) * 0.125) * delta * 30
 				leaving_speed += 60 * delta
 			else: leaving_speed += 120 * delta
 			
 			if blast_timer > 10 + blast_time:
 				blast_size *= pow(0.8, delta * 30)
-				if blast_size <= 2: 
-					queue_free()
-					return
+				if blast_size <= 2: queue_free()
 				laser.modulate.a -= 3 * delta
 				if laser.modulate.a <= 0.8: laser_hitbox_col.disabled = true
 			
-			position -= Vector2(0, leaving_speed).rotated(rotation) * delta * 30
+			#position -= Vector2(0, leaving_speed).rotated(rotation) * delta * 30
+			position.y += gravity_drag.y * delta * 1.5
+			gravity_drag.y += max(abs(gravity_drag.y),200) * delta * 2
+			position.x -= max(gravity_drag.x, 100) * delta
+			rotation_degrees -= max(gravity_drag.x, 100) * delta
 			
 			var laser_siner: float = (sin(blast_timer * 0.66667 / 2) * blast_size) * 0.25
 			var xscale: float = spr.scale.x * 0.5
@@ -104,5 +106,5 @@ func _process(delta):
 			
 			laser_hitbox_col.shape.extents = Vector2((blast_size * 3.0) * .25, 1000)
 			laser_hitbox_col.position = laser_main.position + laser_main.size
-			
+		
 			blast_timer += 60 * delta
