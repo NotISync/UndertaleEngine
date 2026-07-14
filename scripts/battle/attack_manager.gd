@@ -6,6 +6,7 @@ signal delete_bullets
 signal attack_done
 
 @onready var masks = get_node("buffer/masks")
+@onready var box_masks = get_node("buffer/masks/box_mask")
 
 var turn_num = 0
 var attacks = [load("res://scripts/battle/attacks/attack_base.gd")]
@@ -20,7 +21,8 @@ func set_writer_text():
 
 func pre_attack() -> Attack:
 	current_attack = Attack.new()
-	current_attack.set_script(attacks[wrapi(turn_num,0,len(attacks))])
+	if(attacks == []): current_attack.set_script(load("res://scripts/battle/attacks/attack_base.gd"))
+	else: current_attack.set_script(attacks[wrapi(turn_num,0,len(attacks))])
 	add_child(current_attack)
 	current_attack.pre_attack()
 	current_attack.attack_finished.connect(func(): attack_done.emit())
@@ -28,7 +30,8 @@ func pre_attack() -> Attack:
 
 func pre_heal_attack() -> Attack:
 	current_attack = Attack.new()
-	current_attack.set_script(heal_attacks.pick_random())
+	if(heal_attacks == []): current_attack.set_script(load("res://scripts/battle/attacks/attack_base.gd"))
+	else: current_attack.set_script(heal_attacks.pick_random())
 	add_child(current_attack)
 	current_attack.pre_attack()
 	current_attack.attack_finished.connect(func(): attack_done.emit())
@@ -55,10 +58,37 @@ rotation_speed : float, masked = true, duration : float = -1) -> Bullet:
 	masks.add_child(bullet)
 	return bullet
 
+func box(position : Vector2, margin : Array, rotation_speed : float, masked = true, duration : float = -1) -> BBox:
+	var box = preload("res://objects/battle/bullets/sans/box.tscn").instantiate()
+	box.masked = masked
+	box.duration = duration
+	box.rotation_speed = rotation_speed
+	box.global_position = position
+	box_masks.add_child(box)
+	box.margin = margin
+	return box
+
 func bone(type : Bullet.e_type, position : Vector2, x : float, y : float, speed : float,
 offset_top: float, offset_bottom : float, rotation_speed : float, masked = true,
 duration : float = -1) -> BBone:
 	var bone = preload("res://objects/battle/bullets/sans/bone.tscn").instantiate()
+	bone.masked = masked
+	bone.duration = duration
+	bone.x = x
+	bone.y = y
+	bone.speed = speed
+	bone.rotation_speed = rotation_speed
+	bone.global_position = position
+	masks.add_child(bone)
+	bone.type = type
+	bone.offset_top = offset_top
+	bone.offset_bottom = offset_bottom
+	return bone
+	
+func bone_collidable(type : Bullet.e_type, position : Vector2, x : float, y : float, speed : float,
+offset_top: float, offset_bottom : float, rotation_speed : float, masked = true,
+duration : float = -1) -> BBoneCollidable:
+	var bone = preload("res://objects/battle/bullets/sans/bone_collidable.tscn").instantiate()
 	bone.masked = masked
 	bone.duration = duration
 	bone.x = x
@@ -112,7 +142,7 @@ y : float, speed : float, masked = false, duration : float = -1) -> BPlatform:
 
 func gaster_blaster(type : Bullet.e_type, start_position : Vector2, end_position : Vector2,
 end_rotation : float, scale : Vector2, wait_time : float = 0, blast_time : float = 0,
-masked = false) -> BGasterBlaster:
+masked = false, sounds : Array = []) -> BGasterBlaster:
 	var gaster_blaster = preload("res://objects/battle/bullets/sans/gaster_blaster.tscn").instantiate()
 	gaster_blaster.masked = false
 	gaster_blaster.scale = scale
@@ -121,12 +151,30 @@ masked = false) -> BGasterBlaster:
 	gaster_blaster.end_position = end_position
 	gaster_blaster.end_rotation = end_rotation
 	gaster_blaster.global_position = start_position
+	if(sounds!=[]):
+		gaster_blaster.sound_entry = sounds[0]
+		gaster_blaster.sound_blast = sounds[1]
 	masks.add_child(gaster_blaster)
 	gaster_blaster.type = type
 	return gaster_blaster
 
+func fake_gaster_blaster(type : Bullet.e_type, start_position : Vector2, end_position : Vector2,
+end_rotation : float, scale : Vector2, wait_time : float = 0, blast_time : float = 0,
+masked = false) -> FakeBGasterBlaster:
+	var fake_gaster_blaster = preload("res://objects/battle/bullets/sans/fake_gaster_blaster.tscn").instantiate()
+	fake_gaster_blaster.masked = false
+	fake_gaster_blaster.scale = scale
+	fake_gaster_blaster.wait_time = wait_time
+	fake_gaster_blaster.blast_time = blast_time
+	fake_gaster_blaster.end_position = end_position
+	fake_gaster_blaster.end_rotation = end_rotation
+	fake_gaster_blaster.global_position = start_position
+	masks.add_child(fake_gaster_blaster)
+	fake_gaster_blaster.type = type
+	return fake_gaster_blaster
+
 func bone_stab(type : Bullet.e_type, position : Vector2, length : float, height : float,
-wait_time : float, up_time : float, bone_rotation : float, masked = true) -> Bullet:
+wait_time : float, up_time : float, bone_rotation : float, masked = true, sounds : Array = []) -> Bullet:
 	var bone_stab = preload("res://objects/battle/bullets/sans/bone_stab.tscn").instantiate()
 	bone_stab.visible = false
 	bone_stab.length = length
@@ -135,6 +183,29 @@ wait_time : float, up_time : float, bone_rotation : float, masked = true) -> Bul
 	bone_stab.up_time = up_time
 	bone_stab.masked = masked
 	bone_stab.global_position = position
+	if(sounds!=[]):
+		bone_stab.sound_warn = sounds[0]
+		bone_stab.sound_entry = sounds[1]
+	masks.add_child(bone_stab)
+	bone_stab.type = type
+	bone_stab.bone_rotation = bone_rotation
+	bone_stab.visible = true
+	return bone_stab
+	
+	
+func bone_stab_collidable(type : Bullet.e_type, position : Vector2, length : float, height : float,
+wait_time : float, up_time : float, bone_rotation : float, masked = true, sounds : Array = []) -> Bullet:
+	var bone_stab = preload("res://objects/battle/bullets/sans/bone_stab_collidable.tscn").instantiate()
+	bone_stab.visible = false
+	bone_stab.length = length
+	bone_stab.bone_height = height
+	bone_stab.wait_time = wait_time
+	bone_stab.up_time = up_time
+	bone_stab.masked = masked
+	bone_stab.global_position = position
+	if(sounds!=[]):
+		bone_stab.sound_warn = sounds[0]
+		bone_stab.sound_entry = sounds[1]
 	masks.add_child(bone_stab)
 	bone_stab.type = type
 	bone_stab.bone_rotation = bone_rotation
@@ -153,6 +224,20 @@ starting_rotation : float, rotation_speed : float, stop_rotation_after : bool, m
 	masks.add_child(vector_slash)
 	vector_slash.type = type
 	return vector_slash
+	
+func slash(type : Bullet.e_type, position : Vector2, wait_time : float,
+starting_rotation : float, rotation_speed : float, stop_rotation_after : bool, masked = false) -> BSlash:
+	var slash = preload("res://objects/battle/bullets/sans/slash.tscn").instantiate()
+	slash.global_position = position
+	slash.wait_time = wait_time
+	slash.rotation_degrees = starting_rotation
+	slash.stop_rotation_after = stop_rotation_after
+	slash.rotation_speed = rotation_speed
+	slash.masked = stop_rotation_after
+	slash.z_index = 1
+	masks.add_child(slash)
+	slash.type = type
+	return slash
 
 func warning(position : Vector2, size : Vector2, duration : float, masked = true) -> NinePatchRect:
 	audio.play("battle/warning")
@@ -170,16 +255,17 @@ func warning(position : Vector2, size : Vector2, duration : float, masked = true
 	var kill_warning = func():
 		if(is_instance_valid(warning)):
 			warning.queue_free()
-	get_tree().create_timer(duration).timeout.connect(kill_warning)
+	create_tween().tween_method(func(v): warning.modulate.a = v, 1.0, 0.0, duration)
+	get_tree().create_timer(duration, false).timeout.connect(kill_warning)
 	attack_done.connect(kill_warning)
 	return warning
 
-func throw(direction : float = 0, fall_speed : float = 750) -> void:
+func throw(direction : float = 0, fall_speed : float = 8.0) -> void:
 	heart_thrown.emit(direction)
 	vars.player_heart.heart_mode = PlayerHeart.e_heart_mode.blue
 	vars.player_heart.sprite.rotation = deg_to_rad(direction)
 	#await get_tree().physics_frame
-	vars.player_heart.fall_speed = fall_speed
+	vars.player_heart.fall_speed = fall_speed#750
 	vars.player_heart.thrown = true
 
 func black_screen(time : float) -> void:
