@@ -45,28 +45,43 @@ func import_audio(dir_name: String, group: Node):
 				
 			file_name = file.get_next()
 
-func play(sound : String, volume : float = global_volume, pitch : float = 1) -> Node:
+func play(sound : String, volume : float = global_volume, pitch : float = 1, start : float = 0) -> Node:
+	if(sound == ""): return
 	var n: Node = references[sound]
 	current_sounds.append(n)
 	n.finished.connect(func x(): current_sounds.erase(n))
 	n.volume_db = linear_to_db(volume)
 	n.pitch_scale = pitch
-	n.play()
+	n.play(start)
 	return n
 
 func stop_sound(sound : String):
 	references[sound].stop()
 	
+func pause_sound(sound : String):
+	references[sound].stream_paused = true
+	
+func resume_sound(sound : String):
+	references[sound].stream_paused = false
+		
 func stop_all_sounds():
 	for i in current_sounds:
 		i.stop()
+		
+func pause_all_sounds():
+	for i in current_sounds:
+		i.stream_paused = true
 
+func resume_all_sounds():
+	for i in current_sounds:
+		i.stream_paused = false
+		
 #This function exists for you can easily manage music.
-func play_music(sound : String, volume : float = global_volume, pitch : float = 1) -> Node:
+func play_music(sound : String, volume : float = global_volume, pitch : float = 1, start : float = 0) -> Node:
 	var n: Node = references[sound]
 	n.volume_db = linear_to_db(volume)
 	n.pitch_scale = pitch
-	n.play()
+	n.play(start)
 	music = n
 	return n
 
@@ -76,7 +91,7 @@ func pause_music():
 
 func resume_music():
 	if(is_instance_valid(music)):
-		music.play()
+		music.stream_paused = false
 
 func stop_music():
 	if(is_instance_valid(music)):
