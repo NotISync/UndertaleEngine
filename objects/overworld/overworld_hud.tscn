@@ -1,24 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwshu8s0atk5j"]
+[gd_scene load_steps=11 format=3 uid="uid://bwshu8s0atk5j"]
 
-[ext_resource type="Texture2D" uid="uid://c0pijlyibwwdh" path="res://assets/sprites/battle/border.png" id="1_fr3v8"]
+[ext_resource type="Texture2D" uid="uid://df6wweoh6stjd" path="res://assets/sprites/battle/border.png" id="1_fr3v8"]
 [ext_resource type="Script" path="res://scripts/overworld/overworld_hud.gd" id="1_w0po7"]
+[ext_resource type="Shader" path="res://assets/effects/battle_box.gdshader" id="2_icgte"]
 [ext_resource type="FontFile" uid="uid://w8mnhdxac4io" path="res://assets/fonts/main.ttf" id="3_7mo1y"]
 [ext_resource type="FontFile" uid="uid://eqmxyg5q5gqp" path="res://assets/fonts/ow_hud.ttf" id="4_2giai"]
 [ext_resource type="Texture2D" uid="uid://dwkhqcmnbbm0s" path="res://assets/sprites/battle/heart/small_heart.png" id="10_7kegg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rleqq"]
+shader = ExtResource("2_icgte")
+shader_parameter/fill = Vector4(0, 0, 0, 0.75)
+shader_parameter/border = Vector4(1, 1, 1, 1)
+shader_parameter/outline = Vector4(0, 0, 0, 1)
+shader_parameter/inline = Vector4(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kudg0"]
+shader = ExtResource("2_icgte")
+shader_parameter/fill = Vector4(0, 0, 0, 0.75)
+shader_parameter/border = Vector4(1, 1, 1, 1)
+shader_parameter/outline = Vector4(0, 0, 0, 1)
+shader_parameter/inline = Vector4(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ari2"]
+shader = ExtResource("2_icgte")
+shader_parameter/fill = Vector4(0, 0, 0, 0.75)
+shader_parameter/border = Vector4(1, 1, 1, 1)
+shader_parameter/outline = Vector4(0, 0, 0, 1)
+shader_parameter/inline = Vector4(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tpkw1"]
+shader = ExtResource("2_icgte")
+shader_parameter/fill = Vector4(0, 0, 0, 0.75)
+shader_parameter/border = Vector4(1, 1, 1, 1)
+shader_parameter/outline = Vector4(0, 0, 0, 1)
+shader_parameter/inline = Vector4(0, 0, 0, 1)
 
 [node name="overworld_hud" type="Node2D"]
 script = ExtResource("1_w0po7")
 
 [node name="selection_border" type="NinePatchRect" parent="."]
+material = SubResource("ShaderMaterial_rleqq")
 offset_left = 32.0
 offset_top = 168.0
 offset_right = 173.0
 offset_bottom = 316.0
 texture = ExtResource("1_fr3v8")
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="item" type="RichTextLabel" parent="selection_border"]
 clip_contents = false
@@ -50,16 +80,33 @@ text = "STAT"
 scroll_active = false
 autowrap_mode = 0
 
+[node name="cell" type="RichTextLabel" parent="selection_border"]
+self_modulate = Color(0.5, 0.5, 0.5, 1)
+clip_contents = false
+layout_mode = 0
+offset_left = 52.0
+offset_top = 94.0
+offset_right = 136.0
+offset_bottom = 122.0
+theme_override_constants/line_separation = 4
+theme_override_fonts/normal_font = ExtResource("3_7mo1y")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "CELL"
+scroll_active = false
+autowrap_mode = 0
+
 [node name="short_stat_border" type="NinePatchRect" parent="."]
+material = SubResource("ShaderMaterial_kudg0")
 offset_left = 32.0
 offset_top = 322.0
 offset_right = 174.0
 offset_bottom = 432.0
 texture = ExtResource("1_fr3v8")
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="name" type="RichTextLabel" parent="short_stat_border"]
 clip_contents = false
@@ -115,15 +162,16 @@ visible = false
 position = Vector2(33, 168)
 
 [node name="item_border" type="NinePatchRect" parent="item"]
+material = SubResource("ShaderMaterial_3ari2")
 offset_left = 156.0
 offset_top = -116.0
 offset_right = 501.0
 offset_bottom = 247.0
 texture = ExtResource("1_fr3v8")
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="item_0" type="RichTextLabel" parent="item/item_border"]
 clip_contents = false
@@ -302,15 +350,16 @@ visible = false
 position = Vector2(33, 168)
 
 [node name="stat_border" type="NinePatchRect" parent="stat"]
+material = SubResource("ShaderMaterial_tpkw1")
 offset_left = 156.0
 offset_top = -116.0
 offset_right = 503.0
 offset_bottom = 302.0
 texture = ExtResource("1_fr3v8")
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
 
 [node name="name" type="RichTextLabel" parent="stat/stat_border"]
 clip_contents = false
@@ -484,9 +533,9 @@ visible = false
 position = Vector2(33, 168)
 
 [node name="heart" type="TextureRect" parent="."]
-offset_left = 56.0
-offset_top = 196.0
-offset_right = 96.0
-offset_bottom = 236.0
-scale = Vector2(0.45, 0.45)
+self_modulate = Color(1, 0, 0, 1)
+offset_left = 55.0
+offset_top = 194.0
+offset_right = 77.0
+offset_bottom = 216.0
 texture = ExtResource("10_7kegg")

@@ -11,10 +11,12 @@ var mode := -1 :
 var selection_index := 0
 var item_index := 0
 var choice_index := 0
+var punch_card
 
 @onready var choices = {
 	$selection_border/item : $item,
 	$selection_border/stat : $stat,
+	$selection_border/cell : $cell,
 	}
 @onready var item_texts = [$item/item_border/item_0, $item/item_border/item_1, $item/item_border/item_2, $item/item_border/item_3, $item/item_border/item_4, $item/item_border/item_5, $item/item_border/item_6, $item/item_border/item_7]
 @onready var item_choices = {
@@ -24,7 +26,6 @@ var choice_index := 0
 }
 
 @onready var heart = $heart
-
 
 func close():
 	vars.player_character.input_enabled = true
@@ -51,12 +52,17 @@ func _process(delta):
 
 func inputs():
 	match(mode):
+		-2:
+			if(Input.is_action_just_pressed("confirm") || Input.is_action_just_pressed("exit")):
+				punch_card.queue_free()
+				mode = -1
+				vars.player_character.input_enabled = true
 		-1:
-			if(Input.is_action_just_pressed("hud_toggle") && vars.player_character.input_enabled):
+			if(Input.is_action_just_pressed("hud_toggle") && vars.player_character.input_enabled && !vars.player_character.cutscene):
 				vars.overworld_hud.open()
 		0:
 			if(Input.is_action_just_pressed("confirm")):
-				if(!(selection_index == 0 && player_save.get_inventory_size() == 0)):
+				if(!(selection_index == 0 && player_save.get_inventory_size() == 0 || selection_index == 2 && player_save.get_contacts_size() == 0)):
 					audio.play("menu/menu_select")
 					mode = 1
 					choices.values()[selection_index].visible = true
@@ -72,10 +78,12 @@ func inputs():
 		1:
 			if(selection_index == 0):
 				if(Input.is_action_just_pressed("up")):
-					audio.play("menu/menu_move")
+					if(player_save.get_inventory_size()>1):
+						audio.play("menu/menu_move")
 					item_index = wrapi(item_index - 1,0,player_save.get_inventory_size())
 				if(Input.is_action_just_pressed("down")):
-					audio.play("menu/menu_move")
+					if(player_save.get_inventory_size()>1):
+						audio.play("menu/menu_move")
 					item_index = wrapi(item_index + 1,0,player_save.get_inventory_size())
 				if(Input.is_action_just_pressed("confirm")):
 					audio.play("menu/menu_select")
@@ -104,17 +112,17 @@ func update_heart_position():
 	heart.visible = true
 	match(mode):
 		0:
-			heart.global_position = choices.keys()[selection_index].global_position + Vector2(-28,8)
+			heart.global_position = choices.keys()[selection_index].global_position + Vector2(-30,6)
 		1:
 			match(selection_index):
 				0:
-					heart.global_position = item_texts[item_index].global_position + Vector2(-24,8)
+					heart.global_position = item_texts[item_index].global_position + Vector2(-26,6)
 				1:
 					heart.visible = false
 		2:
 			match(selection_index):
 				0:
-					heart.global_position = item_choices.keys()[choice_index].global_position + Vector2(-24,7)
+					heart.global_position = item_choices.keys()[choice_index].global_position + Vector2(-26,5)
 		3:
 			heart.visible = false
 
@@ -132,7 +140,9 @@ func refresh_hud():
 	
 	#SELECTION
 	if(player_save.get_inventory_size() == 0):
-		get_node("selection_border/item").self_modulate.a = .5
+		get_node("selection_border/item").self_modulate = Color(0.5, 0.5, 0.5)
+	else:
+		get_node("selection_border/item").self_modulate = Color(1, 1, 1)
 	
 	#SHORT STAT
 	get_node("short_stat_border/name").text = player_save.player.name
@@ -150,8 +160,8 @@ func refresh_hud():
 	get_node("stat/stat_border/name").text = "\"%s\"" %[player_save.player.name]
 	get_node("stat/stat_border/lv").text = "LV  %d" %[player_save.player.lv]
 	get_node("stat/stat_border/hp").text = "HP  %d / %s" %[(player_save.player.current_hp + player_save.player.current_kr),player_save.player.max_hp]
-	get_node("stat/stat_border/at").text = "AT  %d (%d)" %[(player_save.player.atk - 10),player_save.get_weapon().attack]
-	get_node("stat/stat_border/df").text = "DF  %d (%d)" %[(player_save.player.def - 10),player_save.get_armor().defense]
+	get_node("stat/stat_border/at").text = "AT  %d (%d)" %[(player_save.player.atk),player_save.get_weapon().attack]
+	get_node("stat/stat_border/df").text = "DF  %d (%d)" %[(player_save.player.def),player_save.get_armor().defense]
 	get_node("stat/stat_border/exp").text = "EXP: %d" %[player_save.player.exp]
 	get_node("stat/stat_border/next").text = "NEXT: %d" %[(functions.exp_for_lv(player_save.player.lv) - player_save.player.exp)]
 	get_node("stat/stat_border/weapon").text = "WEAPON: %s" %[player_save.get_weapon().names[0]]
