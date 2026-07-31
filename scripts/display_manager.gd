@@ -58,7 +58,7 @@ func change_scene(path : Variant, fadeout = true, fadetime = .3, update_current_
 	if(fadeout):
 		fade_out(fadetime)
 	await get_tree().process_frame
-	if(scene is OverworldRoom):
+	if(scene is OverworldRoom && scene != null):
 		settings.player_save.data.position = scene.room_spawnpoint.position
 		settings.player_save.data.animation = "down"
 	if(camera_shake_tween):

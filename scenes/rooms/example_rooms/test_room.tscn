@@ -77,15 +77,17 @@ var afterimage = load(\"res://objects/battle/afterimage.tscn\").instantiate()
 
 func effect():
 	afterimage.sprite = sprite
-	afterimage.trail_length = 2
-	afterimage.trail_spacing = 0.14
+	afterimage.trail_length = 12
+	afterimage.trail_spacing = 0.12
 	afterimage.starting_alpha = 0.5
+	afterimage.curve_func = func(frames, delta):
+		for i in frames:
+			i.position.x += 60 * delta
+			i.color.a = lerp(i.color.a, 0.0, delta * 2)
 	$\"..\".add_child(afterimage)
 	$\"..\".move_child(afterimage, get_index())
 
 func _process(delta):
-	for i in afterimage.trail_transform:
-		i.position.x += 60 * delta
 	global_position.y = 0 + 20*sin(vars.debug.time_elasped*2)
 	#global_position.x = -208 + 80*sin(vars.debug.time_elasped*2)
 "
