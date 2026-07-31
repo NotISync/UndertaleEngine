@@ -20,12 +20,14 @@ signal start_room
 
 #var starting_scene = load("res://scenes/intro.tscn") #if you are gonna use this for rooms, do not use a save system.
 #var starting_scene = load("res://scenes/battles/example_battles/battle_example.tscn")
-var starting_scene = load("res://scenes/battles/example_battles/battle_example_asgore.tscn")
+#var starting_scene = load("res://scenes/battles/example_battles/battle_example_asgore.tscn")
 #var starting_scene = load("res://scenes/battles/example_battles/battle_example_whydyoujump.tscn")
 #var starting_scene = load("res://scenes/rooms/example_rooms/room_water2.tscn")
 #var starting_scene = load("res://scenes/rooms/example_rooms/room_0.tscn")
 #var starting_scene = load("res://scenes/rooms/example_rooms/judgement_hall.tscn")
-#var starting_scene = load("res://scenes/rooms/example_rooms/test_room.tscn")
+var starting_scene = load("res://scenes/rooms/example_rooms/test_room.tscn")
+#var starting_scene = load("res://scenes/test/funny_test.tscn")
+
 var current_scene = null
 var camera_intensity = 0.0
 var camera_shake_spd = 0.8
