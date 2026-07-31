@@ -25,7 +25,7 @@ func _ready():
 func start():
 	var count = 360
 	for i in range(count):
-		await get_tree().create_timer(.01).timeout
+		await get_tree().create_timer(.01, false).timeout
 		var angle = i * 10 - 90
 		var pre_radius = 640.0
 		var post_radius = 160.0

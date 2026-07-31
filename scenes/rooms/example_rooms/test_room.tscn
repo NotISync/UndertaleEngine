@@ -60,14 +60,32 @@ size = Vector2(42, 20)
 script/source = "extends Character
 
 func _init():
-	super._init(load(\"res://assets/sprite_frames/overworld/characters/papyrus.tres\"))
+	super._init(load(\"res://assets/sprite_frames/overworld/characters/roaring_knight.tres\"))
 
 func _ready():
 	super._ready()
 	scale = Vector2(2,2)
 	await sprite.sprite_frames_changed
-	sprite.animation = \"down\"
+	#sprite.animation = \"right\"
+	sprite.flip_h = false
 	sprite.offset.y = -10
+	await get_tree().process_frame
+	effect()
+	
+var afterimage = load(\"res://objects/battle/afterimage.tscn\").instantiate()
+
+func effect():
+	afterimage.sprite = sprite
+	afterimage.trail_length = 12
+	afterimage.trail_spacing = 0.2
+	$\"..\".add_child(afterimage)
+	$\"..\".move_child(afterimage, get_index())
+
+func _process(delta):
+	for i in afterimage.trail_transform:
+		i.position.x += 40 * delta
+	global_position.y = 0 + 20*sin(vars.debug.time_elasped*2)
+	#global_position.x = -208 + 80*sin(vars.debug.time_elasped*2)
 "
 
 [sub_resource type="GDScript" id="GDScript_c0fqy"]
@@ -140,7 +158,7 @@ position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_ik136")
 
 [node name="papyrus2" type="CharacterBody2D" parent="."]
-position = Vector2(-185, -113)
+position = Vector2(-208, 0)
 script = SubResource("GDScript_oh1rc")
 
 [node name="interact" type="Area2D" parent="papyrus2"]

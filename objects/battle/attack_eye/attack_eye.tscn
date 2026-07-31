@@ -21,7 +21,7 @@ var reticles_perfect_hit := 0
 var score = 0
 var dmg := 0
 var speed = 10 + randi_range(0, 2)
-var bar_positioned = -1
+var bar_positioned = [-1, 1].pick_random()
 
 func _ready():
 	speed = 10 + randi_range(0, 2)

@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cdi477r81epk7"]
+
+[ext_resource type="Texture2D" uid="uid://c44wj7cwj725c" path="res://assets/sprites/overworld/characters/body/roaring_knight/sprite.png" id="1_wlttv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dkfb"]
+atlas = ExtResource("1_wlttv")
+region = Rect2(1785, 182, 100, 87)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dkfb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

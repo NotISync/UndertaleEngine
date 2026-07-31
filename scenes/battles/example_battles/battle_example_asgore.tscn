@@ -83,7 +83,7 @@ func _ready():
 		\"\",
 		\"\"
 		]
-	await intro(false, settings.player_save.data.death_count>0)
+	await intro(true, true)#intro(false, settings.player_save.data.death_count>0)
 	#vars.main_writer.writer_text = \"\"
 	#vars.hud_manager.disable()
 	#var attack = vars.attack_manager.pre_custom_attack(vars.attack_manager.heal_attacks[0])
@@ -237,8 +237,18 @@ func intro(skip := false, true_skip := false):
 	await get_tree().process_frame
 	await get_tree().process_frame
 	vars.black_screen.visible = false
-
+	
+	
+	spear_afterimage2 = load(\"res://objects/battle/afterimage.tscn\").instantiate()
+	spear_afterimage2.sprite = $enemies/asgore/sprite_anchor/spear
+	$enemies/asgore/sprite_anchor.add_child(spear_afterimage2)
+	$enemies/asgore/sprite_anchor.move_child(spear_afterimage2, $enemies/asgore/sprite_anchor/spear.get_index())
+	
+var spear_afterimage2
 func _process(delta: float) -> void:
+	if Input.is_action_pressed(\"hud_toggle\"):
+		$enemies/asgore/sprite_anchor/spear.rotation_degrees += 3 * 4 if Input.is_action_pressed(\"exit\") else 2
+		
 	if !broken_mercy_button_shards.is_empty(): for i in broken_mercy_button_shards:
 		var vx: float = i.get_meta(\"vx\")
 		var vy: float = i.get_meta(\"vy\")
