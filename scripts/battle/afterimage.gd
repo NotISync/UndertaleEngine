@@ -3,6 +3,7 @@ class_name AfterImage
 
 var trail_length := 6
 var trail_spacing := 0.02
+var starting_alpha := 1.0
 
 var texture
 @export var sprite = null
@@ -41,7 +42,7 @@ func _process(delta):
 		
 		trail_transform.push_front(frame)
 		
-		create_tween().tween_method(func(n): frame.color.a = n, frame.color.a, 0.0, 1.0)
+		create_tween().tween_method(func(n): frame.color.a = n, starting_alpha, 0.0, 1.0)
 		
 		if trail_transform.size() > trail_length:
 			trail_transform.pop_back()
